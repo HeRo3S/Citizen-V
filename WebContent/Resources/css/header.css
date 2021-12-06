@@ -109,7 +109,7 @@ html
 {
     position: fixed;
     right: 10px;
-    margin-top: 100px;
+    top: 100px;
     width: 379px;
     height: 685px;
     border-radius: 20px;
@@ -117,8 +117,89 @@ html
     text-align: center;
 }
 
-#inv-bar h1
+.inv-bar-container
+{
+    padding: 15px;
+}
+
+.inv-bar-heading
 {
     color: white;
-    margin-top: 10px;
+}
+
+.main
+{
+    position: relative;
+    top: 100px;
+    left: 363px;
+    width: 50%;
+    height: 685px;
+    background-color: #DFE6E9;
+    color: black;
+    font-size: 25px;
+    overflow: auto;
+    border-radius: 20px;
+}
+
+.declare-page-container
+{
+    padding: 20px 40px;
+}
+
+.declare-page-heading
+{
+    display: inline-block;
+    width: 100%;
+}
+
+.declare-page-heading .heading-id
+{
+    display: inline-block;
+
+}
+
+.declare-page-heading .heading-name
+{
+    display: inline-block;
+    margin-left: 38%;
+}
+
+.declare-page-input
+{
+    margin-top: 30px;
+    width: 100%;
+}
+
+.declare-page-input input 
+{
+    width: 85%;
+    font-size: 25px;
+    background-color: rgba(206, 199, 199, 0.945) ;
+}
+
+.declare-page-button
+{
+    margin-top: 40px;
+    width: 100%;
+    padding-left: 33%;
+}
+
+.declare-page-button button
+{
+    padding: 10px;
+    border-radius: 20px;
+    border-color: #DFE6E9;
+    font-size: 25px;
+    background-color:rgba(206, 199, 199, 0.945);
+}
+
+.declare-page-button button:hover
+{
+    color: white;
+    background-color: #FF7675;
+}
+
+#declare-page-button-add
+{
+    margin-right: 5%;
 }

@@ -21,12 +21,11 @@
 
     <!-- Begin Login -->
     <div id="login">
-        <label for="ID">ID: </label>
-        <input type="text">
-        <label for="ID">Password: </label>
-        <input type="text">
+        <label for="login-ID">ID: </label>
+        <input id="login-ID" type="text">
+        <label for="login-password">Password: </label>
+        <input id="login-password" type="text">
         <button>
-            <!-- <i class="ti-arrow-circle-right"></i> -->
             <i class="ti-angle-right"></i>
         </button>
     </div>
@@ -72,10 +71,40 @@
 
     <!-- Begin Investigation Bar -->
     <div id="inv-bar">
-        <div class="inv-bar-heading">
-            <h1>Theo dõi tiến độ</h1>
+        <div class="inv-bar-container">
+            <div class="inv-bar-heading">
+                <h1>Theo dõi tiến độ</h1>
+            </div>
+
+            <div class="inv-bar-content">
+                
+            </div>
         </div>
     </div>
     <!-- End Investigation Bar -->
+
+    <!-- Begin Declare and Provided ID page -->
+    <div class="main" id="declare-page">
+        <div class="declare-page-container">
+            <div class="declare-page-heading">
+                <p class="heading-id">Mã</p>
+                <p class="heading-name">Tên</p>
+            </div>
+
+            <div class="declare-page-input">
+                <input type="text">
+            </div>
+
+            <div class="declare-page-button">
+                <button id="declare-page-button-add">Add</button>
+                <button id="declare-page-button-edit">Edit</button>
+            </div>
+
+            <div class="declare-page-content">
+
+            </div>
+        </div>
+    </div>
+     <!-- End Declare and Provided ID page -->
 </body>
 </html>
