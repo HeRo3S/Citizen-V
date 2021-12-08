@@ -141,7 +141,7 @@ html
     border-radius: 20px;
 }
 
-.declare-page-container
+.container
 {
     padding: 20px 40px;
 }
@@ -152,16 +152,53 @@ html
     width: 100%;
 }
 
-.declare-page-heading .heading-id
+.heading-id
 {
     display: inline-block;
 
 }
 
-.declare-page-heading .heading-name
+.heading-name
 {
     display: inline-block;
-    margin-left: 38%;
+}
+
+.heading-plus
+{
+    display: inline-block;
+}
+
+.declare-page-heading .heading-id
+{
+    width: 10%;
+    text-align: center;
+}
+
+.declare-page-heading .heading-name
+{
+    width: 70%;
+    text-align: center;
+}
+
+.declare-page-heading .heading-plus
+{
+    width: 15%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.declare-page-heading .heading-plus .ti-plus
+{
+    padding: 5px;
+    border-radius: 20px;
+    background-color: rgb(63, 199, 63);
+    color: white;
+}
+
+.declare-page-heading .heading-plus .ti-plus:hover
+{
+    color: black;
+    opacity: 0.8;
 }
 
 .declare-page-input
@@ -202,4 +239,11 @@ html
 #declare-page-button-add
 {
     margin-right: 5%;
+}
+
+.declare-page-content table
+{
+    width: 100%;
+    text-align: center;
+    border-spacing: 0px 50px;
 }
