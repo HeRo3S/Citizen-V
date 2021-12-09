@@ -155,50 +155,42 @@ html
 .heading-id
 {
     display: inline-block;
+    text-align: center;
 
 }
 
 .heading-name
 {
     display: inline-block;
+    text-align: center;
 }
 
 .heading-plus
 {
     display: inline-block;
+    text-align: center;
 }
 
 .declare-page-heading .heading-id
 {
     width: 10%;
-    text-align: center;
 }
 
 .declare-page-heading .heading-name
 {
     width: 70%;
-    text-align: center;
 }
 
 .declare-page-heading .heading-plus
 {
-    width: 15%;
-    text-align: center;
+    width: 18%;
     font-size: 20px;
-}
-
-.declare-page-heading .heading-plus .ti-plus
-{
-    padding: 5px;
-    border-radius: 20px;
-    background-color: rgb(63, 199, 63);
-    color: white;
+    color: black;
 }
 
 .declare-page-heading .heading-plus .ti-plus:hover
 {
-    color: black;
-    opacity: 0.8;
+    color: #FF7675;
 }
 
 .declare-page-input
@@ -241,9 +233,111 @@ html
     margin-right: 5%;
 }
 
-.declare-page-content table
+table
 {
     width: 100%;
     text-align: center;
+    table-layout: fixed;
+}
+
+table td
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.declare-page-content table
+{
     border-spacing: 0px 50px;
 }
+
+.heading-acc
+{
+    display: inline-block;
+    text-align: center;
+}
+
+.heading-declare
+{
+    display: inline-block;
+    text-align: center;
+}
+
+#acc-page .container
+{
+    padding: 20px 0 20px 40px;
+}
+
+.acc-page-heading .heading-id
+{
+    width: 10%;
+}
+
+.acc-page-heading .heading-name
+{
+    width: 40%;
+}
+
+.acc-page-heading .heading-acc
+{
+    width: 20%;
+}
+
+.acc-page-heading .heading-declare
+{
+    width: 20%;
+}
+
+.acc-page-content table
+{
+    margin-top: 30px;
+    border-spacing: 0px 20px;
+}
+
+.acc-page-content table .ti-layers
+{
+    font-size: 20px; 
+    margin-right: 5px;
+}
+
+.acc-page-content table .ti-layers:hover
+{
+    color: #FF7675;
+}
+
+.acc-page-content table .ti-reload:hover
+{
+    color: #FF7675;
+}
+
+.acc-page-content table .ti-lock:hover
+{
+    color: #FF7675;
+}
+
+.acc-page-content table .ti-trash
+{
+    color: red;
+}
+
+.acc-page-content table .ti-trash:hover
+{
+    opacity: 0.6;
+}
+
+.acc-page-content table .ti-plus
+{
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(63, 199, 63);
+}
+
+.acc-page-content table .ti-plus:hover
+{
+    color: black;
+    opacity: 0.6;
+}
+
