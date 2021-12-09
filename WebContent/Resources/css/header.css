@@ -9,12 +9,42 @@ html
     font-family: 'Rubik', sans-serif;
 }
 
+table
+{
+    width: 100%;
+    text-align: center;
+    table-layout: fixed;
+}
+
+table td
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ti-plus
+{
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(63, 199, 63);
+}
+
+.ti-plus:hover
+{
+    color: black;
+    opacity: 0.6;
+}
+
+
 #brand 
 {
     position: fixed;
-    width: 338px;
-    height: 50px;
-    left: 5px;
+    width: 22%;
+    height: 6%;
+    left: 5px;  
     top: 10px;
     background: #FF7675;
     border-radius: 20px;
@@ -31,16 +61,16 @@ html
     position: fixed;
     margin-top: 70px;
     height: 100%;
-    width: 338px;
+    width: 22%;
     left: 5px;
     display: inline-block;
 }
 
 #nav li
 {
-    margin-top: 30px;
+    margin-top: 35px;
     text-align: center;
-    line-height: 35px;
+    line-height: 40px;
 }
 
 #nav li a
@@ -181,18 +211,6 @@ html
     width: 70%;
 }
 
-.declare-page-heading .heading-plus
-{
-    width: 18%;
-    font-size: 20px;
-    color: black;
-}
-
-.declare-page-heading .heading-plus .ti-plus:hover
-{
-    color: #FF7675;
-}
-
 .declare-page-input
 {
     margin-top: 30px;
@@ -203,7 +221,12 @@ html
 {
     width: 85%;
     font-size: 25px;
-    background-color: rgba(206, 199, 199, 0.945) ;
+    background-color: #C4C4C4 ;
+}
+
+.declare-page-input .ti-plus
+{
+    margin-left: 5%;
 }
 
 .declare-page-button
@@ -219,7 +242,7 @@ html
     border-radius: 20px;
     border-color: #DFE6E9;
     font-size: 25px;
-    background-color:rgba(206, 199, 199, 0.945);
+    background-color:#C4C4C4;
 }
 
 .declare-page-button button:hover
@@ -231,20 +254,6 @@ html
 #declare-page-button-add
 {
     margin-right: 5%;
-}
-
-table
-{
-    width: 100%;
-    text-align: center;
-    table-layout: fixed;
-}
-
-table td
-{
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .declare-page-content table
@@ -326,18 +335,4 @@ table td
     opacity: 0.6;
 }
 
-.acc-page-content table .ti-plus
-{
-    font-size: 15px;
-    padding: 5px;
-    border-radius: 20px;
-    color: white;
-    background-color: rgb(63, 199, 63);
-}
-
-.acc-page-content table .ti-plus:hover
-{
-    color: black;
-    opacity: 0.6;
-}
 
