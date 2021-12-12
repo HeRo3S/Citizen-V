@@ -38,6 +38,16 @@ table td
     opacity: 0.6;
 }
 
+.ti-pencil-alt
+{
+    font-size: 35px;
+}
+
+.ti-pencil-alt:hover
+{
+    color: #FF7675;
+}
+
 
 #brand 
 {
