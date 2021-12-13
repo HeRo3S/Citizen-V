@@ -48,6 +48,19 @@ table td
     color: #FF7675;
 }
 
+button
+{
+    padding: 10px;
+    border-radius: 20px;
+    border-color: #DFE6E9;
+    font-size: 25px;
+    background-color:#C4C4C4;
+}
+ button:hover
+ {
+    color: white;
+    background-color: #FF7675;
+ }
 
 #brand 
 {
@@ -131,6 +144,7 @@ table td
 #login button
 {
     position: relative;
+    padding: 0px;
     top: 5px;
     font-size: 25px;
     height: 31px;
@@ -246,21 +260,6 @@ table td
     padding-left: 33%;
 }
 
-.declare-page-button button
-{
-    padding: 10px;
-    border-radius: 20px;
-    border-color: #DFE6E9;
-    font-size: 25px;
-    background-color:#C4C4C4;
-}
-
-.declare-page-button button:hover
-{
-    color: white;
-    background-color: #FF7675;
-}
-
 #declare-page-button-add
 {
     margin-right: 5%;
@@ -344,5 +343,17 @@ table td
 {
     opacity: 0.6;
 }
+
+.acc-page-footer
+{
+    position: absolute;
+    bottom: 10px;
+}
+
+.acc-page-footer button
+{
+    margin-left: 70px;
+}
+
 
 
