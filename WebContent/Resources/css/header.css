@@ -23,6 +23,31 @@ table td
     text-overflow: ellipsis;
 }
 
+.bar
+{
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    width: 379px;
+    height: 685px;
+    border-radius: 20px;
+    background-color:#3E5463 ;
+    color: white;
+    overflow: auto;
+}
+
+.bar-container
+{
+    min-height: 87%;
+    position: relative;
+    padding: 15px;
+}
+
+.bar-heading
+{
+    text-align: center;
+}
+
 .ti-plus
 {
     font-size: 15px;
@@ -157,28 +182,6 @@ button
 #login button:hover
 {
     color: black;
-}
-
-#inv-bar
-{
-    position: fixed;
-    right: 10px;
-    top: 100px;
-    width: 379px;
-    height: 685px;
-    border-radius: 20px;
-    background-color:#3E5463 ;
-    text-align: center;
-}
-
-.inv-bar-container
-{
-    padding: 15px;
-}
-
-.inv-bar-heading
-{
-    color: white;
 }
 
 .main
@@ -354,6 +357,73 @@ button
 {
     margin-left: 70px;
 }
+
+#filter-bar .back-button
+{
+    padding: 5px;
+    position: absolute;
+}
+
+.filter-bar-content
+{
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+.filter-bar-content .checkbox-form
+{
+    display: block;
+    margin-top: 20px;
+}
+
+.checkbox-form input
+{
+    margin-right: 30px;
+    width:25px;
+    height:25px;
+    border-radius:5px;
+    border:2px solid #3E5463;
+    accent-color: #27343d;
+    cursor: pointer;
+}
+
+.checkbox-form label:hover
+{
+    color: #FF7675;
+    cursor: pointer;
+}
+
+.filter-bar-search
+{  
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.filter-bar-search .search-bar button
+{
+   position: absolute;
+   float: right;
+   border: none;
+   border-radius: 0px;
+   background-color: #27343d;
+   cursor: pointer;
+}
+
+.filter-bar-search .search-bar input
+{
+    line-height: 1.6;
+    width: 80%;
+    font-size: 25px;
+    border: none;
+    padding: 5px;
+}
+
+
+
+
 
 
 

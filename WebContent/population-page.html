@@ -63,55 +63,57 @@
     </ul>
     <!-- End Nav -->
 
-      <!-- Begin Investigation Bar -->
-      <div id="inv-bar" class="bar">
-        <div class="bar-container">
-            <div class="bar-heading">
-                <h1>Theo dõi tiến độ</h1>
+    <!-- Begin Filter Bar -->
+        <div id="filter-bar" class="bar">
+            <div class="bar-container">
+                <button class="back-button">
+                    <i class="ti-arrow-left"></i>
+                </button>
+
+                <div class="bar-heading">
+                    <h1>Lọc</h1>
+                </div>
+
+                <div class="filter-bar-content">
+                    <div class="checkbox-form">
+                        <input type="checkbox">
+                        <label>
+                            Hà Nội
+                        </label>
+                    </div>
+
+                    <div class="checkbox-form">
+                        <input type="checkbox">
+                        <label>
+                            Bắc Giang
+                        </label>
+                    </div>
+                </div>
             </div>
-
-            <div class="inv-bar-content">
-
+            
+            <div class="filter-bar-search">
+                <div class="search-bar">
+                    <input type="text" placeholder="Tìm kiếm ....">
+                    <button type="submit">
+                        <i class="ti-search"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- End Investigation Bar -->
+    <!-- End Filter Bar -->
 
-    <!-- Begin Declare and Provided ID page -->
-    <div class="main" id="declare-page">
+    <!-- Begin Population Page -->
+    <div class="main" id="population-page">
         <div class="container">
-            <div class="declare-page-heading">
-                <p class="heading-id">Mã</p>
-                <p class="heading-name">Tên</p>
-            </div>
-
-            <div class="declare-page-input">
-                <input type="text">
-                <i class="ti-plus"></i>
-            </div>
-
-            <div class="declare-page-button">
-                <button id="declare-page-button-add">Add</button>
-                <button id="declare-page-button-edit">Edit</button>
-            </div>
-
-            <div class="declare-page-content">
-                <table>
-                    <tr>
-                        <td style="width: 10%">01</td>
-                        <td style="width: 70%">Thành phố Hà Nội</td>
-                        <td></td>
-                    </tr>
-
-                    <tr>
-                        <td style="width: 10%">02</td>
-                        <td style="width: 70%">Tỉnh Bắc Giang</td>
-                        <td></td>
-                    </tr>
-                </table>
+            <div class="population-page-breadscrumb">
+                <ul>
+                    <li><a href=”″>One</a></li>
+                    <li><a href=”″>Two</a></li>
+                    <li><a href=”″>Three</a></li>
+                    <li><a href=”″>Four</a></li>
+                </ul>
             </div>
         </div>
     </div>
-     <!-- End Declare and Provided ID page -->
 </body>
 </html>
