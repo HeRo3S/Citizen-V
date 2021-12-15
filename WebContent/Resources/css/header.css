@@ -23,29 +23,9 @@ table td
     text-overflow: ellipsis;
 }
 
-.bar
+label
 {
-    position: fixed;
-    right: 10px;
-    top: 100px;
-    width: 24%;
-    height: 685px;
-    border-radius: 20px;
-    background-color:#3E5463 ;
-    color: white;
-    overflow: auto;
-}
-
-.bar-container
-{
-    min-height: 87%;
-    position: relative;
-    padding: 15px;
-}
-
-.bar-heading
-{
-    text-align: center;
+    display: inline-block;
 }
 
 .ti-plus
@@ -86,6 +66,50 @@ button
     color: white;
     background-color: #FF7675;
  }
+
+.main
+{
+    position: relative;
+    top: 100px;
+    left: 24%;
+    width: 50%;
+    height: 685px;
+    background-color: #DFE6E9;
+    color: black;
+    font-size: 25px;
+    overflow: auto;
+    border-radius: 20px;
+}
+
+.container
+{
+    padding: 20px 40px;
+}
+
+.bar
+{
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    width: 24%;
+    height: 685px;
+    border-radius: 20px;
+    background-color:#3E5463 ;
+    color: white;
+    overflow: auto;
+}
+
+.bar-container
+{
+    min-height: 87%;
+    position: relative;
+    padding: 15px;
+}
+
+.bar-heading
+{
+    text-align: center;
+}
 
 #brand 
 {
@@ -155,7 +179,6 @@ button
 
 #login label
 {
-    display: inline-block;
     margin-left: 7px;
 }
 
@@ -183,25 +206,6 @@ button
 #login button:hover
 {
     color: black;
-}
-
-.main
-{
-    position: relative;
-    top: 100px;
-    left: 24%;
-    width: 50%;
-    height: 685px;
-    background-color: #DFE6E9;
-    color: black;
-    font-size: 25px;
-    overflow: auto;
-    border-radius: 20px;
-}
-
-.container
-{
-    padding: 20px 40px;
 }
 
 .declare-page-heading
@@ -421,6 +425,99 @@ button
     border: none;
     padding: 5px;
 }
+
+#information-page
+{
+    width: 74%;
+}
+
+#information-container
+{
+    display: flex;
+    justify-content: center;
+}
+
+#information-container .search-form
+{
+    position: absolute;
+    bottom: 10px;
+    width: 95%;
+    height: 40%;
+    background-color: #C4C4C4;
+    border-radius: 20px;
+}
+
+.search-form-container
+{
+    position: relative;
+    padding: 20px;
+    font-size: 24px;
+}
+
+.search-form-container button
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.cccd-search
+{
+    margin-bottom: 1%;
+}
+
+.cccd-search input
+{
+    padding: 5px;
+    font-size: 25px;
+    border: 1px solid black;
+    background-color: #DFE6E9;
+}
+
+.normal-search table
+{
+    table-layout: auto;
+    text-align: left;
+    border-spacing: 0px 15px;
+}
+
+.normal-search table td input
+{
+    padding: 5px;
+    font-size: 18px;
+    border: 1px solid black;
+    background-color: #DFE6E9;
+}
+
+#information-container .information-form
+{
+    position: absolute;
+    top: 10px;
+    width: 95%;
+    height: 55%;
+    background-color: #C4C4C4;
+    border-radius: 20px;
+}
+
+.information-form-container
+{
+    padding: 20px;
+    font-size: 24px;
+}
+
+.information-form-container table
+{
+    text-align: left;
+    border-spacing: 4px 15px;
+}
+
+.information-form-container table td:hover
+{
+    overflow: visible;
+    white-space: pre-line;
+}
+
+
 
 
 
