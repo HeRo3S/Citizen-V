@@ -28,7 +28,7 @@ table td
     position: fixed;
     right: 10px;
     top: 100px;
-    width: 379px;
+    width: 24%;
     height: 685px;
     border-radius: 20px;
     background-color:#3E5463 ;
@@ -139,11 +139,13 @@ button
 
 #login
 {
+    display: flex;
+    align-items: center;
     position: fixed;
     right:10px;
     top: 10px;
-    width: 560px;
-    height: 50px;
+    width: 38%;
+    height: 6%;
     line-height: 50px;
     background-color:#3E5463;
     border-radius: 20px;
@@ -159,7 +161,7 @@ button
 
 #login input
 {
-    padding-top: 5px;
+    padding: 5px;
     background-color:#3E5463 ;
     border: none;
     color: white;
@@ -168,11 +170,10 @@ button
 
 #login button
 {
-    position: relative;
+    margin-left: 10px;
     padding: 0px;
-    top: 5px;
     font-size: 25px;
-    height: 31px;
+    height: 30px;
     line-height: 30px;
     background-color:#FF7675 ;
     border-radius: 15px;
@@ -188,7 +189,7 @@ button
 {
     position: relative;
     top: 100px;
-    left: 363px;
+    left: 24%;
     width: 50%;
     height: 685px;
     background-color: #DFE6E9;
