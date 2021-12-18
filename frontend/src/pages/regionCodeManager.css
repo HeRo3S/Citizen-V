@@ -1,0 +1,88 @@
+.main
+{
+    position: relative;
+    top: 100px;
+    left: 24%;
+    width: 50%;
+    height: 685px;
+    background-color: #DFE6E9;
+    color: black;
+    font-size: 25px;
+    overflow: auto;
+    border-radius: 20px;
+}
+
+.container
+{
+    padding: 20px 40px;
+}
+
+.declare-page-heading
+{
+    display: inline-block;
+    width: 100%;
+}
+
+.heading-id
+{
+    display: inline-block;
+    text-align: center;
+
+}
+
+.heading-name
+{
+    display: inline-block;
+    text-align: center;
+}
+
+.heading-plus
+{
+    display: inline-block;
+    text-align: center;
+}
+
+.declare-page-heading .heading-id
+{
+    width: 10%;
+}
+
+.declare-page-heading .heading-name
+{
+    width: 70%;
+}
+
+.declare-page-input
+{
+    margin-top: 30px;
+    width: 100%;
+}
+
+.declare-page-input input 
+{
+    width: 85%;
+    font-size: 25px;
+    background-color: #C4C4C4 ;
+}
+
+.declare-page-input .ti-plus
+{
+    margin-left: 5%;
+}
+
+.declare-page-button
+{
+    margin-top: 40px;
+    width: 100%;
+    padding-left: 33%;
+}
+
+#declare-page-button-add
+{
+    margin-right: 5%;
+}
+
+.declare-page-content table
+{
+    border-spacing: 0px 50px;
+}

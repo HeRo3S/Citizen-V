@@ -1,0 +1,84 @@
+.heading-acc
+{
+    display: inline-block;
+    text-align: center;
+}
+
+.heading-declare
+{
+    display: inline-block;
+    text-align: center;
+}
+
+#acc-page .container
+{
+    padding: 20px 0 20px 40px;
+}
+
+.acc-page-heading .heading-id
+{
+    width: 10%;
+}
+
+.acc-page-heading .heading-name
+{
+    width: 40%;
+}
+
+.acc-page-heading .heading-acc
+{
+    width: 20%;
+}
+
+.acc-page-heading .heading-declare
+{
+    width: 20%;
+}
+
+.acc-page-content table
+{
+    margin-top: 30px;
+    border-spacing: 0px 20px;
+}
+
+.acc-page-content table .ti-layers
+{
+    font-size: 20px; 
+    margin-right: 5px;
+}
+
+.acc-page-content table .ti-layers:hover
+{
+    color: #FF7675;
+}
+
+.acc-page-content table .ti-reload:hover
+{
+    color: #FF7675;
+}
+
+.acc-page-content table .ti-lock:hover
+{
+    color: #FF7675;
+}
+
+.acc-page-content table .ti-trash
+{
+    color: red;
+}
+
+.acc-page-content table .ti-trash:hover
+{
+    opacity: 0.6;
+}
+
+.acc-page-footer
+{
+    position: absolute;
+    bottom: 10px;
+}
+
+.acc-page-footer button
+{
+    margin-left: 70px;
+}

@@ -1,0 +1,24 @@
+.bar
+{
+    position: fixed;
+    right: 10px;
+    top: 100px;
+    width: 24%;
+    height: 685px;
+    border-radius: 20px;
+    background-color:#3E5463 ;
+    color: white;
+    overflow: auto;
+}
+
+.bar-container
+{
+    min-height: 87%;
+    position: relative;
+    padding: 15px;
+}
+
+.bar-heading
+{
+    text-align: center;
+}

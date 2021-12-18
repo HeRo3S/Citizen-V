@@ -1,0 +1,51 @@
+#brand 
+{
+    position: fixed;
+    width: 22%;
+    height: 6%;
+    left: 5px;  
+    top: 10px;
+    background: #FF7675;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 28px;
+    line-height: 50px;
+    color: #2A1413;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 2px;
+}
+
+#nav
+{
+    position: fixed;
+    list-style: none;
+    margin-top: 70px;
+    padding-left: 0;
+    height: 100%;
+    width: 22%;
+    left: 5px;
+    display: inline-block;
+}
+
+#nav li
+{
+    margin-top: 35px;
+    text-align: center;
+    line-height: 40px;
+}
+
+#nav li a
+{
+    display: block;
+    background-color: #3E5463;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 23px;
+    color: white;
+}
+
+#nav > li:hover > a
+{
+    color: black;
+    background-color:#FF7675;
+}

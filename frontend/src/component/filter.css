@@ -1,0 +1,62 @@
+#filter-bar .back-button
+{
+    padding: 5px;
+    position: absolute;
+}
+
+.filter-bar-content
+{
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+.filter-bar-content .checkbox-form
+{
+    display: block;
+    margin-top: 20px;
+}
+
+.checkbox-form input
+{
+    margin-right: 30px;
+    width:25px;
+    height:25px;
+    border-radius:5px;
+    border:2px solid #3E5463;
+    accent-color: #27343d;
+    cursor: pointer;
+}
+
+.checkbox-form label:hover
+{
+    color: #FF7675;
+    cursor: pointer;
+}
+
+.filter-bar-search
+{  
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.filter-bar-search .search-bar button
+{
+   position: absolute;
+   float: right;
+   border: none;
+   border-radius: 0px;
+   background-color: #27343d;
+   cursor: pointer;
+}
+
+.filter-bar-search .search-bar input
+{
+    line-height: 1.6;
+    width: 80%;
+    font-size: 25px;
+    border: none;
+    padding: 5px;
+}

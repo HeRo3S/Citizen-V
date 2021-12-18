@@ -45,6 +45,6 @@ app.use(session({
         expires: 600000,
     }
   }))
-app.listen(3000)
+app.listen(3001)
 
 console.log("Listening on port 3000")
