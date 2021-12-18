@@ -19,7 +19,7 @@ const area = sequelize.define("area", {
         defaultValue: false
     },
     code: {
-        type: DataTypes.TINYINT,
+        type: DataTypes.CHAR(10),
         allowNull: false        
     },
     level: {
