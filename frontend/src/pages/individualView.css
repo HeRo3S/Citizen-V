@@ -1,6 +1,6 @@
 #information-page
 {
-    width: 74%;
+    width: 74vw;
 }
 
 #information-container
@@ -14,7 +14,7 @@
     position: absolute;
     bottom: 10px;
     width: 95%;
-    height: 40%;
+    height: 40%;    
     background-color: #C4C4C4;
     border-radius: 20px;
 }
@@ -35,7 +35,7 @@
 
 .cccd-search
 {
-    margin-bottom: 1%;
+    margin-bottom: 3%;
 }
 
 .cccd-search input
@@ -79,6 +79,7 @@
 
 .information-form-container table
 {
+    margin-top: 3%;
     text-align: left;
     border-spacing: 4px 15px;
 }

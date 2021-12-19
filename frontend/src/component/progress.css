@@ -2,9 +2,9 @@
 {
     position: fixed;
     right: 10px;
-    top: 100px;
-    width: 24%;
-    height: 685px;
+    top: 12vh;
+    width: 24vw;
+    height: 86vh;
     border-radius: 20px;
     background-color:#3E5463 ;
     color: white;
@@ -13,7 +13,7 @@
 
 .bar-container
 {
-    min-height: 87%;
+    min-height: 90%;
     position: relative;
     padding: 15px;
 }

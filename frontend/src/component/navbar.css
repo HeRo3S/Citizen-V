@@ -1,15 +1,17 @@
 #brand 
 {
+    display: flex;
     position: fixed;
-    width: 22%;
-    height: 6%;
+    width: 22vw;
+    height: 6vh;
     left: 5px;  
     top: 10px;
     background: #FF7675;
     border-radius: 20px;
     text-align: center;
     font-size: 28px;
-    line-height: 50px;
+    align-items: center;
+    justify-content: center;
     color: #2A1413;
     font-family: 'Quicksand', sans-serif;
     letter-spacing: 2px;
@@ -19,28 +21,30 @@
 {
     position: fixed;
     list-style: none;
-    margin-top: 70px;
-    padding-left: 0;
-    height: 100%;
-    width: 22%;
+    margin-top: 12vh;
+    height: 80vh;
+    width: 22vw;
     left: 5px;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #nav li
 {
-    margin-top: 35px;
     text-align: center;
     line-height: 40px;
 }
 
 #nav li a
 {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #3E5463;
     border-radius: 20px;
     text-decoration: none;
-    font-size: 23px;
+    font-size: 25px;
     color: white;
 }
 

@@ -1,0 +1,82 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html
+{
+    font-family: 'Rubik', sans-serif;
+}
+
+
+table
+{
+    width: 100%;
+    text-align: center;
+    table-layout: fixed;
+}
+
+table td
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+label
+{
+    display: inline-block;
+}
+
+.ti-plus:hover
+{
+    cursor: pointer;
+    color: black;
+    opacity: 0.6;
+}
+
+.ti-pencil-alt
+{
+    font-size: 35px;
+}
+
+.ti-pencil-alt:hover
+{
+    color: #FF7675;
+}
+
+button
+{
+    padding: 10px;
+    border-radius: 20px;
+    border-color: #DFE6E9;
+    font-size: 25px;
+    background-color:#C4C4C4;
+}
+ button:hover
+ {
+    cursor: pointer;
+    color: white;
+    background-color: #FF7675;
+ }
+
+.main
+{
+    position: relative;
+    top: 12vh;
+    left: 24vw;
+    width: 50vw;
+    height: 86vh;
+    background-color: #DFE6E9;
+    color: black;
+    font-size: 25px;
+    overflow: auto;
+    border-radius: 20px;
+}
+
+.container
+{
+    padding: 20px 40px;
+}
+

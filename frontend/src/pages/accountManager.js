@@ -1,20 +1,24 @@
 import React from 'react'
+import ProgressBar from '../component/progress'
 import './accountManager.css'
 
 function AccountManager() {
     return (
         <>
+            <ProgressBar />
             <div className="main" id="acc-page">
                 <div className="container">
-                    <div className="acc-page-heading">
-                        <p className="heading-id">Mã</p>
-                        <p className="heading-name">Tên</p>
-                        <p className="heading-acc">Tài khoản</p>
-                        <p className="heading-declare">Khai báo</p>
-                    </div>
-
                     <div className="acc-page-content">
                         <table>
+                            <tr>
+                                <th style={{width: "10%"}}>Mã</th>
+                                <th style={{width: "40%"}}>Tên</th>
+                                <th style={{width: "25%"}}>Tài khoản</th>
+                                <th style={{width: "15%"}}>Khai báo</th>
+                                <th style={{width: "10%"}}>
+                                </th>
+                            </tr>      
+
                             <tr>
                                 <td style={{width: "10%"}}>01</td>
                                 <td style={{width: "40%"}}>Thành phố Hà Nội</td>
@@ -32,13 +36,13 @@ function AccountManager() {
                             </tr>
 
                             <tr>
-                            <td style={{width: "10%"}}>01</td>
-                            <td style={{width: "40%"}}>Tỉnh Bắc Giang</td>
-                            <td style={{width: "25%"}}></td>
-                            <td style={{width: "15%"}}></td>
-                            <td style={{width: "10%"}}>
-                                <i className="ti-plus"></i>
-                            </td>
+                                <td style={{width: "10%"}}>01</td>
+                                <td style={{width: "40%"}}>Tỉnh Bắc Giang</td>
+                                <td style={{width: "25%"}}></td>
+                                <td style={{width: "15%"}}></td>
+                                <td style={{width: "10%"}}>
+                                    <i className="ti-plus"></i>
+                                </td>
                             </tr>
                         </table>
                     </div>

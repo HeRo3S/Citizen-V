@@ -1,22 +1,3 @@
-.main
-{
-    position: relative;
-    top: 100px;
-    left: 24%;
-    width: 50%;
-    height: 685px;
-    background-color: #DFE6E9;
-    color: black;
-    font-size: 25px;
-    overflow: auto;
-    border-radius: 20px;
-}
-
-.container
-{
-    padding: 20px 40px;
-}
-
 .declare-page-heading
 {
     display: inline-block;
@@ -54,19 +35,37 @@
 
 .declare-page-input
 {
+    display: flex;
     margin-top: 30px;
     width: 100%;
 }
 
-.declare-page-input input 
+.declare-page-input .text-id 
 {
-    width: 85%;
+    width: 10%;
     font-size: 25px;
     background-color: #C4C4C4 ;
+    text-align: center;
+}
+
+.declare-page-input .text-region
+{
+    width: 70%;
+    font-size: 25px;
+    background-color: #C4C4C4 ;
+    text-align: center;
 }
 
 .declare-page-input .ti-plus
 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(63, 199, 63);
     margin-left: 5%;
 }
 
@@ -74,7 +73,7 @@
 {
     margin-top: 40px;
     width: 100%;
-    padding-left: 33%;
+    padding-left: 34.5%;
 }
 
 #declare-page-button-add
