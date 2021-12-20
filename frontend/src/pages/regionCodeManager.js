@@ -14,8 +14,8 @@ function RegionCodeManager() {
                     </div>
 
                     <div className="declare-page-input">
-                        <input type="text" class="text-id" />
-                        <input type="text" class="text-region" />
+                        <input type="text" className="text-id" />
+                        <input type="text" className="text-region" />
                         <i className="ti-plus"></i>
                     </div>
 
