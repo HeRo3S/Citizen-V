@@ -11,7 +11,8 @@ const area = sequelize.define("area", {
     },
     name: {
         type: DataTypes.CHAR(30),
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     finish_status: {
         type: DataTypes.BOOLEAN,
@@ -20,7 +21,9 @@ const area = sequelize.define("area", {
     },
     code: {
         type: DataTypes.CHAR(10),
-        allowNull: false        
+        allowNull: false,
+        unique: true,
+
     },
     level: {
         type: DataTypes.TINYINT,
@@ -38,14 +41,12 @@ const area = sequelize.define("area", {
         }
     ]
 })
-userAccount.hasOne(area, {
+
+userAccount.belongsTo(area, {
     foreignKey: 'manage_area',
     allowNull: true
 })
-area.belongsTo(userAccount, {
-    foreignKey: 'manage_area',
-    allowNull: true
-})
+
 area.belongsTo(area, {
     foreignKey: 'belong_to',
     allowNull: true

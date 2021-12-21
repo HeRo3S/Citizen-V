@@ -12,6 +12,7 @@ const userAccount = sequelize.define("user_account", {
     username: {
         type: DataTypes.CHAR(30),
         allowNull: false,
+        unique: true,
     },
     password: {
         type: DataTypes.CHAR(128),
@@ -41,7 +42,12 @@ const userAccount = sequelize.define("user_account", {
             user.password = bcrypt.hashSync(user.password, salt)
             fn(null, user)
         }
-    }
+    }, indexes: [
+        {
+            unique: true,
+            fields: ['username']
+        }
+    ]
 })
 userAccount.prototype.validPassword = (user, password) =>{
     try {
@@ -52,4 +58,8 @@ userAccount.prototype.validPassword = (user, password) =>{
     }
 }
 
+userAccount.hasOne(userAccount, {
+    foreignKey: 'manager_account',
+    allowNull: true
+})
 module.exports = userAccount

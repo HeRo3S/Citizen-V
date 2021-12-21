@@ -15,14 +15,14 @@ function RegionCodeManager() {
     });
 
     const updateInputData = () => {
-        const newInputData;
-        if (inputData != null) {
-            newInputData = [...inputData, addInputData];
-        } else {
-            newInputData = [addInputData];
-        }
+        // const newInputData;
+        // if (inputData != null) {
+        //     newInputData = [...inputData, addInputData];
+        // } else {
+        //     newInputData = [addInputData];
+        // }
         
-        //const newInputData = addInputData;
+        const newInputData = addInputData;
         setInputData(newInputData);
         console.log(inputData);
     }
@@ -42,7 +42,7 @@ function RegionCodeManager() {
     }
     
     const getData = () => {
-        useEffect(
+        // useEffect(
             userServices.getAccountManagerData().then(resp => {
                 resp.data.map(item => {
                     return (
@@ -52,8 +52,8 @@ function RegionCodeManager() {
                         </tr>
                     )
                 })
-            }),
-        [inputData]);
+            })
+        // [inputData]);
     }
 
     return(

@@ -68,7 +68,7 @@ const citizen = sequelize.define("citizen", {
         },
         {
             unique: false,
-            fields: ['first_name', 'last_name']
+            fields: ['last_name', 'first_name']
         },
         {
             unique: false,
