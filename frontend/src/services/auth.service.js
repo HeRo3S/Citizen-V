@@ -10,12 +10,9 @@ const signup = (username, password) => {
     });
 };
 
-const login = (username, password) => {
+const login = (data) => {
     return axios
-    .post(API_KEY + "signin", {
-        username,
-        password,
-    })
+    .post(API_KEY + "signin", data)
     .then(response => {
         if (response.data.accessToken) {
             localStorage.setItem("user", JSON.stringify(response.data));

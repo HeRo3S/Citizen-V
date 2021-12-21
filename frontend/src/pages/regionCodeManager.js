@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ProgressBar from '../component/progress'
 import userServices from "../services/user.services.js"
 import './regionCodeManager.css'
@@ -15,14 +15,14 @@ function RegionCodeManager() {
     });
 
     const updateInputData = () => {
-        /**
+        const newInputData;
         if (inputData != null) {
             newInputData = [...inputData, addInputData];
         } else {
             newInputData = [addInputData];
         }
-        */
-        const newInputData = addInputData;
+        
+        //const newInputData = addInputData;
         setInputData(newInputData);
         console.log(inputData);
     }
@@ -42,16 +42,18 @@ function RegionCodeManager() {
     }
     
     const getData = () => {
-        userServices.getAccountManagerData().then(resp => {
-            resp.data.map(item => {
-                return (
-                    <tr>
-                        <td style={{width: "10%"}}>{item.id}</td>
-                        <td style={{width: "70%"}}>{item.region}</td>
-                    </tr>
-                )
-            })
-        })        
+        useEffect(
+            userServices.getAccountManagerData().then(resp => {
+                resp.data.map(item => {
+                    return (
+                        <tr>
+                            <td style={{width: "10%"}}>{item.id}</td>
+                            <td style={{width: "70%"}}>{item.region}</td>
+                        </tr>
+                    )
+                })
+            }),
+        [inputData]);
     }
 
     return(
@@ -78,7 +80,9 @@ function RegionCodeManager() {
                     <div className="declare-page-content">
                         <table>
                             <tbody>
-                                {getData()}
+                                {
+                                    getData()
+                                }
                             </tbody>
                         </table>
                     </div>

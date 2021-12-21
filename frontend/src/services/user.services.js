@@ -12,9 +12,9 @@ const getAccountManagerData = () => {
 }
 
 const postAccountManagerData = (data) => {
-    return axios.post(API_KEY + "accountManager", 
+    return axios.post(API_KEY + "accountManager",
+    data,
     {headers: authHeader()},
-    data
     );
 }
 
