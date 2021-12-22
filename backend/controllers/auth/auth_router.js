@@ -17,7 +17,7 @@ Router.route("/api/region_code").post([authControl.verifyToken],async (req, res)
     area_id = null
     try{
         await area.create({
-            name: data.region,
+            name: data.name,
             code: data.code,
             level: req.user.access_level,
             belong_to: req.user.manage_area

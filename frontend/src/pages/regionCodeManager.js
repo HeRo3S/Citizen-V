@@ -11,10 +11,11 @@ function RegionCodeManager() {
         code:"",
         name:"",
     });
-    const [uploading, setUploading] = useState(true);
+
+    const [uploading, setUploading] = useState(false);
 
     const updateInputData = () => { 
-       return setInputData(prevState => [...prevState, addInputData]);
+       setInputData(prevState => [...prevState, addInputData]);
     }
     const handleChangeData = (event) => {
         event.preventDefault();
@@ -34,11 +35,11 @@ function RegionCodeManager() {
         };
         
         uploadingData();
-    }, [uploading]);
+    }, [inputData, uploading]);
 
     useEffect( () => {
         userServices.getRegionCodeData().then(resp => setRequestedData(resp.data) );
-    }, [uploading]);
+    }, []);
     
     const getData = () => {
         return requestedData.map(item => {
