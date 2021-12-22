@@ -49,7 +49,7 @@ app.use(session({
   }))
 
 //                                              ROUTING
-app.options("*", cors())
+app.use(cors())
 app.use("/", authRouter)
 
 app.listen(3001)
