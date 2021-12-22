@@ -4,6 +4,8 @@ import userServices from "../services/user.services.js"
 import './regionCodeManager.css'
 
 function RegionCodeManager() {
+    const [requestedData, setRequestedData] = useState([]);
+
     const [inputData, setInputData] = useState({
         id:"",
         region:"",
@@ -38,22 +40,22 @@ function RegionCodeManager() {
     }
 
     const submitData = data => {
-        userServices.postAccountManagerData(data);
+        userServices.postRegionCodeData(data);
     }
-    
+   
+    useEffect( () => {
+        userServices.getRegionCodeData().then(resp => setRequestedData(resp.data) )
+    }, [inputData])
+
     const getData = () => {
-        // useEffect(
-            userServices.getAccountManagerData().then(resp => {
-                resp.data.map(item => {
-                    return (
-                        <tr>
-                            <td style={{width: "10%"}}>{item.id}</td>
-                            <td style={{width: "70%"}}>{item.region}</td>
-                        </tr>
-                    )
-                })
+            requestedData.map(item => {
+                return (
+                    <tr>
+                        <td style={{width: "10%"}}>{item.id}</td>
+                        <td style={{width: "70%"}}>{item.region}</td>
+                    </tr>
+                )
             })
-        // [inputData]);
     }
 
     return(

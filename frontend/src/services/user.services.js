@@ -7,6 +7,14 @@ const getPublicContent = () => {
     return axios.get(API_KEY + "default");
 }
 
+const getRegionCodeData = () => {
+    return axios.get(API_KEY + "region_code", {headers: authHeader() });
+}
+
+const postRegionCodeData = () => {
+    return axios.post(API_KEY + "region_code", {headers: authHeader() });
+}
+
 const getAccountManagerData = () => {
     return axios.get(API_KEY + "accountManager", {headers: authHeader() });
 }
@@ -20,6 +28,8 @@ const postAccountManagerData = (data) => {
 
 export default {
     getPublicContent,
+    getRegionCodeData,
+    postRegionCodeData,
     getAccountManagerData,
     postAccountManagerData,
 };
