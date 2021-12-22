@@ -21,7 +21,7 @@ function Navbar() {
                     <Link to="" >Theo dõi tiến độ</Link>
                 </li>
                 <li>
-                    <Link to="" >Tổng hợp và phân tích</Link>
+                    <Link to="/analysisView" >Tổng hợp và phân tích</Link>
                 </li>
                 <li>
                     <Link to="/populationView" >Xem danh sách dân số</Link>
