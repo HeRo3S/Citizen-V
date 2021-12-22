@@ -9,9 +9,7 @@ const authControl = require('./auth_controller')
 
 
 Router.route("/api/region_code").post([authControl.verifyToken],async (req, res) => {
-    console.log(req.user)
-    data = req.body
-    console.log(data)
+    data = req.body[0]
     if(!data){
         return res.status(400).send({message: "No data found"})
     }
@@ -20,7 +18,7 @@ Router.route("/api/region_code").post([authControl.verifyToken],async (req, res)
     try{
         await area.create({
             name: data.region,
-            code: data.id,
+            code: data.code,
             level: req.user.access_level,
             belong_to: req.user.manage_area
         },{
@@ -28,7 +26,7 @@ Router.route("/api/region_code").post([authControl.verifyToken],async (req, res)
         })
         .then(async area => {
             await userAccount.create({
-                username: data.id,
+                username: data.code,
                 password: "TTStudio1902",
                 access_level: req.user.access_level + 1,
                 manager_account: req.user.id,
@@ -48,9 +46,22 @@ Router.route("/api/region_code").post([authControl.verifyToken],async (req, res)
     }
     return res.send({message: "Data added successfully"})
 })
-// .get([authControl.verifyToken],async (req, res) => {
-//     await area.findAll({attributes: []})
-// })
+.get([authControl.verifyToken],async (req, res) => {
+    raw_data = await area.findAll({
+        attributes: ["id", "name", "code"], 
+        where: {
+            belong_to: req.user.manage_area
+        }})
+    if(raw_data.length){
+        data = []
+        for (sub of raw_data){
+            sub = sub.toJSON()
+            data.push(sub)
+        }
+        return res.send(data)
+    }
+    return res.status(404).send({message: "No area found"})
+})
 
 // authControl.createUser("superuser", "TTStudio1902", 0, null)
 

@@ -11,8 +11,10 @@ const getRegionCodeData = () => {
     return axios.get(API_KEY + "region_code", {headers: authHeader() });
 }
 
-const postRegionCodeData = () => {
-    return axios.post(API_KEY + "region_code", {headers: authHeader() });
+const postRegionCodeData = (data) => {
+    return axios.post(API_KEY + "region_code",
+    data,
+    {headers: authHeader() });
 }
 
 const getAccountManagerData = () => {
