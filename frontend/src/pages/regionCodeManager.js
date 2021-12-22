@@ -1,32 +1,22 @@
 import React, { useEffect, useState } from 'react'
+import { UPDLOCK } from 'sequelize/dist/lib/table-hints';
 import ProgressBar from '../component/progress'
 import userServices from "../services/user.services.js"
 import './regionCodeManager.css'
 
 function RegionCodeManager() {
+
     const [requestedData, setRequestedData] = useState([]);
-
-    const [inputData, setInputData] = useState({
-        id:"",
-        region:"",
-    });
-
+    const [inputData, setInputData] = useState([]);
     const [addInputData, setAddInputData] = useState({
         id:"",
         region:"",
     });
+    const [uploading, setUploading] = useState(true);
 
     const updateInputData = () => {
-        // const newInputData;
-        // if (inputData != null) {
-        //     newInputData = [...inputData, addInputData];
-        // } else {
-        //     newInputData = [addInputData];
-        // }
-        
-        const newInputData = addInputData;
+        const newInputData = [...inputData, addInputData];
         setInputData(newInputData);
-        console.log(inputData);
     }
 
     const handleChangeData = (event) => {
@@ -39,13 +29,17 @@ function RegionCodeManager() {
         setAddInputData(newAddInputData);
     }
 
-    const submitData = data => {
-        userServices.postRegionCodeData(data);
-    }
-   
+    useEffect( () => {
+        const uploadingData = () => {
+            userServices.postRegionCodeData(inputData);
+        };
+        console.log(inputData);
+        uploadingData();
+    }, [inputData, uploading]);
+
     useEffect( () => {
         userServices.getRegionCodeData().then(resp => setRequestedData(resp.data) )
-    }, [inputData])
+    }, []);
 
     const getData = () => {
             requestedData.map(item => {
@@ -75,7 +69,7 @@ function RegionCodeManager() {
                     </div>
 
                         <div className="declare-page-button">
-                            <button id="declare-page-button-add" onClick={submitData(inputData)}>Add</button>
+                            <button id="declare-page-button-add" onClick={() => setUploading(true)}>Add</button>
                             <button id="declare-page-button-edit">Edit</button>
                         </div>
 
