@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { UPDLOCK } from 'sequelize/dist/lib/table-hints';
 import ProgressBar from '../component/progress'
 import userServices from "../services/user.services.js"
 import './regionCodeManager.css'
@@ -10,16 +9,16 @@ function RegionCodeManager() {
     const [inputData, setInputData] = useState([]);
     const [addInputData, setAddInputData] = useState({
         code:"",
-        region:"",
+        name:"",
     });
     const [uploading, setUploading] = useState(true);
 
-    const updateInputData = () => {
-        const newInputData = [...inputData, addInputData];
-        setInputData(newInputData);
+    const updateInputData = () => { 
+       return setInputData(prevState => [...prevState, addInputData]);
     }
-
     const handleChangeData = (event) => {
+        event.preventDefault();
+
         const fieldName = event.target.getAttribute('name');
         const fieldValue = event.target.value;
 
@@ -35,21 +34,21 @@ function RegionCodeManager() {
         };
         
         uploadingData();
-    }, [inputData, uploading]);
+    }, [uploading]);
 
     useEffect( () => {
-        userServices.getRegionCodeData().then(resp => setRequestedData(resp.data) )
-    }, []);
-
+        userServices.getRegionCodeData().then(resp => setRequestedData(resp.data) );
+    }, [uploading]);
+    
     const getData = () => {
-            requestedData.map(item => {
-                return (
-                    <tr>
-                        <td style={{width: "10%"}}>{item.id}</td>
-                        <td style={{width: "70%"}}>{item.region}</td>
-                    </tr>
-                )
-            })
+        return requestedData.map(item => {
+            return (
+                <tr>
+                    <td style={{width: "10%"}}>{item.code}</td>
+                    <td style={{width: "70%"}}>{item.name}</td>
+                </tr>
+            );
+        });
     }
 
     return(
@@ -64,7 +63,7 @@ function RegionCodeManager() {
 
                     <div className="declare-page-input">
                         <input type="text" name='code' className="text-code" onChange={handleChangeData} />
-                        <input type="text" name='region' className="text-region" onChange={handleChangeData}/>
+                        <input type="text" name='name' className="text-name" onChange={handleChangeData}/>
                         <i className="ti-plus" onClick={updateInputData}></i>
                     </div>
 
@@ -76,9 +75,7 @@ function RegionCodeManager() {
                     <div className="declare-page-content">
                         <table>
                             <tbody>
-                                {
-                                    getData()
-                                }
+                                {getData()}
                             </tbody>
                         </table>
                     </div>
