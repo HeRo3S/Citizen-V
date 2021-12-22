@@ -8,7 +8,7 @@ const Router = express.Router()
 const authControl = require('./auth_controller')
 
 
-Router.route("/api/accountManager").post([authControl.verifyToken],async (req, res) => {
+Router.route("/api/region_code").post([authControl.verifyToken],async (req, res) => {
     console.log(req.user)
     data = req.body
     console.log(data)

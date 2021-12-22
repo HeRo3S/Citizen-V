@@ -9,7 +9,7 @@ function RegionCodeManager() {
     const [requestedData, setRequestedData] = useState([]);
     const [inputData, setInputData] = useState([]);
     const [addInputData, setAddInputData] = useState({
-        id:"",
+        code:"",
         region:"",
     });
     const [uploading, setUploading] = useState(true);
@@ -33,7 +33,7 @@ function RegionCodeManager() {
         const uploadingData = () => {
             userServices.postRegionCodeData(inputData);
         };
-        console.log(inputData);
+        
         uploadingData();
     }, [inputData, uploading]);
 
@@ -63,7 +63,7 @@ function RegionCodeManager() {
                     </div>
 
                     <div className="declare-page-input">
-                        <input type="text" name='id' className="text-id" onChange={handleChangeData} />
+                        <input type="text" name='code' className="text-code" onChange={handleChangeData} />
                         <input type="text" name='region' className="text-region" onChange={handleChangeData}/>
                         <i className="ti-plus" onClick={updateInputData}></i>
                     </div>
