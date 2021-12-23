@@ -1,4 +1,4 @@
-#login
+#logout
 {
     display: flex;
     align-items: center;
@@ -10,17 +10,17 @@
     height: 6vh;
     background-color:#3E5463;
     border-radius: 20px;
-    font-size: 21px;
+    font-size: 23px;
     color: white;
 }
 
-#login a
+#logout a
 {
     color: white;
     text-decoration: none;
 }
 
-#login a:hover
+#logout a:hover
 {
     color: #FF7675;
 }

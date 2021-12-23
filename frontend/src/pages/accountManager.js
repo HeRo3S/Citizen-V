@@ -4,6 +4,7 @@ import userServices from '../services/user.services'
 import NonEditableRow from '../component/accountManager/NonEditableRow'
 import EditableRow from '../component/accountManager/EditableRow'
 import './accountManager.css'
+import Navbar from '../component/navbar'
 
 
 function AccountManager() {
@@ -119,6 +120,7 @@ function AccountManager() {
 
     return (
         <>
+            <Navbar />
             <ProgressBar />
             <div className="main" id="acc-page">
                 <div className="container">

@@ -1,0 +1,9 @@
+#home-page
+ {
+     width: 74vw;
+     background-image: url('./img/homepage.png');
+     background-repeat: no-repeat; 
+     background-size: cover;
+     object-fit: cover;
+     background-position: center center;
+ }

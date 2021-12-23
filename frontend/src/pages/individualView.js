@@ -1,9 +1,11 @@
 import React from 'react'
 import './individualView.css'
+import Navbar from '../component/navbar';
 
 function IndividualView(){
     return(
         <>
+            <Navbar />
             <div className="main" id="information-page">
                 <div className="container" id="information-container">
                     <div className="information-form">

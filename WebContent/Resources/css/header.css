@@ -177,7 +177,7 @@ button
 {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     position: fixed;
     right:10px;
     top: 10px;
@@ -185,33 +185,19 @@ button
     height: 6vh;
     background-color:#3E5463;
     border-radius: 20px;
-    font-size: 18px;
+    font-size: 23px;
     color: white;
 }
 
-#login input
+#login a
 {
-    padding: 5px;
-    background-color:#3E5463 ;
-    border: none;
     color: white;
-    font-size: 16px;
+    text-decoration: none;
 }
 
-#login button
+#login a:hover
 {
-    padding: 0px;
-    font-size: 25px;
-    height: 30px;
-    line-height: 30px;
-    background-color:#FF7675 ;
-    border-radius: 15px;
-    color: white;
-}
-
-#login button:hover
-{
-    color: black;
+    color: #FF7675;
 }
 
 .declare-page-heading
@@ -522,8 +508,87 @@ button
     overflow: visible;
     white-space: pre-line;
 }
+ #home-page
+ {
+     width: 74vw;
+     background-image: url('/WebContent/Resources/img/homepage.png');
+     background-repeat: no-repeat; 
+     background-size: cover;
+     object-fit: cover;
+     background-position: center center;
+ }
 
+ #login-page
+ {
+     width: 74vw;
+ }
 
+ #login-page .container
+ {
+     padding: 0;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ #login-form
+ {
+     width: 50%;
+     background-color: white;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) ;
+ }
+
+ .login-header
+ {
+     background-color: #007bff;
+     padding: 20px;
+     color: white;
+ }
+
+.login-body
+ {
+     padding: 20px;
+ }
+
+ .login-body-group
+ {
+    margin: 20px 0;
+ }
+
+ .login-body-group label
+ {
+     display: block;
+ }
+
+ .login-body-group input
+ {
+     width: 95%;
+     margin-top: 10px;
+     font-size: 25px;
+     padding: 10px;
+ }
+
+ .login-footer
+ {
+     padding: 0 30px 30px 30px;
+ }
+
+ .login-footer button
+ {
+     background-color: #007bff;
+     border-color: #007bff;
+     color: white;
+     border-radius: 0;
+     box-shadow: none;
+ }
+
+ .login-footer button:hover
+ {
+     cursor: pointer;
+     background-color: #0069d9;
+     border-color: #0062cc;
+ }
 
 
 

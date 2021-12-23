@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ProgressBar from '../component/progress'
 import userServices from "../services/user.services.js"
 import './regionCodeManager.css'
+import Navbar from '../component/navbar'
 
 function RegionCodeManager() {
 
@@ -54,6 +55,7 @@ function RegionCodeManager() {
 
     return(
         <>
+            <Navbar />
             <ProgressBar />
             <div className="main" id="declare-page">
                 <div className="container">
