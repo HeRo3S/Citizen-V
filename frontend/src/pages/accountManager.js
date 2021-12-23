@@ -1,54 +1,160 @@
-import React from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import ProgressBar from '../component/progress'
+import userServices from '../services/user.services'
+import NonEditableRow from '../component/accountManager/NonEditableRow'
+import EditableRow from '../component/accountManager/EditableRow'
 import './accountManager.css'
 
+
 function AccountManager() {
+    const [requestedData, setRequestedData] = useState([
+    {
+        id:1,
+        code:"01",
+        name:"Ha Noi",
+        password:"xaxa",
+        open_status: false,
+    },
+
+    {
+        id:2,
+        code:"02",
+        name:"Ho Chi Minh",
+        password:"xaxa",
+        open_status: true,
+    },
+    ]);
+    //data to post to backend
+    const [accountsChangesData, setAccountsChangesData] = useState([]);
+
+    //former data of a row
+    const [editAccountFormData, setEditAccountFormData] = useState({
+        id: 0,
+        code:"",
+        name:"",
+        password:"",
+        open_status: false,
+    })
+
+    //tracking id of the clicked row hook
+    const [idNumberAccount, setIdNumberAccount] = useState(null);
+
+    //Fetch data function
+    useEffect(() => {
+        userServices.getAccountManagerData().then(resp => {
+            resp.data = requestedData;
+        })
+    }, [])
+
+    //Submit Data to backend function
+    const handleSubmitEvent = (event) => {
+        event.preventDefault();
+
+        userServices.postAccountManagerData(accountsChangesData).then(resp => {
+            window.location.reload(false);
+        })
+    }
+
+    //handle click event of noneditableRow
+    const handleClickEvent = (event, account) =>{
+        event.preventDefault();
+        setIdNumberAccount(account.id);
+
+        const formData = {
+            id: idNumberAccount,
+            code: account.code,
+            name: account.name,
+            password: account.password,
+            open_status: account.open_status
+        };
+        setEditAccountFormData(formData);
+    }
+
+    //handle onchange event of editableRow
+    const handleEditAccountEvent = (event) => {
+        event.preventDefault();
+        const fieldName = event.target.getAttribute('name');
+        const fieldValue = event.target.value;
+
+        const newEditAccountFormData = {...editAccountFormData};
+        if (fieldName === "open_status") {
+            newEditAccountFormData[fieldName] = event.target.checked;
+        } else {
+            newEditAccountFormData[fieldName] = fieldValue;
+        }
+        setEditAccountFormData(newEditAccountFormData);
+    }
+
+    //handle save click event of editableRow
+    const handleSaveAccountEvent = (event) => {
+        event.preventDefault();
+
+        const edittedData = {
+            id: idNumberAccount,
+            code: editAccountFormData.code,
+            name: editAccountFormData.name,
+            password: editAccountFormData.password,
+            open_status: editAccountFormData.open_status,
+        }
+
+        const newRequestedData = [...requestedData];
+        var newAccountChangesData = [...accountsChangesData];
+
+        const index = requestedData.findIndex((account) => account.id === idNumberAccount);
+        const indexInAccountChangesData = accountsChangesData.findIndex((accountChanges) => accountChanges.id === idNumberAccount);
+
+        newRequestedData[index] = edittedData;
+        if (indexInAccountChangesData === -1) {
+            newAccountChangesData = [...newAccountChangesData, edittedData];
+        } else {
+            newAccountChangesData[indexInAccountChangesData] = edittedData;
+        }
+
+        setRequestedData(newRequestedData);
+        setAccountsChangesData(newAccountChangesData);
+
+        setIdNumberAccount(null);
+
+    }
+
     return (
         <>
             <ProgressBar />
             <div className="main" id="acc-page">
                 <div className="container">
                     <div className="acc-page-content">
+                        <form>
                         <table>
-                            <tr>
-                                <th style={{width: "10%"}}>Mã</th>
-                                <th style={{width: "40%"}}>Tên</th>
-                                <th style={{width: "25%"}}>Tài khoản</th>
-                                <th style={{width: "15%"}}>Khai báo</th>
-                                <th style={{width: "10%"}}>
-                                </th>
-                            </tr>      
-
-                            <tr>
-                                <td style={{width: "10%"}}>01</td>
-                                <td style={{width: "40%"}}>Thành phố Hà Nội</td>
-                                <td style={{width: "25%"}}>
-                                *********
-                                <i className="ti-layers"></i>
-                                <i className="ti-reload"></i>
-                                </td>
-                                <td style={{width: "15%"}}>
-                                <i className="ti-lock"></i>
-                                </td>
-                                <td style={{width: "10%"}}>
-                                <i className="ti-trash"></i>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td style={{width: "10%"}}>01</td>
-                                <td style={{width: "40%"}}>Tỉnh Bắc Giang</td>
-                                <td style={{width: "25%"}}></td>
-                                <td style={{width: "15%"}}></td>
-                                <td style={{width: "10%"}}>
-                                    <i className="ti-plus"></i>
-                                </td>
-                            </tr>
+                            <thead>
+                                <tr>
+                                    <th style={{width: "10%"}}>Mã</th>
+                                    <th style={{width: "40%"}}>Tên</th>
+                                    <th style={{width: "25%"}}>Tài khoản</th>
+                                    <th style={{width: "15%"}}>Khai báo</th>
+                                    <th style={{width: "10%"}}></th>
+                                </tr>      
+                            </thead>
+                            <tbody>
+                                {requestedData.map((item) => {
+                                    return (
+                                        <Fragment> 
+                                        {idNumberAccount === item.id ? (
+                                                <EditableRow editAccountFormData={editAccountFormData} handleEditAccountEvent={handleEditAccountEvent} handleSaveAccountEvent={handleSaveAccountEvent} />
+                                            ) : (
+                                                <NonEditableRow item={item} handleClickEvent={handleClickEvent} /> 
+                                            )
+                                        }
+                                        </Fragment>
+                                    )
+                                }) 
+                            }
+                            </tbody>
                         </table>
+                        </form>.
                     </div>
 
                     <div className="acc-page-footer">
-                    <button>Change</button>
+                    <button onClick={handleSubmitEvent}>Change</button>
                     <button>Remove all</button>
                     <button>Reset all</button>
                     </div>
