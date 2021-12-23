@@ -33,14 +33,13 @@ const userAccount = sequelize.define("user_account", {
             const salt = bcrypt.genSaltSync()
             user.password = bcrypt.hashSync(user.password, salt)
         },
-        beforeUpdate: user => {
-            if (user.password.indexOf('$2a$') === 0){
-                fn(null, user)
+        beforeBulkUpdate: user => {
+            user = user.attributes
+            if (user.password.indexOf('$2b$') === 0){
                 return
             }
             const salt = bcrypt.genSaltSync()
             user.password = bcrypt.hashSync(user.password, salt)
-            fn(null, user)
         }
     }, indexes: [
         {

@@ -42,7 +42,7 @@ function AccountManager() {
     //Fetch data function
     useEffect(() => {
         userServices.getAccountManagerData().then(resp => {
-            resp.data = requestedData;
+            setRequestedData(resp.data);
         })
     }, [])
 

@@ -1,6 +1,6 @@
 const area = require("../../models/area")
 
-addRegion = async (name, code, level, belong_to) => {
+addArea = async (name, code, level, belong_to) => {
     area.create({
         name: name,
         code: code,
@@ -9,8 +9,8 @@ addRegion = async (name, code, level, belong_to) => {
     })
 }
 
-const regionControl = {
-    addRegion : addRegion
+const areaControl = {
+    addArea : addArea
 }
 
-module.exports = regionControl
+module.exports = areaControl

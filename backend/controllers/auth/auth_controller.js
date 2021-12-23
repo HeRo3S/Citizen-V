@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken")
 const userAccount = require("../../models/user_account")
 
 
-exports.createUser = async (username, password, auth_level, manage_area) => {
+createUser = async (username, password, auth_level, manage_area) => {
     await userAccount.create({
         username: username,
         password: password,
@@ -12,7 +12,7 @@ exports.createUser = async (username, password, auth_level, manage_area) => {
     })
 }
 
-exports.authUser = async (username, password) => {
+authUser = async (username, password) => {
     user = await userAccount.findOne({
         attributes: {
             exclude: ["createdAt", "updatedAt"]
@@ -32,7 +32,7 @@ exports.authUser = async (username, password) => {
 }
 
 
-exports.verifyToken = async (req, res, next) => {
+verifyToken = async (req, res, next) => {
     token = req.headers["x-access-token"]
     decoded = null
     if(token){
@@ -50,3 +50,10 @@ exports.verifyToken = async (req, res, next) => {
     }
     return res.status(401).send({message: "Unauthorized"})
 }
+
+const authControl = {
+    createUser: createUser,
+    authUser: authUser,
+    verifyToken: verifyToken
+}
+module.exports = authControl

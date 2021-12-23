@@ -9,6 +9,7 @@ const authRouter = require('./controllers/auth/auth_router')
 const cors = require("cors")
 require("ejs")
 const sequelize = require("./models/sequelize")
+const areaRouter = require("./controllers/area/area_router")
 
 //                                                         Import sequelize model
 
@@ -51,6 +52,7 @@ app.use(session({
 //                                              ROUTING
 app.use(cors())
 app.use("/", authRouter)
+app.use("/", areaRouter)
 
 app.listen(3001)
 
