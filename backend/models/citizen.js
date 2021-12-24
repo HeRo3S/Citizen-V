@@ -13,20 +13,16 @@ const citizen = sequelize.define("citizen", {
         type: DataTypes.CHAR(30),
         allowNull: true
     },
-    last_name:{
-        type: DataTypes.CHAR(20),
-        allowNull: false
-    },
-    first_name: {
-        type: DataTypes.CHAR(40),
+    name: {
+        type: DataTypes.CHAR(60),
         allowNull: false
     },
     gender: {
         type: DataTypes.CHAR(10),
         allowNull: false
     },
-    age: {
-        type: DataTypes.SMALLINT,
+    birthday: {
+        type: DataTypes.DATEONLY,
         allowNull: false
     },
     permanent_address: {
@@ -35,7 +31,8 @@ const citizen = sequelize.define("citizen", {
     },
     temporary_address: {
         type: DataTypes.CHAR(120),
-        allowNull: false
+        allowNull: false,
+        defaultValue: "Không"
     },
     origin_address: {
         type: DataTypes.CHAR(120),
@@ -64,11 +61,11 @@ const citizen = sequelize.define("citizen", {
         },
         {
             unique: false,
-            fields: ['age']
+            fields: ['birthday']
         },
         {
             unique: false,
-            fields: ['last_name', 'first_name']
+            fields: ['name']
         },
         {
             unique: false,

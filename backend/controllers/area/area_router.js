@@ -23,8 +23,13 @@ areaRouter.route("/api/region_code").post(verifyToken, async (req, res) => {
             transaction: t
         })
         .then(async area => {
+            if(req.user.access_level == 0){
+                prefix = ""
+            }else{
+                prefix = req.user.username
+            }
             await userAccount.create({
-                username: data.code,
+                username: prefix + data.code,
                 password: "TTStudio1902",
                 access_level: req.user.access_level + 1,
                 manager_account: req.user.id,

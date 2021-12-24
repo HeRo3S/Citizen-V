@@ -23,7 +23,7 @@ const areaRouter = require("./controllers/area/area_router")
 //     require(path.join(models, file))
 //   })
   
-//   sequelize.sync({force : true}).catch(error => {
+//   sequelize.sync({force: true}).catch(error => {
 //       console.log(error)
 //   });
 
