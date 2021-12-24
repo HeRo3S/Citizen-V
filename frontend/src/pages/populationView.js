@@ -143,17 +143,14 @@ function PopulationView() {
             <Layout />
             <div className="main" id="population-page">
                 <div className="container">
-                    <div className="population-page-breadscrumb">
                         <table>
-                            <thead>
                                 <tr>
-                                    <td>Can cuoc cong dan</td>
-                                    <td>Ho va ten</td>
-                                    <td>Gioi tinh</td>
-                                    <td>Ngay thang nam sinh</td>
+                                    <th style={{width: "27%"}}>Căn cước công dân</th>
+                                    <th style={{width: "25%"}}>Họ và tên</th>
+                                    <th style={{width: "18%"}}>Giới tính</th>
+                                    <th style={{width: "30%"}}>Ngày tháng năm sinh</th>
                                 </tr>
-                            </thead>
-                            <tbody>
+    
                                 {
                                     requestedData.map((item) => {
                                         return (
@@ -166,9 +163,8 @@ function PopulationView() {
                                         )
                                     })
                                 }
-                            </tbody>
+                        
                         </table>
-                    </div>
                 </div>
             </div>
             <FilterBar requestedData={requestedData} handleFilterClickEvent={handleFilterClickEvent} handleFilterReturnClickEvent={handleFilterReturnClickEvent} handleFilterCheckboxClickedEvent={handleFilterCheckboxClickedEvent} />
