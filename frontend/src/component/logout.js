@@ -18,7 +18,7 @@ function LogoutBar({user}) {
             <p>{user.username}&nbsp;</p>
             <p>to Citizen V.&emsp;</p>
             <button onClick={handleLogoutClick}>
-                <i className="ti-power-off"></i>
+                <i className="ti-power-off">&nbsp;</i>
                 Đăng xuất?
             </button>
         </div>

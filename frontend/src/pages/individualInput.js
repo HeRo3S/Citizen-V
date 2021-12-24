@@ -69,21 +69,28 @@ function IndividualInput(){
                                     <td>
                                         <select type="text" name='gender' placeholder="Nhập giới tính" onChange={handleFormDataChange}>
                                             <option value="nam">Nam</option>
-                                            <option value="nu">Nu</option>
+                                            <option value="nu">Nữ</option>
                                         </select>
                                     </td>
                                     <td>  <input type="text" name='profession' placeholder="Nhập nghề nghiệp" onChange={handleFormDataChange} />  </td>
                                     <td>  
+<<<<<<< Updated upstream
                                         <select name='religion' placeholder="Nhập tôn giáo" onChange={handleFormDataChange} >
                                             <option value="Phat giao">Phat giao</option>
                                             <option value="Thien chua giao">Thien chua giao</option>
                                             <option value="Kito giao">Kito giao</option>
+=======
+                                        <select placeholder="Nhập tôn giáo">
+                                            <option value="Phat giao">Phật giáo</option>
+                                            <option value="Thien chua giao">Thiên chúa giáo</option>
+                                            <option value="Kito giao">Kitô giáo</option>
+>>>>>>> Stashed changes
                                         </select>
                                     </td>
                                     <td>
                                         <select name='education' placeholder="Nhập trình độ học vấn" onChange={handleFormDataChange}>
                                             <option value="12/12">12/12</option>
-                                            <option value="Dai hoc">Dai hoc</option>
+                                            <option value="Dai hoc">Đại học</option>
                                         </select>
                                     </td>
                                 </tr>

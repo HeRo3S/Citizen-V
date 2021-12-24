@@ -23,31 +23,6 @@
     font-size: 40px;
     font-weight: bold;
 }
-/* #information-container .search-form
-{
-    position: absolute;
-    bottom: 10px;
-    width: 95%;
-    height: 40%;    
-    background-color: #C4C4C4;
-    border-radius: 20px;
-}
-
-#information-container .information-form
-{
-    position: absolute;
-    top: 10px;
-    width: 95%;
-    height: 55%;
-    background-color: #C4C4C4;
-    border-radius: 20px;
-}
-
-.information-form-container
-{
-    padding: 20px;
-    font-size: 24px;
-} */
 
 #inputdata-container table
 {
@@ -70,8 +45,14 @@
     width: 90%;
 }
 
+#inputdata-container select 
+{
+    font-size: 25px;
+    padding: 10px;
+}
+
 .inputdata-footer button
 {
-    float: right;
+    margin-left: 85%;
     padding: 20px;
 }
