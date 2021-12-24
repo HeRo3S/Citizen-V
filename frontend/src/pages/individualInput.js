@@ -6,7 +6,7 @@ import Layout from './layout';
 function IndividualInput(){
     //submit data click function
     const handleFormSubmitClick = (data) => {
-        userServices.postPopulationRequested(data).then(() => {
+        userServices.postIndividualInputData(data).then(() => {
             window.location.reload(false);
         })
     }
