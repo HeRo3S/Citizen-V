@@ -1,11 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 import userServices from '../services/user.services';
 import './individualInput.css'
 import Layout from './layout';
 
 function IndividualInput(){
+    const [data, setData] = useState({
+        id: 1234567890,
+        name:"Nguyễn Văn A",
+        birthday: "06/09/1969",
+        gender: "Name",
+        profession: "Streamer",
+        religion: "",
+        education:"",
+        origin:"",
+        temporary_address:"",
+        permanent_address:""
+    })
+
+    //form data change function
+    const handleFormDataChange = (event) => {
+        const fieledName = event.target.getAttribute('name');
+        const fieldValue = event.target.value;
+
+        const addData = {...data};
+        addData[fieledName] = fieldValue;
+        setData(addData);
+    }
+
     //submit data click function
-    const handleFormSubmitClick = (data) => {
+    const handleFormSubmitClick = () => {
         userServices.postIndividualInputData(data).then(() => {
             window.location.reload(false);
         })
@@ -30,9 +53,9 @@ function IndividualInput(){
                                 </tr>
 
                                 <tr>
-                                    <td>  <input type="text" placeholder="Nhập CCCD/CMND" />  </td>
-                                    <td>  <input type="text" placeholder="Nhập họ và tên"/>  </td>
-                                    <td>  <input type="date" placeholder="Nhập ngày/tháng/năm"/>  </td>
+                                    <td>  <input type="text" name='id' placeholder="Nhập CCCD/CMND" onChange={handleFormDataChange} />  </td>
+                                    <td>  <input type="text" name='name' placeholder="Nhập họ và tên" onChange={handleFormDataChange}/>  </td>
+                                    <td>  <input type="date" name='birthday' placeholder="Nhập ngày/tháng/năm"/>  </td>
                                 </tr>
 
                                 <tr>
@@ -44,21 +67,21 @@ function IndividualInput(){
 
                                 <tr>
                                     <td>
-                                        <select type="text" placeholder="Nhập giới tính">
+                                        <select type="text" name='gender' placeholder="Nhập giới tính" onChange={handleFormDataChange}>
                                             <option value="nam">Nam</option>
                                             <option value="nu">Nu</option>
                                         </select>
                                     </td>
-                                    <td>  <input type="text" placeholder="Nhập nghề nghiệp"/>  </td>
+                                    <td>  <input type="text" name='profession' placeholder="Nhập nghề nghiệp" onChange={handleFormDataChange} />  </td>
                                     <td>  
-                                        <select placeholder="Nhập tôn giáo">
+                                        <select name='religion' placeholder="Nhập tôn giáo" onChange={handleFormDataChange} >
                                             <option value="Phat giao">Phat giao</option>
                                             <option value="Thien chua giao">Thien chua giao</option>
                                             <option value="Kito giao">Kito giao</option>
                                         </select>
                                     </td>
                                     <td>
-                                        <select placeholder="Nhập trình độ học vấn">
+                                        <select name='education' placeholder="Nhập trình độ học vấn" onChange={handleFormDataChange}>
                                             <option value="12/12">12/12</option>
                                             <option value="Dai hoc">Dai hoc</option>
                                         </select>
@@ -72,9 +95,9 @@ function IndividualInput(){
                                 </tr>
 
                                 <tr>
-                                    <td>  <input type="text" placeholder="Nhập quê quán"/>  </td>
-                                    <td>  <input type="text" placeholder="Nhập địa chỉ tạm trú"/>  </td>
-                                    <td>  <input type="text" placeholder="Nhập địa chỉ thường trú"/>  </td>
+                                    <td>  <input type="text" name='origin' placeholder="Nhập quê quán" onChange={handleFormDataChange}/>  </td>
+                                    <td>  <input type="text" name='temporary_address' placeholder="Nhập địa chỉ tạm trú" onChange={handleFormDataChange}/>  </td>
+                                    <td>  <input type="text" name='permanent_address' placeholder="Nhập địa chỉ thường trú" onChange={handleFormDataChange}/>  </td>
                                 </tr>
                             </table>
                             <div className='inputdata-footer' >
