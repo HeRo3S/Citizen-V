@@ -8,13 +8,15 @@ import RegionCodeManager from './pages/regionCodeManager.js'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import AnalysisView from './pages/analysisView.js'
 import LoginView from './pages/loginView.js'
+import Layout from './pages/layout.js'
 
 function App(){
     return(
         <BrowserRouter>
             <Routes>
                 <Route path="/loginView" element={<LoginView />} />
-                <Route path="/" exact element={<Home />}>
+                <Route path="/" element={<Layout />}>
+                    <Route index path="/home" element={<Home />} />
                     <Route path="/regionCodeManager" element={<RegionCodeManager />} />
                     <Route path="/accountManager" element={<AccountManager />} />
                     <Route path="/individualView" element={<IndividualView />} />

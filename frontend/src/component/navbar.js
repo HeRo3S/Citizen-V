@@ -78,15 +78,12 @@ function Navbar() {
         <>
         <div className='navbar'>
             <div id="brand">
-                CITIZEN V
+                <Link to="/home">CITIZEN V</Link>
             </div>
             <ul id="nav">
                 {showNavBar()}
             </ul>
         </div> 
-
-        <Outlet />
-
         </>     
     )
 }

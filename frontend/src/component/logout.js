@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import authService from '../services/auth.service'
 import './logout.css'
 
@@ -22,8 +22,11 @@ function LogoutBar({user}) {
                 Đăng xuất?
             </button>
         </div>
+
+        <Outlet />
         </>
     )
+
 }
 
 export default LogoutBar;
