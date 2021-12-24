@@ -9,17 +9,6 @@ import Layout from './layout.js'
 function PopulationView() {
     const user =  jwt(localStorage.getItem("user"));
     const [exploreLevel, setExploreLevel] = useState(user.access_level);
-    /**
-     * required element in package
-     * 
-     * id (area)
-     * name (area)
-     * 
-     * citizen:
-     * id:
-     * name:
-     * age:
-     */
     const [requestedData, setRequestedData] = useState([{
         area: {
             id: "01",

@@ -1,14 +1,23 @@
 import React from 'react'
+import userServices from '../services/user.services';
 import './individualInput.css'
-import Navbar from '../component/navbar';
+import Layout from './layout';
 
 function IndividualInput(){
+    //submit data click function
+    const handleFormSubmitClick = (data) => {
+        userServices.postPopulationRequested(data).then(() => {
+            window.location.reload(false);
+        })
+    }
+
     return(
         <>
-            <Navbar />
+            <Layout />
             <div className="main" id="inputdata-page">
                 <div className="container" id="inputdata-container">
-                    <div className="inputdata-form">
+                    <form onSubmit={handleFormSubmitClick}>
+                        <div className="inputdata-form">
                             <div className='inputdata-heading'>
                                 Nhập thông tin cá nhân
                             </div>
@@ -23,7 +32,7 @@ function IndividualInput(){
                                 <tr>
                                     <td>  <input type="text" placeholder="Nhập CCCD/CMND" />  </td>
                                     <td>  <input type="text" placeholder="Nhập họ và tên"/>  </td>
-                                    <td>  <input type="text" placeholder="Nhập ngày/tháng/năm"/>  </td>
+                                    <td>  <input type="date" placeholder="Nhập ngày/tháng/năm"/>  </td>
                                 </tr>
 
                                 <tr>
@@ -34,10 +43,26 @@ function IndividualInput(){
                                 </tr>
 
                                 <tr>
-                                    <td>  <input type="text" placeholder="Nhập giới tính"/>  </td>
+                                    <td>
+                                        <select type="text" placeholder="Nhập giới tính">
+                                            <option value="nam">Nam</option>
+                                            <option value="nu">Nu</option>
+                                        </select>
+                                    </td>
                                     <td>  <input type="text" placeholder="Nhập nghề nghiệp"/>  </td>
-                                    <td>  <input type="text" placeholder="Nhập tôn giáo"/>  </td>
-                                    <td>  <input type="text" placeholder="Nhập trình độ học vấn"/>  </td>
+                                    <td>  
+                                        <select placeholder="Nhập tôn giáo">
+                                            <option value="Phat giao">Phat giao</option>
+                                            <option value="Thien chua giao">Thien chua giao</option>
+                                            <option value="Kito giao">Kito giao</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select placeholder="Nhập trình độ học vấn">
+                                            <option value="12/12">12/12</option>
+                                            <option value="Dai hoc">Dai hoc</option>
+                                        </select>
+                                    </td>
                                 </tr>
 
                                 <tr>
@@ -53,11 +78,12 @@ function IndividualInput(){
                                 </tr>
                             </table>
                             <div className='inputdata-footer' >
-                                <button>
+                                <button type="submit">
                                     Xác nhận
                                 </button>
                             </div>
-                        </div>    
+                        </div>
+                    </form>    
                 </div>
             </div>
         </>

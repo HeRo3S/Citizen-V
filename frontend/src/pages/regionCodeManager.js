@@ -37,7 +37,7 @@ function RegionCodeManager() {
         };
         
         uploadingData();
-    }, [inputData, uploading]);
+    }, [uploading]);
 
     useEffect( () => {
         userServices.getRegionCodeData().then(resp => setRequestedData(resp.data) );

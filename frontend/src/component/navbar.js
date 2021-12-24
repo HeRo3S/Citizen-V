@@ -52,7 +52,25 @@ function Navbar() {
                 return (
                     <>
                         <li>
-                            <Link to="" >Nhập liệu dữ liệu</Link>
+                            <Link to="/regionCodeManager" >Khai báo và cấp mã</Link>
+                        </li>
+                        <li>
+                            <Link to="/accountManager" >Quản lý tài khoản</Link>
+                        </li>
+                        <li>
+                            <Link to="" >Theo dõi tiến độ</Link>
+                        </li>
+                        <li>
+                            <Link to="/analysisView" >Tổng hợp và phân tích</Link>
+                        </li>
+                        <li>
+                            <Link to="/populationView" >Xem danh sách dân số</Link>
+                        </li>
+                        <li>
+                            <Link to="/individualView" >Thông tin cá nhân</Link>
+                        </li>
+                        <li>
+                            <Link to="/individualInput" >Nhập liệu dữ liệu</Link>
                         </li>
                         <li>
                             <Link to="" >Tạo phiếu</Link>

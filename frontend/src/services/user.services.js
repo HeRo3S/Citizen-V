@@ -39,6 +39,25 @@ const postPopulationRequested = (data) => {
     );
 }
 
+const getIndividualViewData = (data) => {
+    return axios.get(API_KEY + "individual_view",
+    {headers: authHeader()},
+    );
+}
+
+const getAnalysisData = () => {
+    return axios.get(API_KEY + "analysis_view",
+    {headers: authHeader()},
+    );
+}
+
+const filterAnalysisData = (data) => {
+    return axios.post(API_KEY + "analysis_view",
+    data,
+    {headers: authHeader()},
+    )
+}
+
 export default {
     getPublicContent,
     getRegionCodeData,
@@ -47,4 +66,7 @@ export default {
     postAccountManagerData,
     getPopulationData,
     postPopulationRequested,
+    getIndividualViewData,
+    getAnalysisData,
+    filterAnalysisData,
 };

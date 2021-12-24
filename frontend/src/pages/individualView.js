@@ -1,9 +1,28 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
+import userServices from '../services/user.services'
 import './individualView.css'
-import Navbar from '../component/navbar';
 import Layout from './layout';
 
 function IndividualView(){
+    const [requestedData, setRequestedData] = useState({
+        id: 1234567890,
+        name:"Nguyễn Văn A",
+        birthday: "06/09/1969",
+        gender: "Name",
+        profession: "Streamer",
+        religion: "",
+        education:"",
+        origin:"",
+        temporary_address:"",
+        permanent_address:""
+    });
+
+    useEffect(() => {
+        userServices.getIndividualViewData().then(resp => {
+            setRequestedData(resp.data);
+        })
+    })
+
     return(
         <>
             <Layout />
@@ -21,9 +40,9 @@ function IndividualView(){
                                 </tr>
 
                                 <tr>
-                                    <td>696969696</td>
-                                    <td>Nguyễn Văn A</td>
-                                    <td>06/09/1969</td>
+                                    <td>{requestedData.id}</td>
+                                    <td>{requestedData.name}</td>
+                                    <td>{requestedData.birthday}</td>
                                 </tr>
 
                                 <tr>
@@ -34,10 +53,10 @@ function IndividualView(){
                                 </tr>
 
                                 <tr>
-                                    <td>Nam</td>
-                                    <td>Streamer</td>
-                                    <td>Không</td>
-                                    <td>Đại học</td>
+                                    <td>{requestedData.gender}</td>
+                                    <td>{requestedData.profession}</td>
+                                    <td>{requestedData.religion}</td>
+                                    <td>{requestedData.education}</td>
                                 </tr>
 
                                 <tr>
@@ -47,9 +66,9 @@ function IndividualView(){
                                 </tr>
 
                                 <tr>
-                                    <td>Hà Nội</td>
-                                    <td>Khu đô thị A, Tố Hữu, La Khê, Hà Đông, Hà Nội</td>
-                                    <td>Khu đô thị A, Tố Hữu, La Khê, Hà Đông, Hà Nội</td>
+                                    <td>{requestedData.origin}</td>
+                                    <td>{requestedData.permanent_address}</td>
+                                    <td>{requestedData.temporary_address}</td>
                                 </tr>
                             </table>
                         </div>
@@ -62,7 +81,7 @@ function IndividualView(){
                             </button>
 
                             <div className="cccd-search">
-                                <label for="cccd-input">
+                                <label htmlFor="cccd-input">
                                     <h3>Tìm kiếm theo CCCD/CMND: </h3>
                                 </label>
                                 <input type="text" id="cccd-input" />
@@ -73,34 +92,34 @@ function IndividualView(){
                                 <table>
                                     <tr>
                                         <td>
-                                            <label for="">Họ và tên: </label>
+                                            <label htmlFor="">Họ và tên: </label>
                                             <input type="text" />
                                         </td>
                                         <td>
-                                            <label for="">Giới tính: </label>
-                                            <input type="text" />
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <label for="">Nghề nghiệp: </label>
-                                            <input type="text" />
-                                        </td>
-                                        <td>
-                                            <label for="">Tôn giáo: </label>
+                                            <label htmlFor="">Giới tính: </label>
                                             <input type="text" />
                                         </td>
                                     </tr>
 
                                     <tr>
                                         <td>
-                                            <label for="">Ngày/Tháng/Năm sinh: </label>
+                                            <label htmlFor="">Nghề nghiệp: </label>
+                                            <input type="text" />
+                                        </td>
+                                        <td>
+                                            <label htmlFor="">Tôn giáo: </label>
+                                            <input type="text" />
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                            <label htmlFor="">Ngày/Tháng/Năm sinh: </label>
                                             <input type="text" />
                                         </td>
 
                                         <td>
-                                            <label for="">Trình độ học vấn: </label>
+                                            <label htmlFor="">Trình độ học vấn: </label>
                                             <input type="text" />
                                         </td>
                                     </tr>
