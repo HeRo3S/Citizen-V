@@ -35,28 +35,32 @@ function LoginView() {
     return (
         <>
         <Navbar />
-        <div class="main" id="login-page">
-            <div class="container">
-                <div id="login-form">
-                    <div class="login-header">
-                        Đăng nhập
-                    </div>
-                    <div class="login-body">
-                        <div class="login-body-group">
-                            <label for=""><h4>Tên đăng nhập</h4></label>
-                            <input type="text" placeholder="Nhập tên đăng nhập" />
+        <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="main" id="login-page">
+            <div className="container">
+                    <div id="login-form">
+                        <div className="login-header">
+                            Đăng nhập
                         </div>
-                        <div class="login-body-group">
-                            <label for=""><h4>Mật khẩu</h4></label>
-                            <input type="text" placeholder="Nhập mật khẩu" />
+                        <div className="login-body">
+                            <div className="login-body-group">
+                                <label htmlFor=""><h4>Tên đăng nhập</h4></label>
+                                <input type="text" placeholder="Nhập tên đăng nhập" {...register('username')} className={`form-control ${errors.username ? 'is-invalid' : ''}`} />
+                                <div className='invalid-feedback'>{errors.username?.messages}</div>
+                            </div>
+                            <div className="login-body-group">
+                                <label htmlFor=""><h4>Mật khẩu</h4></label>
+                                <input type="password" placeholder="Nhập mật khẩu" {...register('password')} className={`form-control ${errors.password? 'is-invalid' : ''}`} />
+                                <div className='is-invalid'>{errors.password?.messages}</div>
+                            </div>
+                        </div>
+                        <div className="login-footer">
+                            <button type="submit" >Submit</button>
                         </div>
                     </div>
-                    <div class="login-footer">
-                        <button type="submit">Submit</button>
-                    </div>
-                </div>
             </div>
         </div>
+        </form>
         </>
     )
 }
