@@ -15,23 +15,22 @@ function App(){
         <BrowserRouter>
             <Routes>
                 <Route path="/loginView" element={<LoginView />} />
-                <Route path="/" element={<Layout />}>
+                <Route path="/" element={<Home />} />
+                {
+                    /**
                     <Route index path="/home" element={<Home />} />
                     <Route path="/regionCodeManager" element={<RegionCodeManager />} />
                     <Route path="/accountManager" element={<AccountManager />} />
                     <Route path="/individualView" element={<IndividualView />} />
                     <Route path="/populationView" element={<PopulationView />} />
                     <Route path="/analysisView" element={<AnalysisView /> } />
-                </Route>
-                {
-                /**
+                    */
+                }
                 <Route path="/regionCodeManager" element={<RegionCodeManager />} />
                 <Route path="/accountManager" element={<AccountManager />} />
                 <Route path="/individualView" element={<IndividualView />} />
                 <Route path="/populationView" element={<PopulationView />} />
                 <Route path="/analysisView" element={<AnalysisView />} />
-                */
-                }
             </Routes>
         </BrowserRouter>
     )

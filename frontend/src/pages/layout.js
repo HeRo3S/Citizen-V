@@ -2,6 +2,7 @@ import React from 'react'
 import jwt from 'jwt-decode'
 import LoginBar from '../component/login';
 import LogoutBar from '../component/logout';
+import Navbar from '../component/navbar';
 
 function Layout() {
     var user;
@@ -17,6 +18,7 @@ function Layout() {
     return (
         <>
         {userCheck()}
+        <Navbar />
         </>          
     )
 }

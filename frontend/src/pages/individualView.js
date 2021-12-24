@@ -1,11 +1,12 @@
 import React from 'react'
 import './individualView.css'
 import Navbar from '../component/navbar';
+import Layout from './layout';
 
 function IndividualView(){
     return(
         <>
-            <Navbar />
+            <Layout />
             <div className="main" id="information-page">
                 <div className="container" id="information-container">
                     <div className="information-form">

@@ -4,6 +4,7 @@ import FilterBar from '../component/populationView/filter'
 import userServices from '../services/user.services'
 import jwt from 'jwt-decode'
 import './populationView.css'
+import Layout from './layout.js'
 
 function PopulationView() {
     const user =  jwt(localStorage.getItem("user"));
@@ -139,7 +140,7 @@ function PopulationView() {
 
     return(
         <>
-            <Navbar />
+            <Layout />
             <div className="main" id="population-page">
                 <div className="container">
                     <div className="population-page-breadscrumb">

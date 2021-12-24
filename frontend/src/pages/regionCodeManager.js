@@ -3,6 +3,7 @@ import ProgressBar from '../component/progress'
 import userServices from "../services/user.services.js"
 import './regionCodeManager.css'
 import Navbar from '../component/navbar'
+import Layout from './layout'
 
 function RegionCodeManager() {
 
@@ -55,7 +56,7 @@ function RegionCodeManager() {
 
     return(
         <>
-            <Navbar />
+            <Layout />
             <ProgressBar />
             <div className="main" id="declare-page">
                 <div className="container">
