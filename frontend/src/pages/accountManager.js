@@ -73,7 +73,7 @@ function AccountManager() {
 
     //handle onchange event of editableRow
     const handleEditAccountEvent = (event) => {
-        event.preventDefault();
+        //event.preventDefault();
         const fieldName = event.target.getAttribute('name');
         const fieldValue = event.target.value;
 

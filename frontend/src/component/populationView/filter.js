@@ -14,7 +14,7 @@ function FilterBar({requestedData, handleFilterClickEvent, handleFilterReturnEve
                     <h1>Lọc</h1>
                 </div>
 
-                <button onClick={event => handleFilterClickEvent(event)} >Apply</button>
+                <button className="apply-button" onClick={event => handleFilterClickEvent(event)} >Apply</button>
 
                 <div className="filter-bar-content">
                     {

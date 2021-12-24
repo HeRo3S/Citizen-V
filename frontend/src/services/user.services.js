@@ -28,10 +28,23 @@ const postAccountManagerData = (data) => {
     );
 }
 
+const getPopulationData = () => {
+    return axios.get(API_KEY + "population_view", {headers: authHeader() });
+}
+
+const postPopulationRequested = (data) => {
+    return axios.post(API_KEY + "population_view",
+    data,
+    {headers: authHeader()},
+    );
+}
+
 export default {
     getPublicContent,
     getRegionCodeData,
     postRegionCodeData,
     getAccountManagerData,
     postAccountManagerData,
+    getPopulationData,
+    postPopulationRequested,
 };
