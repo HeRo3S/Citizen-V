@@ -1,8 +1,8 @@
 import React from 'react'
-import './individualInputView.css'
+import './individualInput.css'
 import Navbar from '../component/navbar';
 
-function IndividualInputView(){
+function IndividualInput(){
     return(
         <>
             <Navbar />
@@ -64,4 +64,4 @@ function IndividualInputView(){
     )
 }
 
-export default IndividualInputView;
+export default IndividualInput;
