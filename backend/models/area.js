@@ -20,9 +20,8 @@ const area = sequelize.define("area", {
         defaultValue: false
     },
     code: {
-        type: DataTypes.CHAR(10),
+        type: DataTypes.CHAR(2),
         allowNull: false,
-        unique: true,
 
     },
     level: {
@@ -49,10 +48,12 @@ userAccount.belongsTo(area, {
 
 area.belongsTo(area, {
     foreignKey: 'belong_to',
+    as: "child_area",
     allowNull: true
 })
 area.hasMany(area, {
     foreignKey: 'belong_to',
+    as: "manager_area",
     allowNull: true
 })
 area.hasMany(citizen, {
