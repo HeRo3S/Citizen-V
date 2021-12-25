@@ -27,13 +27,14 @@
 #inputdata-container table
 {
     font-size: 30px;
-    /* margin-top: 5%; */
     text-align: left;
     border-spacing: 20px 50px;
 }
 
-#inputdata-container table td:hover
+#inputdata-container table td
 {
+    color: red;
+    font-size: 20px;
     overflow: visible;
     white-space: pre-line;
 }
