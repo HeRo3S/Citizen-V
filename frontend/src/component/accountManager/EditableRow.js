@@ -1,4 +1,5 @@
 import React from 'react'
+import './EditableRow.css'
 
 const EditableRow = ({editAccountFormData, handleEditAccountEvent, handleSaveAccountEvent}) => {
     return (
@@ -11,12 +12,13 @@ const EditableRow = ({editAccountFormData, handleEditAccountEvent, handleSaveAcc
                 {editAccountFormData.name}
             </td>
             <td style={{width: "25%"}}>
-                <input type="text" name="password" value={editAccountFormData.password} onChange={handleEditAccountEvent}></input>
-                <i className="ti-layers"></i>
+                <input id='editable-row-text' type="text" name="password" value={editAccountFormData.password} onChange={handleEditAccountEvent}></input>
+                &nbsp;
+                <i className="ti-layers">&nbsp;</i>
                 <i className="ti-reload"></i>
             </td>
             <td style={{width: "15%"}}>
-                <input type="checkbox" name="open_status" defaultChecked={!!editAccountFormData.open_status} onChange={handleEditAccountEvent}></input>
+                <input id='editable-row-checkbox'  type="checkbox" name="open_status" defaultChecked={!!editAccountFormData.open_status} onChange={handleEditAccountEvent}></input>
             </td>
             <td style={{width: "10%"}}>
                 <button onClick={(event) => {handleSaveAccountEvent(event)}}>Save</button>

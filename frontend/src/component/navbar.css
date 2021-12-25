@@ -17,6 +17,12 @@
     letter-spacing: 2px;
 }
 
+#brand a
+{
+    text-decoration: none;
+    color: black;
+}
+
 #nav
 {
     position: fixed;

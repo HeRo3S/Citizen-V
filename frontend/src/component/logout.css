@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     position: fixed;
     right:10px;
     top: 10px;
@@ -23,4 +24,21 @@
 #logout a:hover
 {
     color: #FF7675;
+}
+
+#logout button
+{
+    padding: 5px;
+    background-color: #FF7675;
+    color: black;
+}
+
+#logout button:hover
+{
+    color: white;
+}
+
+#logout button .ti-power-off
+{
+    font-size: 21px;
 }
