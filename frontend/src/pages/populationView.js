@@ -11,7 +11,8 @@ function PopulationView() {
     const [exploreLevel, setExploreLevel] = useState(user.access_level);
     const [requestedData, setRequestedData] = useState([{
         area: {
-            id: "01",
+            id: 1,
+            code: "01",
             name: "Ha Noi",
         },
         citizen: {
@@ -22,7 +23,8 @@ function PopulationView() {
         }
     },{
         area: {
-            id: "02",
+            id: 2,
+            code: "02",
             name: "Da Nang",
         },
         citizen: {
@@ -121,9 +123,9 @@ function PopulationView() {
         const fieldValue = event.target.checked;
 
         if (fieldValue === true) {
-            setFilterData([...filterData, fieldValue]);
+            setFilterData([...filterData, fieldID]);
         } else if (fieldValue === false) {
-            setFilterData(filterData.filter(item => item.value !== fieldID));
+            setFilterData(filterData.filter(item => item !== fieldID));
         }
     }
 

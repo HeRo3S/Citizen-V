@@ -5,14 +5,14 @@ import Layout from './layout';
 
 function IndividualInput(){
     const [data, setData] = useState({
-        id: 1234567890,
+        code: 1234567890,
         name:"Nguyễn Văn A",
         birthday: "06/09/1969",
         gender: "Name",
         profession: "Streamer",
         religion: "",
         education:"",
-        origin:"",
+        origin_address:"",
         temporary_address:"",
         permanent_address:""
     })
@@ -95,7 +95,7 @@ function IndividualInput(){
                                 </tr>
 
                                 <tr>
-                                    <td>  <input type="text" name='origin' placeholder="Nhập quê quán" onChange={handleFormDataChange}/>  </td>
+                                    <td>  <input type="text" name='origin_address' placeholder="Nhập quê quán" onChange={handleFormDataChange}/>  </td>
                                     <td>  <input type="text" name='temporary_address' placeholder="Nhập địa chỉ tạm trú" onChange={handleFormDataChange}/>  </td>
                                     <td>  <input type="text" name='permanent_address' placeholder="Nhập địa chỉ thường trú" onChange={handleFormDataChange}/>  </td>
                                 </tr>

@@ -5,14 +5,14 @@ import Layout from './layout';
 
 function IndividualView(){
     const [requestedData, setRequestedData] = useState({
-        id: 1234567890,
+        code: 1234567890,
         name:"Nguyễn Văn A",
         birthday: "06/09/1969",
         gender: "Name",
         profession: "Streamer",
         religion: "",
         education:"",
-        origin:"",
+        origin_address:"",
         temporary_address:"",
         permanent_address:""
     });
@@ -74,59 +74,61 @@ function IndividualView(){
                         </div>
                     </div>
 
-                    <div className="search-form">
-                    <div className="search-form-container">
-                            <button type="submit">
-                                <i className="ti-search"></i>
-                            </button>
+                    <form>
+                        <div className="search-form">
+                            <div className="search-form-container">
+                                <button type="submit">
+                                    <i className="ti-search"></i>
+                                </button>
 
-                            <div className="cccd-search">
-                                <label htmlFor="cccd-input">
-                                    <h3>Tìm kiếm theo CCCD/CMND: </h3>
-                                </label>
-                                <input type="text" id="cccd-input" />
+                                <div className="cccd-search">
+                                    <label htmlFor="cccd-input">
+                                        <h3>Tìm kiếm theo CCCD/CMND: </h3>
+                                    </label>
+                                    <input type="text" id="cccd-input" />
+                                </div>
+
+                                <div className="normal-search">
+                                    <h3>Tìm kiếm theo thông tin khác: </h3>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <label htmlFor="">Họ và tên: </label>
+                                                <input type="text" name='name'/>
+                                            </td>
+                                            <td>
+                                                <label htmlFor="">Giới tính: </label>
+                                                <input type="text" name='gender' />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label htmlFor="">Nghề nghiệp: </label>
+                                                <input type="text" name='profession' />
+                                            </td>
+                                            <td>
+                                                <label htmlFor="">Tôn giáo: </label>
+                                                <input type="text" name='religion' />
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>
+                                                <label htmlFor="">Ngày/Tháng/Năm sinh: </label>
+                                                <input type="date" name='birthday' />
+                                            </td>
+
+                                            <td>
+                                                <label htmlFor="">Trình độ học vấn: </label>
+                                                <input type="text" name='education' />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
                             </div>
-
-                            <div className="normal-search">
-                                <h3>Tìm kiếm theo thông tin khác: </h3>
-                                <table>
-                                    <tr>
-                                        <td>
-                                            <label htmlFor="">Họ và tên: </label>
-                                            <input type="text" />
-                                        </td>
-                                        <td>
-                                            <label htmlFor="">Giới tính: </label>
-                                            <input type="text" />
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <label htmlFor="">Nghề nghiệp: </label>
-                                            <input type="text" />
-                                        </td>
-                                        <td>
-                                            <label htmlFor="">Tôn giáo: </label>
-                                            <input type="text" />
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <label htmlFor="">Ngày/Tháng/Năm sinh: </label>
-                                            <input type="text" />
-                                        </td>
-
-                                        <td>
-                                            <label htmlFor="">Trình độ học vấn: </label>
-                                            <input type="text" />
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                    </div>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </>

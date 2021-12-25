@@ -125,9 +125,9 @@ function AnalysisView() {
         const fieldValue = event.target.checked;
 
         if (fieldValue === true) {
-            setFilterData([...filterData, fieldValue]);
+            setFilterData([...filterData, fieldID]);
         } else if (fieldValue === false) {
-            setFilterData(filterData.filter(item => item.value !== fieldID));
+            setFilterData(filterData.filter(item => item !== fieldID));
         }
     }
     return(

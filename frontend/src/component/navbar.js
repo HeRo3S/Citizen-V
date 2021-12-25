@@ -35,7 +35,7 @@ function Navbar() {
                             <Link to="/accountManager" >Quản lý tài khoản</Link>
                         </li>
                         <li>
-                            <Link to="" >Theo dõi tiến độ</Link>
+                            <Link to="/progressTracking" >Theo dõi tiến độ</Link>
                         </li>
                         <li>
                             <Link to="/analysisView" >Tổng hợp và phân tích</Link>
@@ -58,7 +58,7 @@ function Navbar() {
                             <Link to="/accountManager" >Quản lý tài khoản</Link>
                         </li>
                         <li>
-                            <Link to="" >Theo dõi tiến độ</Link>
+                            <Link to="/progressTracking" >Theo dõi tiến độ</Link>
                         </li>
                         <li>
                             <Link to="/analysisView" >Tổng hợp và phân tích</Link>
