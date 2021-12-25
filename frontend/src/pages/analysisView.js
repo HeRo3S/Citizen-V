@@ -16,21 +16,25 @@ function AnalysisView() {
     const [requestedData, setRequestedData] = useState({
         area:[
             {
+                id: 1,
                 code: "01",
                 name: "Ha Noi",
             },
             {
+                id: 2,
                 code: "02",
                 name: "Da Nang",
             },
         ], citizen: [
             {
                 id: "0001",
+                code:"",
                 name: "Pham Tuan Hung",
                 gender: "Helicopter",
                 birthday: "2001/09/25",
             },{
                 id: "0002",
+                code:"",
                 name: "Pham Tuan Hung",
                 gender: "Futanari",
                 birthday: "2001/09/25",
@@ -120,15 +124,21 @@ function AnalysisView() {
 
     //handle clickbox Onchange evnet
     const handleFilterCheckboxClickedEvent = (event) => {
-        //event.preventDefault();
 
         const fieldID = event.target.getAttribute('id');
+        const fieldCode = event.target.getAttribute('name');
         const fieldValue = event.target.checked;
 
+        const addFilterData = {
+            id:"",
+            full_code:""
+        }
         if (fieldValue === true) {
-            setFilterData([...filterData, fieldID]);
+            addFilterData.id = fieldID;
+            addFilterData.full_code = fieldCode;
+            setFilterData([...filterData, addFilterData]);
         } else if (fieldValue === false) {
-            setFilterData(filterData.filter(item => item !== fieldID));
+            setFilterData(filterData.filter(item => item.id !== fieldID));
         }
     }
     return(

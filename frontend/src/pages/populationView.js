@@ -1,5 +1,4 @@
 import React, { useEffect, useState }from 'react'
-import Navbar from '../component/navbar.js'
 import FilterBar from '../component/populationView/filter'
 import userServices from '../services/user.services'
 import jwt from 'jwt-decode'
@@ -13,21 +12,25 @@ function PopulationView() {
     {
         area:[
             {
+                id: 1,
                 code: "01",
                 name: "Ha Noi",
             },
             {
+                id: 2,
                 code: "02",
                 name: "Da Nang",
             },
         ], citizen: [
             {
                 id: "0001",
+                code:"",
                 name: "Pham Tuan Hung",
                 gender: "Helicopter",
                 birthday: "2001/09/25",
             },{
                 id: "0002",
+                code:"",
                 name: "Pham Tuan Hung",
                 gender: "Futanari",
                 birthday: "2001/09/25",
@@ -36,8 +39,6 @@ function PopulationView() {
     });
     //data prepare to post hook
     const [filterData, setFilterData] = useState([])
-    //onchange tracking hook
-    const [addFilterData, setAddFilterData] = useState();
 
     //local data hooks
     const [citiesRequestedData, setCitiesRequestedData] = useState([]);
@@ -120,13 +121,21 @@ function PopulationView() {
         //event.preventDefault();
 
         const fieldID = event.target.getAttribute('id');
+        const fieldCode = event.target.getAttribute('name');
         const fieldValue = event.target.checked;
 
-        if (fieldValue === true) {
-            setFilterData([...filterData, fieldID]);
-        } else if (fieldValue === false) {
-            setFilterData(filterData.filter(item => item !== fieldID));
+        const addFilterData = {
+            id:"",
+            full_code:""
         }
+        if (fieldValue === true) {
+            addFilterData.id = fieldID;
+            addFilterData.full_code = fieldCode;
+            setFilterData([...filterData, addFilterData]);
+        } else if (fieldValue === false) {
+            setFilterData(filterData.filter(item => item.id !== fieldID));
+        }
+
     }
 
     const render =  () => {
@@ -134,7 +143,7 @@ function PopulationView() {
         return citizenData.map(item => {
             return (
             <tr key={item.id}>
-                <td>{item.id}</td>
+                <td>{item.code}</td>
                 <td>{item.name}</td>
                 <td>{item.gender}</td>
                 <td>{item.birthday}</td>

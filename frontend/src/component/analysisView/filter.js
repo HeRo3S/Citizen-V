@@ -21,7 +21,7 @@ function FilterBar({areaData, handleFilterClickEvent, handleFilterReturnEvent, h
                         areaData.map((item) => {
                             return (
                                 <div className="checkbox-form" key={item.id}>
-                                    <input type="checkbox" name={item.full_code} id={item.full_code} onChange={handleFilterCheckboxClickedEvent}  />
+                                    <input type="checkbox" name={item.full_code} id={item.id} onChange={handleFilterCheckboxClickedEvent}  />
                                     <label htmlFor={item.full_code}>
                                         {item.name}
                                     </label>
