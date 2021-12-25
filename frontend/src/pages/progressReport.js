@@ -35,20 +35,20 @@ function ProgressReport() {
 
                 <div className='report-body'>
                     <h3>{requestedData.name}</h3>
-                    {() => {
-                            if (requestedData.finish_status){
-                                return (
+                    {
+                            (requestedData.finish_status) ?
+                                 (
                                     <>
                                         <i className='ti-face-smile'></i>
                                         <h3>Hoàn tất</h3>
                                     </>
-                            )} else return (
+                            ) : (
                                     <>
                                         <i className='ti-face-sad'></i>
                                         <h3>Chưa hoàn tất</h3>
                                     </>
                             )
-                    }}
+                    }
                 </div>
 
                 <div className='report-footer'>
