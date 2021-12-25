@@ -29,7 +29,7 @@ const postAccountManagerData = (data) => {
 }
 
 const getProgressTrackingData = () => {
-    return axios.post(API_KEY + "progress_tracking",
+    return axios.get(API_KEY + "progress_tracking",
     {headers: authHeader()},
     );
 }
