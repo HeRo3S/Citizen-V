@@ -1,5 +1,6 @@
 require("dotenv").config()
 const express = require("express")
+const { Sequelize } = require("sequelize/dist")
 const area = require("../../models/area")
 const sequelize = require("../../models/sequelize")
 const userAccount = require("../../models/user_account")
@@ -89,6 +90,52 @@ areaRouter.route("/api/progress_tracking")
     return res.status(404)
 
 })
+
+//Process finish status request
+
+areaRouter.route("/api/progress_report")
+.post(verifyToken, async (req, res) => {
+    console.log(req.body)
+    await area.update({
+        finish_status: req.body.finish_status
+    },{
+        where: {
+            id: req.user.manage_area
+        },
+        individualHooks: true
+    },
+    )
+    .then(() => {
+        res.status(204)
+    })
+    .catch(error => {
+        console.log(error)
+        res.status(500)
+    })
+})
+.get(verifyToken,async (req, res) => {
+    try{
+        data = await area.findByPk(req.user.manage_area, {
+            attributes: ["name", "finish_status", [Sequelize.col('user_account.username'), "code"]],
+            include: [
+                {
+                    model: userAccount,
+                    attributes: []
+                }
+            ]
+        })
+        return res.send(data.toJSON())
+    }
+    catch(err){
+        console.log(err)
+    }
+    return res.status(404)
+
+})
+
+
+
+//Get analysis data
 
 areaRouter.route("/api/analysis_view")
 .post(verifyToken, async (req, res) => {
