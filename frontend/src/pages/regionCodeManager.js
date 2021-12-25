@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import ProgressBar from '../component/progress'
 import userServices from "../services/user.services.js"
 import './regionCodeManager.css'
-import Navbar from '../component/navbar'
 import Layout from './layout'
 
 function RegionCodeManager() {
