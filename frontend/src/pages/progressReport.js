@@ -28,23 +28,32 @@ function ProgressReport() {
 
     const render = () => {
         return (
-            <div>
-                <h3>{requestedData.name}</h3>
-                {() => {
-                        if (requestedData.finish_status){
-                            return (
-                                <>
-                                    <i></i>
-                                    <h3>Hoan tat</h3>
-                                </>
-                        )} else return (
-                                <>
-                                    <i></i>
-                                    <h3>Chua hoan tat</h3>
-                                </>
-                        )
-                }}
-                <button onClick={changeFinishStatus}>Change status</button>
+            <div id='report-form'>
+                <div className='report-header'>
+                    Báo cáo tiến độ
+                </div>
+
+                <div className='report-body'>
+                    <h3>{requestedData.name}</h3>
+                    {() => {
+                            if (requestedData.finish_status){
+                                return (
+                                    <>
+                                        <i className='ti-face-smile'></i>
+                                        <h3>Hoàn tất</h3>
+                                    </>
+                            )} else return (
+                                    <>
+                                        <i className='ti-face-sad'></i>
+                                        <h3>Chưa hoàn tất</h3>
+                                    </>
+                            )
+                    }}
+                </div>
+
+                <div className='report-footer'>
+                    <button onClick={changeFinishStatus}>Change status</button>
+                </div>
             </div>
         )
     }
@@ -52,7 +61,7 @@ function ProgressReport() {
     return (
         <div>
             <Layout />
-            <div className="main" id="population-page">
+            <div className="main" id="report-page">
                 <div className="container">
                     {render()}
                 </div>

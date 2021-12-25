@@ -4,7 +4,7 @@ import Chart from "react-google-charts"
 function AgeChart() {
     return(
         <>
-            <Chart
+            <Chart className="age-chart"
                   chartType="ColumnChart"
                   loader={<div>Loading Chart</div>}
                   data={[
