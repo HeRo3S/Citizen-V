@@ -40,14 +40,14 @@ function ProgressTracking() {
     return (
         <div>
             <Layout />
-            <div className="main" id="population-page">
+            <div className="main" id="progress-page">
                 <div className="container">
                     <table>
                         <thead>
                             <tr>
-                                <th>Ma vung</th>
-                                <th>Ten vung</th>
-                                <th>Tien do</th>
+                                <th style={{width: '20%'}}>Mã vùng</th>
+                                <th style={{width: '60%'}}>Tên vùng</th>
+                                <th style={{width: '20%'}}>Tiến độ</th>
                             </tr>
                         </thead>
                         <tbody>
