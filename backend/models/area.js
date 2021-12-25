@@ -45,7 +45,10 @@ userAccount.belongsTo(area, {
     foreignKey: 'manage_area',
     allowNull: true
 })
-
+area.hasOne(userAccount, {
+    foreignKey: 'manage_area',
+    allowNull: true
+})
 area.belongsTo(area, {
     foreignKey: 'belong_to',
     as: "child_area",

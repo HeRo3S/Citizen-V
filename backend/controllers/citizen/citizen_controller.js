@@ -1,20 +1,44 @@
+const { Op } = require("sequelize/dist")
 const area = require("../../models/area")
+const citizen = require("../../models/citizen")
 
-getCitizenList = async (area_id) => {
-    data = await area.findOne({
+getCitizenList = async (area_code) => {
+    area_code = area_code.concat("%")
+    raw_data = await citizen.findAll({
         where: {
-            id : area_id
+            area_code: {
+                [Op.like]: area_code
+            }
         },
-        include:{
-            all: true,
-            nested: true
-        }
+        limit: 20
     })
+    data = []
+    for(sub of raw_data){
+        data.push(sub.toJSON())
+    }
     return data
 }
 
+addCitizen = async (target, area_code, area_id) => {
+    await citizen.create({
+        code: target.code,
+        name: target.name,
+        birthday: target.birthday,
+        gender: target.gender,
+        profession: target.profession,
+        education: target.education,
+        religion: target.religion,
+        origin_address: target.origin_address,
+        temporary_address: target.temporary_address,
+        permanent_address: target.permanent_address,
+        belong_to: area_id,
+        area_code: area_code
+    })
+}
+
 const citizenControl = {
-    getCitizenList: getCitizenList
+    getCitizenList: getCitizenList,
+    addCitizen: addCitizen
 }
 
 module.exports = citizenControl

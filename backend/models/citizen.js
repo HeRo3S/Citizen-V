@@ -51,6 +51,10 @@ const citizen = sequelize.define("citizen", {
         type: DataTypes.CHAR(30),
         allowNull: false,
         defaultValue: "Không"
+    },
+    area_code: {
+        type: DataTypes.CHAR(10),
+        allowNull: false
     }
 
 }, {
@@ -83,6 +87,10 @@ const citizen = sequelize.define("citizen", {
             unique: false,
             fields: ['profession']
         },
+        {
+            unique: false,
+            fields: ['area_code']
+        }
     ]
 })
 

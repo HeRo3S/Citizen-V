@@ -6,7 +6,8 @@ const userAccount = require("../../models/user_account")
 const { verifyToken } = require("../auth/auth_controller")
 const areaRouter = express.Router()
 
-areaRouter.route("/api/region_code").post(verifyToken, async (req, res) => {
+areaRouter.route("/api/region_code")
+.post(verifyToken, async (req, res) => {
     data = req.body[0]
     if(!data){
         return res.status(400).send({message: "No data found"})

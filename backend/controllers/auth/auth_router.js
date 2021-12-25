@@ -4,14 +4,15 @@ const jwt = require("jsonwebtoken")
 const { Sequelize } = require("sequelize/dist")
 const area = require("../../models/area")
 const userAccount = require("../../models/user_account")
-const citizenControl = require("../citizen/citizen_controller")
 const { verifyToken } = require("./auth_controller")
 const authRouter = express.Router()
 const authControl = require('./auth_controller')
 
 
 // authControl.createUser("superuser", "TTStudio1902", 0, null)
-authRouter.route("/api/auth/signin").post(async (req, res) =>{
+authRouter.route("/api/auth/signin")
+
+.post(async (req, res) =>{
     reqData = req.body
     try{
         user = await authControl.authUser(reqData.username, reqData.password)
@@ -26,7 +27,9 @@ authRouter.route("/api/auth/signin").post(async (req, res) =>{
     return res.send({accessToken: token})
 })
 
-authRouter.route("/api/accountManager").get(verifyToken,async (req, res) => {
+authRouter.route("/api/accountManager")
+
+.get(verifyToken,async (req, res) => {
     raw_data = await userAccount.findAll({
         attributes: ["id", "open_status", [Sequelize.col('area.code'), "code"], [Sequelize.col('area.name'), "name"]],
         where: {
@@ -53,7 +56,8 @@ authRouter.route("/api/accountManager").get(verifyToken,async (req, res) => {
         return res.send(data)
     }
     return res.status(404)
-}).post(verifyToken, async (req, res) => {
+})
+.post(verifyToken, async (req, res) => {
     promises = []
     for (user of req.body){
         promises.push(userAccount.update({

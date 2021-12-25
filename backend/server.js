@@ -10,6 +10,7 @@ const cors = require("cors")
 require("ejs")
 const sequelize = require("./models/sequelize")
 const areaRouter = require("./controllers/area/area_router")
+const citizenRouter = require("./controllers/citizen/citizen_router")
 
 //                                                         Import sequelize model
 
@@ -23,7 +24,7 @@ const areaRouter = require("./controllers/area/area_router")
 //     require(path.join(models, file))
 //   })
   
-//   sequelize.sync({force: true}).catch(error => {
+//   sequelize.sync({alter: true}).catch(error => {
 //       console.log(error)
 //   });
 
@@ -53,7 +54,7 @@ app.use(session({
 app.use(cors())
 app.use("/", authRouter)
 app.use("/", areaRouter)
-
+app.use("/", citizenRouter)
 app.listen(3001)
 
 console.log("Listening on port 3001")
