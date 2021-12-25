@@ -2,7 +2,7 @@ const { Op } = require("sequelize/dist")
 const area = require("../../models/area")
 const citizen = require("../../models/citizen")
 
-getCitizenList = async (area_code) => {
+getCitizenList = async (area_code, amount) => {
     area_code = area_code.concat("%")
     raw_data = await citizen.findAll({
         where: {
@@ -10,7 +10,7 @@ getCitizenList = async (area_code) => {
                 [Op.like]: area_code
             }
         },
-        limit: 20
+        limit: amount
     })
     data = []
     for(sub of raw_data){

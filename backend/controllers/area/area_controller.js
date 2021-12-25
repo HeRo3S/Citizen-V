@@ -12,7 +12,7 @@ addArea = async (name, code, level, belong_to) => {
 
 getChildArea = async(area_id) => {
     raw_data = await area.findAll({
-        attributes: ["id", "finish_status", "code", [Sequelize.col('user_account.username'), "full_code"]],
+        attributes: ["id", "name", "code", [Sequelize.col('user_account.username'), "full_code"]],
         where: {
             belong_to: area_id
         },
