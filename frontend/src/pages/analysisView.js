@@ -147,8 +147,8 @@ function AnalysisView() {
             <div className="main" id="population-page">
                 <div className="container">
                    <AgeChart />
-                   <EducationChart />
                    <GenderChart />
+                   <EducationChart />
                    <ReligionChart />
                    <JobChart />
                 </div>

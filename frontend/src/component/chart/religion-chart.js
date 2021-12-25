@@ -8,7 +8,7 @@ function ReligionChart() {
                   chartType="PieChart"
                   loader={<div>Loading Chart</div>}
                   data={[
-                    ['string', 'number'],
+                    ['Đạo', 'Tổng'],
                     ['Phật giáo', 21],
                     ['Kito giáo', 14],
                     ['Hồi giáo', 9],

@@ -5,10 +5,10 @@ function EducationChart() {
     return(
         <>
             <Chart
-                  chartType="PieChart"
+                  chartType="BarChart"
                   loader={<div>Loading Chart</div>}
                   data={[
-                    ['string', 'number'],
+                    ['Cấp học', 'Tổng'],
                     ['Cấp 1', 21],
                     ['Cấp 2', 14],
                     ['Cấp 3', 9],
@@ -25,6 +25,14 @@ function EducationChart() {
                     tooltip: {
                       showColorCode: true,
                       ignoreBounds: true,
+                    },
+                    legend: 'none',
+                    vAxis: {
+                      title: 'Cấp học',
+                    },
+                    hAxis: {
+                      title: 'Số dân',
+                      minValue: 0,
                     },
                   }}
             />

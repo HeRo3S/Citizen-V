@@ -5,7 +5,7 @@ function JobChart() {
     return(
         <>
             <Chart
-                  chartType="PieChart"
+                  chartType="ColumnChart"
                   loader={<div>Loading Chart</div>}
                   data={[
                     ['string', 'number'],
@@ -25,10 +25,18 @@ function JobChart() {
                     'height': 600,
                     backgroundColor: '#DFE6E9',
                     pieSliceText: 'none',
-                    fontSize: 25 ,
+                    fontSize: 20 ,
                     tooltip: {
                       showColorCode: true,
                       ignoreBounds: true,
+                    },
+                    legend: 'none',
+                    vAxis: {
+                      title: 'Số dân',
+                    },
+                    hAxis: {
+                      title: 'Nghề nghiệp',
+                      minValue: 0,
                     },
                   }}
             />

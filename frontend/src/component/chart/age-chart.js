@@ -5,10 +5,10 @@ function AgeChart() {
     return(
         <>
             <Chart
-                  chartType="PieChart"
+                  chartType="ColumnChart"
                   loader={<div>Loading Chart</div>}
                   data={[
-                    ['string', 'number'],
+                    ['Số tuổi', 'Tổng'],
                     ['0->6', 21],
                     ['6->18', 14],
                     ['18->24', 9],
@@ -22,10 +22,18 @@ function AgeChart() {
                     'height': 600,
                     backgroundColor: '#DFE6E9',
                     pieSliceText: 'none',
-                    fontSize: 25 ,
+                    fontSize: 20 ,
                     tooltip: {
                       showColorCode: true,
                       ignoreBounds: true,
+                    },
+                    legend: 'none',
+                    vAxis: {
+                      title: 'Số dân',
+                    },
+                    hAxis: {
+                      title: 'Tuổi',
+                      minValue: 0,
                     },
                   }}
             />
