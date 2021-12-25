@@ -83,7 +83,7 @@ function Navbar() {
                 return (
                     <>
                         <li>
-                            <Link to="" >Nhập liệu dữ liệu</Link>
+                            <Link to="/individualInput" >Nhập liệu dữ liệu</Link>
                         </li>
                     </>
                 )
