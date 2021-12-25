@@ -13,7 +13,7 @@ function IndividualView(){
         religion: "",
         education:"",
         origin_address:"",
-        temporary_address:"",
+        temporary_address:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
         permanent_address:""
     });
 
@@ -74,8 +74,7 @@ function IndividualView(){
                         </div>
                     </div>
 
-                    <form>
-                        <div className="search-form">
+                    <form className='search-form'>
                             <div className="search-form-container">
                                 <button type="submit">
                                     <i className="ti-search"></i>
@@ -126,7 +125,6 @@ function IndividualView(){
                                         </tr>
                                     </table>
                                 </div>
-                            </div>
                         </div>
                     </form>
                 </div>
