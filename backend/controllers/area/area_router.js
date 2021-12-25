@@ -4,8 +4,11 @@ const area = require("../../models/area")
 const sequelize = require("../../models/sequelize")
 const userAccount = require("../../models/user_account")
 const { verifyToken } = require("../auth/auth_controller")
+const { getAreaProgess } = require("./area_controller")
 const areaRouter = express.Router()
 
+
+//Add new area
 areaRouter.route("/api/region_code")
 .post(verifyToken, async (req, res) => {
     data = req.body[0]
@@ -69,5 +72,24 @@ areaRouter.route("/api/region_code")
     }
     return res.status(404).send({message: "No area found"})
 })
+
+//Get current area's progress
+
+
+areaRouter.route("api/progess_tracking")
+.get(verifyToken,async (req, res) => {
+    try{
+        data = await getAreaProgess(req.user.manage_area)
+        return res.send(data)
+    }
+    catch(err){
+        console.log(err)
+    }
+    return res.status(404)
+
+})
+
+
+
 
 module.exports = areaRouter
