@@ -1,7 +1,7 @@
 import React from "react";
 import './filter.css'
 
-function FilterBar({requestedData, handleFilterClickEvent, handleFilterReturnEvent, handleFilterCheckboxClickedEvent} ) {
+function FilterBar({areaData, handleFilterClickEvent, handleFilterReturnEvent, handleFilterCheckboxClickedEvent} ) {
     return(
         <form>
         <div id="filter-bar" className="bar">
@@ -18,12 +18,12 @@ function FilterBar({requestedData, handleFilterClickEvent, handleFilterReturnEve
 
                 <div className="filter-bar-content">
                     {
-                        requestedData.map((item) => {
+                        areaData.map((item) => {
                             return (
-                                <div className="checkbox-form">
-                                    <input type="checkbox" name={item.area.code} id={item.area.code} onChange={handleFilterCheckboxClickedEvent}  />
-                                    <label htmlFor={item.area.id}>
-                                        {item.area.name}
+                                <div className="checkbox-form" key={item.id}>
+                                    <input type="checkbox" name={item.full_code} id={item.full_code} onChange={handleFilterCheckboxClickedEvent}  />
+                                    <label htmlFor={item.full_code}>
+                                        {item.name}
                                     </label>
                                 </div>
                             )

@@ -13,30 +13,31 @@ import Layout from './layout.js';
 function AnalysisView() {
     const user =  jwt(localStorage.getItem("user"));
     const [exploreLevel, setExploreLevel] = useState(user.access_level);
-    const [requestedData, setRequestedData] = useState([{
-        area: {
-            id: "01",
-            name: "Ha Noi",
-        },
-        citizen: {
-            id: "0001",
-            name: "Pham Tuan Hung",
-            gender: "Helicopter",
-            birthday: "2001/09/25",
-        }
-    },{
-        area: {
-            id: "02",
-            name: "Da Nang",
-        },
-        citizen: {
-            id: "0002",
-            name: "Pham Tuan Hung",
-            gender: "Futanari",
-            birthday: "2001/09/25",
-        }
+    const [requestedData, setRequestedData] = useState({
+        area:[
+            {
+                code: "01",
+                name: "Ha Noi",
+            },
+            {
+                code: "02",
+                name: "Da Nang",
+            },
+        ], citizen: [
+            {
+                id: "0001",
+                name: "Pham Tuan Hung",
+                gender: "Helicopter",
+                birthday: "2001/09/25",
+            },{
+                id: "0002",
+                name: "Pham Tuan Hung",
+                gender: "Futanari",
+                birthday: "2001/09/25",
+            }
+        ]
     }
-    ]);
+    );
     //data prepare to post hook
     const [filterData, setFilterData] = useState([])
     //onchange tracking hook
@@ -142,7 +143,7 @@ function AnalysisView() {
                    <JobChart />
                 </div>
             </div>
-           <FilterBar requestedData={requestedData} handleFilterClickEvent={handleFilterClickEvent} handleFilterReturnClickEvent={handleFilterReturnClickEvent} handleFilterCheckboxClickedEvent={handleFilterCheckboxClickedEvent} />
+           <FilterBar areaData={requestedData.area} handleFilterClickEvent={handleFilterClickEvent} handleFilterReturnClickEvent={handleFilterReturnClickEvent} handleFilterCheckboxClickedEvent={handleFilterCheckboxClickedEvent} />
         </>
     )
 }
