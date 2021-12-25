@@ -60,3 +60,136 @@
     color: black;
     background-color:#FF7675;
 }
+
+#nav-bar-btn
+{
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    display: none;
+    margin-top: 20px;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.nav-overlay
+{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    animation: fadeIn linear 0.2s;
+}
+
+#nav-res
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 23vw;
+    background-color: white;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform linear 0.2s, opacity linear 0.2s;
+}
+
+#nav-res .close-label
+{
+    position: absolute;
+    font-size: 40px;
+    right: 0.5rem;
+    top: 0.5rem;
+    cursor: pointer;
+}
+
+#nav-res ul
+{
+    list-style: none;
+    margin-top: 6vh;
+    height: 90vh;
+    width: 22vw;
+    left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#nav-res ul li
+{
+    text-align: center;
+    line-height: 50px;
+}
+
+#nav-res ul li a
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #3E5463;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+}
+
+#nav-bar-input
+{
+    display: none;
+}
+
+#nav-bar-input:checked ~ .nav-overlay
+{
+    display: block;
+} 
+
+#nav-bar-input:checked ~ #nav-res
+{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+#nav-bar-input:checked ~ .ti-close
+{
+    display: none;
+}
+
+#nav-res ul > li:hover > a
+{
+    color: black;
+    background-color:#FF7675;   
+}
+
+@keyframes fadeIn
+{
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Res for tablet */
+@media screen and (max-width: 1300px) 
+{
+    #brand
+    {
+        left: 35vw;
+    }
+
+    #nav-bar-btn
+    {
+        display: block;
+    }
+
+    #nav
+    {
+        display: none;
+    }
+}

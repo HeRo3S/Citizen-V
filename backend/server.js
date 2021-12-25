@@ -38,19 +38,9 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
 app.use(express.urlencoded( {extended: true} ))
-//Session
-app.use(session({
-    key: 'user_sid',
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
-    rolling: true,
-    cookie: {
-        expires: 600000,
-    }
-  }))
 
-//                                              ROUTING
+
+//                                                                 ROUTING
 app.use(cors())
 app.use("/", authRouter)
 app.use("/", areaRouter)

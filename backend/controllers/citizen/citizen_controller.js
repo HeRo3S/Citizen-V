@@ -1,4 +1,4 @@
-const { Op } = require("sequelize/dist")
+const { Op, fn, col } = require("sequelize/dist")
 const moment = require("moment")
 const citizen = require("../../models/citizen")
 
@@ -46,7 +46,7 @@ getCitizenRatioByAttribute = async (area_code_arr, attribute) => {
     for(code of area_code_arr){
         area_code.push({[Op.startsWith]: code})
     }
-    raw_data = await citizen.findAndCountAll({
+    raw_data = await citizen.findAll({
         where: {
             area_code: {
                 [Op.or]: area_code
@@ -54,13 +54,19 @@ getCitizenRatioByAttribute = async (area_code_arr, attribute) => {
         },
         attributes: 
         [
-            attribute
-        ],
-        group: [
+            [attribute, "attribute"],
+            [fn("COUNT", col(attribute)), "count"]
+        ]
+        ,
+        group:[
             attribute
         ]
     })
-    return raw_data.count
+    data = []
+    for(sub of raw_data){
+        data.push(sub.toJSON())
+    }
+    return data
 }
 
 //Get the total amount of citizens in the specified range
@@ -97,15 +103,17 @@ getCitizenRatioByAge =async (area_code_arr) => {
     promises.push(getCitizenCountByAge(24, 60, area_code_arr))
     promises.push(getCitizenCountByAge(60, 75, area_code_arr))
     promises.push(getCitizenCountByAge(75, 300, area_code_arr))
-    
+
     age_data = await Promise.all(promises)
-    return {fr0to6 : age_data[0], 
-            fr6to18 : age_data[1],
-            fr18to24 : age_data[2], 
-            fr24to60 : age_data[3], 
-            fr60to75 : age_data[4], 
-            fr75on : age_data[5], 
-            }
+    return [
+        ['Số tuổi', 'Tổng'],
+        ['0-6', age_data[0]],
+        ['6-18', age_data[1]],
+        ['18-24', age_data[2]],
+        ['24-60', age_data[3]],
+        ['60-75', age_data[4]],
+        ['75-100+', age_data[5]],
+    ]
 } 
 
 const citizenControl = {

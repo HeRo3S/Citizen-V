@@ -35,6 +35,13 @@ const area = sequelize.define("area", {
         afterUpdate: target => {
             if(target.dataValues.finish_status != target._previousDataValues.finish_status){
                 if(target.dataValues.finish_status){
+                    area.update({
+                        finish_status: true
+                    },{
+                        where: {
+                            belong_to: target.dataValues.id
+                        }
+                    })
                     area.findAll({
                         where: {
                             belong_to: target.dataValues.belong_to
@@ -67,7 +74,7 @@ const area = sequelize.define("area", {
                         finish_status: false
                     },{
                         where: {
-                            id: target.belong_to
+                            id: target.dataValues.belong_to
                         }
                     })
                 }
