@@ -133,8 +133,8 @@ function AccountManager() {
                                     <th style={{width: "10%"}}>Mã</th>
                                     <th style={{width: "40%"}}>Tên</th>
                                     <th style={{width: "25%"}}>Tài khoản</th>
-                                    <th style={{width: "15%"}}>Khai báo</th>
-                                    <th style={{width: "10%"}}></th>
+                                    <th style={{width: "11%"}}>Khai báo</th>
+                                    <th style={{width: "14%"}}></th>
                                 </tr>      
                             </thead>
                             <tbody>

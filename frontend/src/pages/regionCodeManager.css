@@ -72,13 +72,11 @@
 .declare-page-button
 {
     margin-top: 40px;
-    width: 100%;
-    padding-left: 34.5%;
-}
-
-#declare-page-button-add
-{
-    margin-right: 5%;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .declare-page-content table

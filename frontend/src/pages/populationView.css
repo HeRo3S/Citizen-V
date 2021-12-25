@@ -2,9 +2,3 @@
 {
     border-spacing: 0px 30px;
 }
-
-#population-page table td:hover
-{
-    overflow: visible;
-    white-space: pre-line;
-}
