@@ -8,7 +8,7 @@ function JobChart() {
                   chartType="ColumnChart"
                   loader={<div>Loading Chart</div>}
                   data={[
-                    ['string', 'number'],
+                    ['Nghè', 'Tổng'],
                     ['IT', 21],
                     ['Bác sĩ', 14],
                     ['Quân đội', 9],
