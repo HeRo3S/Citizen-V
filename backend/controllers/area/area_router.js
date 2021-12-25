@@ -76,7 +76,7 @@ areaRouter.route("/api/region_code")
 //Get current area's progress
 
 
-areaRouter.route("api/progess_tracking")
+areaRouter.route("/api/progress_tracking")
 .get(verifyToken,async (req, res) => {
     try{
         data = await getAreaProgess(req.user.manage_area)

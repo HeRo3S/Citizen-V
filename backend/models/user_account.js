@@ -35,11 +35,23 @@ const userAccount = sequelize.define("user_account", {
         },
         beforeBulkUpdate: user => {
             user = user.attributes
-            if (user.password.indexOf('$2b$') === 0){
+            if (!user.password ||user.password.indexOf('$2b$') === 0){
                 return
             }
             const salt = bcrypt.genSaltSync()
             user.password = bcrypt.hashSync(user.password, salt)
+        },
+        afterBulkUpdate: user => {
+            console.log(user._change)
+            if(!user.attributes.open_status){
+                userAccount.update({
+                    open_status: false
+                },{
+                    where: {
+                        manager_account: user._changed.id
+                    }
+                })
+            }
         }
     }, indexes: [
         {

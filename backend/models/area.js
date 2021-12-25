@@ -28,7 +28,53 @@ const area = sequelize.define("area", {
         type: DataTypes.TINYINT,
         allowNull: false
     }
-}, {
+},{
+    hooks: {
+
+        //Auto detect finish status for higher area
+        afterBulkUpdate: target => {
+            target = target.attributes
+            if(target.finish_status != null){
+                if(target.finish_status){
+                    area.findAll({
+                        where: {
+                            belong_to: target.belong_to
+                        },
+                        attributes: [
+                            'finish_status'
+                        ]
+                    }).then(data => {
+                        canFinish = true
+                        for(sub of data){
+                            if(!sub.toJSON().finish_status){
+                                canFinish = false
+                                break
+                            }
+                        }
+                        if(canFinish){
+                            area.update({
+                                finish_status: true
+                            },{
+                                where: {
+                                    id: target.belong_to
+                                }
+                            })
+                        }
+                    })
+                }
+                else{
+                    area.update({
+                        finish_status: false
+                    },{
+                        where: {
+                            id: target.belong_to
+                        }
+                    })
+                }
+            }
+        }
+    }
+},{
     indexes: [
         {
             unique: false,
