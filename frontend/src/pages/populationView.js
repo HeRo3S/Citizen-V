@@ -11,7 +11,6 @@ function PopulationView() {
     const [exploreLevel, setExploreLevel] = useState(user.access_level);
     const [requestedData, setRequestedData] = useState([{
         area: {
-            id: 1,
             code: "01",
             name: "Ha Noi",
         },
@@ -23,7 +22,6 @@ function PopulationView() {
         }
     },{
         area: {
-            id: 2,
             code: "02",
             name: "Da Nang",
         },
@@ -53,6 +51,28 @@ function PopulationView() {
         }
         switch(exploreLevel) {
             case 0:
+                setCitiesRequestedData(requestedData);
+                break;
+            case 1:
+                setDistrictsRequestedData(requestedData);
+                break;
+            case 2:
+                setWardsRequestedData(requestedData);
+                break;
+            case 3:
+                setVillagesRequestedData(requestedData);
+                break;
+            default:
+                alert("Can't explore any further!");
+                return;
+        } 
+    }
+
+    //load data from local storage function
+    const loadLocalData = () => {
+        
+        switch(exploreLevel) {
+            case 0:
                 setRequestedData(citiesRequestedData);
                 break;
             case 1:
@@ -68,27 +88,6 @@ function PopulationView() {
                 alert("Can't explore any further!");
                 return;
         }
-    }
-
-    //load data from local storage function
-    const loadLocalData = () => {
-        switch(exploreLevel) {
-            case 0:
-                setCitiesRequestedData(requestedData);
-                break;
-            case 1:
-                setDistrictsRequestedData(requestedData);
-                break;
-            case 2:
-                setWardsRequestedData(requestedData);
-                break;
-            case 3:
-                setVillagesRequestedData(requestedData);
-                break;
-            default:
-                alert("Can't explore any further!");
-                return;
-        }       
     }
 
     //handle apply Filter click event

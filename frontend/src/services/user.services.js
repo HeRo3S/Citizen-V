@@ -28,6 +28,19 @@ const postAccountManagerData = (data) => {
     );
 }
 
+const getProgressTrackingData = () => {
+    return axios.post(API_KEY + "progress_tracking",
+    {headers: authHeader()},
+    );
+}
+
+const postProgressTrackingData = (data) => {
+    return axios.post(API_KEY + "progress_tracking",
+    data,
+    {headers: authHeader()}
+    );
+}
+
 const getPopulationData = () => {
     return axios.get(API_KEY + "population_view", {headers: authHeader() });
 }
@@ -71,6 +84,8 @@ export default {
     postRegionCodeData,
     getAccountManagerData,
     postAccountManagerData,
+    getProgressTrackingData,
+    postProgressTrackingData,
     getPopulationData,
     postPopulationRequested,
     getIndividualViewData,

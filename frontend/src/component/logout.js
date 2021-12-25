@@ -9,6 +9,7 @@ function LogoutBar({user}) {
     const handleLogoutClick = () => {
         authService.logout();
         navigate("/");
+        window.location.reload(false);
     }
 
     return(
