@@ -1,6 +1,17 @@
 import axios from 'axios'
-
+import { useNavigate } from 'react-router-dom';
 const API_KEY = "http://localhost:3001/api/auth/"
+
+axios.interceptors.response.use(response => {
+    return response;
+}, err => {
+    if (err.response.status === 401) {
+        if (localStorage.getItem("user")) {
+            logout();
+        }
+        window.location.reload(false);
+    }
+})
 
 const signup = (username, password) => {
     return axios
