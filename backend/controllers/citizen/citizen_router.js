@@ -25,8 +25,8 @@ citizenRouter.route("/api/population_view")
         account_code = ""
     }
     promises = []
-    promises.push(getChildArea(req.user.manage_area))
-    promises.push(getCitizenList(account_code, 20))
+    promises.push(getChildArea([req.user.manage_area]))
+    promises.push(getCitizenList([account_code], 20))
     try{
         data = await Promise.all(promises)
         return res.send({area: data[0], citizen: data[1]})
@@ -36,17 +36,16 @@ citizenRouter.route("/api/population_view")
     return res.status(404)
 })
 .post(verifyToken, async (req, res) => {
-
-    citizen_promises = []
-    area_promises = []
+    id_list = []
+    code_list = []
     for(option of req.body){
-        citizen_promises.push(getCitizenList(option.full_code,20))
-        area_promises.push(getChildArea(option.id))
+        id_list.push(option.id)
+        code_list.push(option.full_code)
     }
     try{
-        mix_data = await Promise.all([Promise.all(citizen_promises), Promise.all(area_promises)])
-        citizen_data = mix_data[0].flat(1)
-        area_data = mix_data[1].flat(1)
+        mix_data = await Promise.all([getCitizenList(code_list, 20), getChildArea(id_list)])
+        citizen_data = mix_data[0]
+        area_data = mix_data[1]
         return res.send({area: area_data, citizen: citizen_data})
     }catch(err){
         console.log(err)

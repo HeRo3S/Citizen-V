@@ -4,8 +4,8 @@ const area = require("../../models/area")
 const sequelize = require("../../models/sequelize")
 const userAccount = require("../../models/user_account")
 const { verifyToken } = require("../auth/auth_controller")
-const { getCitizenRatioByProfession, getCitizenRatioByGender, getCitizenRatioByReligion, getCitizenRatioByEducation } = require("../citizen/citizen_controller")
-const { getAreaProgess } = require("./area_controller")
+const { getCitizenRatioByAttribute, getCitizenRatioByAge } = require("../citizen/citizen_controller")
+const { getAreaProgess, getChildArea } = require("./area_controller")
 const areaRouter = express.Router()
 
 
@@ -92,11 +92,65 @@ areaRouter.route("/api/progress_tracking")
 
 areaRouter.route("/api/analysis_view")
 .post(verifyToken, async (req, res) => {
-    console.log(req.body)
+    promises = []
+    id_list = []
+    code_list = []
+    for (sub of req.body){
+        id_list.push(sub.id)
+        code_list.push(sub.full_code)
+    }
+    promises.push(getChildArea(id_list))
+    promises.push(getCitizenRatioByAttribute(code_list, "gender"))
+    promises.push(getCitizenRatioByAttribute(code_list, "education"))
+    promises.push(getCitizenRatioByAttribute(code_list, "religion"))
+    promises.push(getCitizenRatioByAttribute(code_list, "profession"))
+    
+    try{
+        analysis_data = await Promise.all([Promise.all(promises), getCitizenRatioByAge(code_list)])
+        analysis_data.flat(1)
+        return res.send({
+            age: analysis_data[1],
+            area: analysis_data[0][0],
+            gender: analysis_data[0][1],
+            education: analysis_data[0][2],
+            religion: analysis_data[0][3],
+            profession: analysis_data[0][4],
+        })
+    }
+    catch(err) {
+        console.log(err)
+    }
+
+    return res.status(404)
 })
 .get(verifyToken, async (req, res) => {
-    data = await getCitizenRatioByEducation(req.user.user_code)
-    console.log(data)
+    promises = []
+    id_list = [req.user.manage_area]
+    code_list = [req.user.user_code]
+
+    promises.push(getChildArea(id_list))
+    promises.push(getCitizenRatioByAttribute(code_list, "gender"))
+    promises.push(getCitizenRatioByAttribute(code_list, "education"))
+    promises.push(getCitizenRatioByAttribute(code_list, "religion"))
+    promises.push(getCitizenRatioByAttribute(code_list, "profession"))
+    
+    try{
+        analysis_data = await Promise.all([Promise.all(promises), getCitizenRatioByAge(code_list)])
+        analysis_data.flat(1)
+        return res.send({
+            age: analysis_data[1],
+            area: analysis_data[0][0],
+            gender: analysis_data[0][1],
+            education: analysis_data[0][2],
+            religion: analysis_data[0][3],
+            profession: analysis_data[0][4],
+        })
+    }
+    catch(err) {
+        console.log(err)
+    }
+
+    return res.status(404)
 })
 
 

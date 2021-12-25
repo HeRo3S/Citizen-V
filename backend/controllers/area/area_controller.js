@@ -1,6 +1,6 @@
 const area = require("../../models/area")
 const userAccount = require("../../models/user_account")
-const { Sequelize } = require("sequelize/dist")
+const { Sequelize, Op } = require("sequelize/dist")
 
 
 addArea = async (name, code, level, belong_to) => {
@@ -12,11 +12,13 @@ addArea = async (name, code, level, belong_to) => {
     })
 }
 
-getChildArea = async(area_id) => {
+getChildArea = async(area_code_arr) => {
     raw_data = await area.findAll({
         attributes: ["id", "name", "code", [Sequelize.col('user_account.username'), "full_code"]],
         where: {
-            belong_to: area_id
+            belong_to: {
+                [Op.or]: area_code_arr
+            }
         },
         include: [
             {
