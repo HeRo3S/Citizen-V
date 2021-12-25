@@ -6,8 +6,15 @@ const citizenRouter = express.Router()
 
 citizenRouter.route("/api/individual_input").post(verifyToken, async (req, res) => {
     console.log(req.body)
-    await addCitizen(req.body, req.user.username, req.user.manage_area)
-    res.status(200)
+    try{
+        await addCitizen(req.body, req.user.username, req.user.manage_area)
+        res.status(204)
+    }
+    catch(err){
+        console.log(err)
+    }
+
+    res.status(500)
 })
 
 

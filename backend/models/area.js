@@ -32,13 +32,12 @@ const area = sequelize.define("area", {
     hooks: {
 
         //Auto detect finish status for higher area
-        afterBulkUpdate: target => {
-            target = target.attributes
-            if(target.finish_status != null){
-                if(target.finish_status){
+        afterUpdate: target => {
+            if(target.dataValues.finish_status != target._previousDataValues.finish_status){
+                if(target.dataValues.finish_status){
                     area.findAll({
                         where: {
-                            belong_to: target.belong_to
+                            belong_to: target.dataValues.belong_to
                         },
                         attributes: [
                             'finish_status'
@@ -56,8 +55,9 @@ const area = sequelize.define("area", {
                                 finish_status: true
                             },{
                                 where: {
-                                    id: target.belong_to
-                                }
+                                    id: target.dataValues.belong_to
+                                },
+                                individualHooks: true
                             })
                         }
                     })

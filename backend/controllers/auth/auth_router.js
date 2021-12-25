@@ -66,7 +66,9 @@ authRouter.route("/api/accountManager")
         },{
             where: {
                 id: user.id
-            }
+            },
+            individualHooks: true
+
         }))
     }
     Promise.all(promises).then(() => {

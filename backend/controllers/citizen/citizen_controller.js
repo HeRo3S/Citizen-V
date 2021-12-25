@@ -20,7 +20,7 @@ getCitizenList = async (area_code, amount) => {
 }
 
 addCitizen = async (target, area_code, area_id) => {
-    await citizen.create({
+    return citizen.create({
         code: target.code,
         name: target.name,
         birthday: target.birthday,
@@ -35,10 +35,91 @@ addCitizen = async (target, area_code, area_id) => {
         area_code: area_code
     })
 }
+getCitizenRatioByGender = async (area_code) => {
+    area_code = area_code.concat("%")
+    raw_data = await citizen.findAndCountAll({
+        where: {
+            area_code: {
+                [Op.like]: area_code
+            }
+        },
+        attributes: 
+        [
+            "gender"
+        ],
+        group: [
+            "gender"
+        ]
+    })
+    return raw_data.count
+}
+
+
+getCitizenRatioByProfession = async (area_code) => {
+    area_code = area_code.concat("%")
+    raw_data = await citizen.findAndCountAll({
+        where: {
+            area_code: {
+                [Op.like]: area_code
+            }
+        },
+        attributes: 
+        [
+            "profession"
+        ],
+        group: [
+            "profession"
+        ]
+    })
+    return raw_data.count
+}
+
+getCitizenRatioByReligion = async (area_code) => {
+    area_code = area_code.concat("%")
+    raw_data = await citizen.findAndCountAll({
+        where: {
+            area_code: {
+                [Op.like]: area_code
+            }
+        },
+        attributes: 
+        [
+            "religion"
+        ],
+        group: [
+            "religion"
+        ]
+    })
+    return raw_data.count
+}
+
+
+getCitizenRatioByEducation = async (area_code) => {
+    area_code = area_code.concat("%")
+    raw_data = await citizen.findAndCountAll({
+        where: {
+            area_code: {
+                [Op.like]: area_code
+            }
+        },
+        attributes: 
+        [
+            "education"
+        ],
+        group: [
+            "education"
+        ]
+    })
+    return raw_data.count
+}
 
 const citizenControl = {
     getCitizenList: getCitizenList,
-    addCitizen: addCitizen
+    addCitizen: addCitizen,
+    getCitizenRatioByGender: getCitizenRatioByGender,
+    getCitizenRatioByEducation: getCitizenRatioByEducation,
+    getCitizenRatioByProfession: getCitizenRatioByProfession,
+    getCitizenRatioByReligion: getCitizenRatioByReligion,
 }
 
 module.exports = citizenControl

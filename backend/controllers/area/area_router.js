@@ -4,6 +4,7 @@ const area = require("../../models/area")
 const sequelize = require("../../models/sequelize")
 const userAccount = require("../../models/user_account")
 const { verifyToken } = require("../auth/auth_controller")
+const { getCitizenRatioByProfession, getCitizenRatioByGender, getCitizenRatioByReligion, getCitizenRatioByEducation } = require("../citizen/citizen_controller")
 const { getAreaProgess } = require("./area_controller")
 const areaRouter = express.Router()
 
@@ -89,6 +90,14 @@ areaRouter.route("/api/progress_tracking")
 
 })
 
+areaRouter.route("/api/analysis_view")
+.post(verifyToken, async (req, res) => {
+    console.log(req.body)
+})
+.get(verifyToken, async (req, res) => {
+    data = await getCitizenRatioByEducation(req.user.user_code)
+    console.log(data)
+})
 
 
 

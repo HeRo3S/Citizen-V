@@ -44,6 +44,10 @@ verifyToken = async (req, res, next) => {
         }
         if(decoded){
             req.user = decoded
+            req.user.user_code = req.user.username
+            if(req.user.access_level == 0){
+                req.user.user_code = ""
+            }
             return next()
         }
 

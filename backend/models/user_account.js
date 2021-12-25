@@ -41,15 +41,15 @@ const userAccount = sequelize.define("user_account", {
             const salt = bcrypt.genSaltSync()
             user.password = bcrypt.hashSync(user.password, salt)
         },
-        afterBulkUpdate: user => {
-            console.log(user._change)
-            if(!user.attributes.open_status){
+        afterUpdate: user => {
+            if(user.dataValues.open_status != user._previousDataValues.open_status && user._previousDataValues.open_status){
                 userAccount.update({
                     open_status: false
                 },{
                     where: {
-                        manager_account: user._changed.id
-                    }
+                        manager_account: user.dataValues.id
+                    },
+                    individualHooks: true
                 })
             }
         }
