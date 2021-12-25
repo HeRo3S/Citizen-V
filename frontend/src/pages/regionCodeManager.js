@@ -48,6 +48,7 @@ function RegionCodeManager() {
                 <tr>
                     <td style={{width: "10%"}}>{item.code}</td>
                     <td style={{width: "70%"}}>{item.name}</td>
+                    <td></td>
                 </tr>
             );
         });

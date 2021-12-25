@@ -1,0 +1,27 @@
+#report-page
+{
+    width: 74vw;
+}
+
+#report-page .container
+ {
+     padding: 0;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ #report-form
+ {
+    width: 50%;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) ;
+ }
+
+ .report-header
+ {
+    background-color: #007bff;
+    padding: 20px;
+    color: white;
+ }
