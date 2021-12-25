@@ -10,6 +10,7 @@ import IndividualView from './pages/individualView.js'
 import IndividualInput from './pages/individualInput.js'
 import AnalysisView from './pages/analysisView.js'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import ProgressReport from './pages/progressReport.js'
 
 function App(){
     return(
@@ -24,6 +25,7 @@ function App(){
                 <Route path="/populationView" element={<PopulationView />} />
                 <Route path="/analysisView" element={<AnalysisView />} />
                 <Route path="/individualInput" element={<IndividualInput />} />
+                <Route path="/progressReport" element={<ProgressReport />} />
             </Routes>
         </BrowserRouter>
     )

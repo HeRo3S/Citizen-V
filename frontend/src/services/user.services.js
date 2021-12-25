@@ -34,8 +34,14 @@ const getProgressTrackingData = () => {
     );
 }
 
-const postProgressTrackingData = (data) => {
-    return axios.post(API_KEY + "progress_tracking",
+const getProgressReportData = () => {
+    return axios.get(API_KEY + "progress_report",
+    {headers: authHeader()}
+    );
+}
+
+const postProgressReportData = (data) => {
+    return axios.post(API_KEY + "progress_report",
     data,
     {headers: authHeader()}
     );
@@ -85,7 +91,8 @@ export default {
     getAccountManagerData,
     postAccountManagerData,
     getProgressTrackingData,
-    postProgressTrackingData,
+    getProgressReportData,
+    postProgressReportData,
     getPopulationData,
     postPopulationRequested,
     getIndividualViewData,

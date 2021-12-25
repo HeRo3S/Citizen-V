@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 import {Link, Outlet} from 'react-router-dom'
 import jwt from 'jwt-decode'
 import './navbar.css'
-import authService from '../services/auth.service';
 
 function Navbar() {
     const [user, setUser] = useState({});
@@ -73,10 +72,10 @@ function Navbar() {
                             <Link to="/individualInput" >Nhập liệu dữ liệu</Link>
                         </li>
                         <li>
-                            <Link to="" >Tạo phiếu</Link>
+                            <a href="/Resources/survey.pdf" >Tạo phiếu</a>
                         </li>
                         <li>
-                            <Link to="" >Báo cáo tiến độ</Link>
+                            <Link to="/progressReport" >Báo cáo tiến độ</Link>
                         </li>
                     </>
                 )
