@@ -101,16 +101,16 @@ function Navbar() {
                 {showNavBar()}
             </ul>
 
-            <label id='nav-bar-btn' for='nav-bar-input'>
+            <label id='nav-bar-btn' htmlFor='nav-bar-input'>
                 <i className='ti-list'></i>
             </label>
 
             <input type={'checkbox'} id='nav-bar-input'></input>
 
-            <label className='nav-overlay' for='nav-bar-input' ></label>
+            <label className='nav-overlay' htmlFor='nav-bar-input' ></label>
 
             <div id='nav-res'>
-                <label for='nav-bar-input' className='close-label'>
+                <label htmlFor='nav-bar-input' className='close-label'>
                     <i className='ti-close'></i>
                 </label>
                 <ul>

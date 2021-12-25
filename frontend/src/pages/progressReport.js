@@ -19,7 +19,7 @@ function ProgressReport() {
     )}, [])
 
     const changeFinishStatus = (event) => {
-        setPostData(requestedData);
+        setPostData(...requestedData);
         postData.finish_status = !postData.finish_status;
         userServices.postProgressReportData(postData).then(() => {
             window.location.reload(false);

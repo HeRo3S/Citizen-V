@@ -1,20 +1,13 @@
 import React from "react";
 import Chart from "react-google-charts"
 
-function ReligionChart() {
+function ReligionChart({religionData}) {
     return(
         <>
             <Chart
                   chartType="PieChart"
                   loader={<div>Loading Chart</div>}
-                  data={[
-                    ['Đạo', 'Tổng'],
-                    ['Phật giáo', 21],
-                    ['Kito giáo', 14],
-                    ['Hồi giáo', 9],
-                    ['Khác', 4],
-                    ['Không', 5],
-                  ]}
+                  data={religionData}
                   options={{
                     title: 'Tôn giáo',
                     'width': 900,

@@ -1,21 +1,13 @@
 import React from "react";
 import Chart from "react-google-charts"
 
-function AgeChart() {
+function AgeChart({ageData}) {
     return(
         <>
             <Chart className="age-chart"
                   chartType="ColumnChart"
                   loader={<div>Loading Chart</div>}
-                  data={[
-                    ['Số tuổi', 'Tổng'],
-                    ['0->6', 21],
-                    ['6->18', 14],
-                    ['18->24', 9],
-                    ['24->60', 4],
-                    ['60->100', 5],
-                    ['100+', 1],
-                  ]}
+                  data={ageData}
                   options={{
                     title: 'Độ tuổi',
                     'width': 900,

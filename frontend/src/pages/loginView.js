@@ -22,7 +22,6 @@ function LoginView() {
     const navigate = useNavigate();
 
     const onSubmit = data => {
-        console.log(data);
         // user authentication
         authService.login(data).then(
             () => {
