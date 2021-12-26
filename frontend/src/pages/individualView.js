@@ -43,7 +43,6 @@ function IndividualView(){
     const validationNormalSchema = Yup.object().shape({
         name: Yup.string().required(),
         gender: Yup.string().required(),
-        birthday: Yup.date().required(),
     })
 
     const renderError = (message) => <p className='help is-danger'>{message}</p>
