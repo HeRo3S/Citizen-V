@@ -19,9 +19,10 @@ function ProgressReport() {
     )}, [])
 
     const changeFinishStatus = (event) => {
-        setPostData(...requestedData);
-        postData.finish_status = !postData.finish_status;
-        userServices.postProgressReportData(postData).then(() => {
+        const cloneData = {...requestedData};
+        cloneData.finish_status = !cloneData.finish_status;
+        console.log(cloneData);
+        userServices.postProgressReportData(cloneData).then(() => {
             window.location.reload(false);
         })
     }

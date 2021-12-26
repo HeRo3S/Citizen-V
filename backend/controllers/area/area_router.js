@@ -109,7 +109,7 @@ areaRouter.route("/api/progress_report")
     },
     )
     .then(() => {
-        res.status(204)
+        res.send({message: "OK"});
     })
     .catch(error => {
         console.log(error)
