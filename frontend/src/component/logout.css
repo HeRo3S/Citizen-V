@@ -15,17 +15,6 @@
     color: white;
 }
 
-#logout a
-{
-    color: white;
-    text-decoration: none;
-}
-
-#logout a:hover
-{
-    color: #FF7675;
-}
-
 #logout button
 {
     padding: 5px;
@@ -104,6 +93,18 @@
     background-color:#3E5463;
     border-radius: 20px;
     font-size: 21px;
+    color: white;
+}
+
+#logout-res button
+{
+    padding: 5px;
+    background-color: #FF7675;
+    color: black;
+}
+
+#logout-res button:hover
+{
     color: white;
 }
 
