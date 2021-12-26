@@ -49,6 +49,7 @@
     display: none;
     cursor: pointer;
     float: right;
+    z-index: 1;
 }
 
 .filter-overlay
@@ -94,7 +95,7 @@
     left: 10px;
     top: 60px;
     width: 95%;
-    height: 93%;
+    height: 85vh;
     border-radius: 20px;
     background-color:#3E5463 ;
     color: white;
@@ -130,4 +131,15 @@
     {
         display: none;
     }
+}
+
+
+/* Res for mobile */
+@media screen and (max-width: 740px) 
+{
+    #filter-bar-res #filter-res
+    {
+        top:45px
+    }
+    
 }

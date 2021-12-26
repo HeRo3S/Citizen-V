@@ -68,6 +68,8 @@
 {
     color: red;
     font-size: 18px;
+    overflow: visible;
+    white-space: pre-line;
 }
 
 .normal-search table td label
@@ -97,6 +99,9 @@
 {
     padding: 20px;
     font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 .information-form-container table
@@ -111,7 +116,7 @@
 {
     #information-page
     {
-         width: 98vw;
+         width: 100vw;
     }
     #information-container .information-form
     {
@@ -139,6 +144,64 @@
         font-size: 20px;
     }
     #search-all select
+    {
+        font-size: 20px;
+    }
+}
+
+/* Res for mobile */
+@media screen and (max-width:740px)
+{
+    #information-page
+    {
+         width: 100vw;
+    }
+
+    #information-container .information-form
+    {
+        height: 30em;
+    }
+
+    #information-container table
+    {
+        font-size: 20px;
+        border-spacing: 20px 50px;
+    }
+
+    #search-code
+    {
+        height: 5em;
+        font-size: 20px;
+    }
+
+    #search-code input
+    {
+        font-size: 20px;
+        width: 8em;
+    }
+
+    #information-container 
+    {
+        width: 30em;
+    }
+
+    #search-all
+    {
+        font-size: 20px;
+        height: 25em;
+    }
+
+    #search-all table label
+    {
+        font-size: 20px;
+    }
+
+    #search-all table input
+    {
+        font-size: 20px;
+    }
+
+    #search-all table select
     {
         font-size: 20px;
     }

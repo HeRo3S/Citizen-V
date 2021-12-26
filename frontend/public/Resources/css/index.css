@@ -95,8 +95,9 @@ button
 {
     .main
     {
-        left: 10px;
-        width: 98vw;
+        left: 0;
+        width: 100vw;
+        z-index: -1;
     }
 }
 

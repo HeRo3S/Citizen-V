@@ -60,14 +60,14 @@ function IndividualInput(){
                             <table> 
                                 <tbody>
                                     <tr>
-                                        <th>Mã CCCD/CMND</th>
+                                        <th>Mã CCCD</th>
                                         <th>Họ và tên</th>
                                         <th>Ngày/Tháng/Năm sinh</th>
                                     </tr>
 
                                     <tr>
                                         <td>
-                                            <Field type="text" name='code' placeholder="Nhập CCCD/CMND"  />  
+                                            <Field type="text" name='code' placeholder="Nhập CCCD"  />  
                                             <ErrorMessage name='code' render={renderError} />
                                         </td>
                                         <td>  

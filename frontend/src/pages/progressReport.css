@@ -65,6 +65,21 @@
  {
     #report-page
     {
-        width: 98vw;
+        width: 100vw;
     }
  }
+
+ /* Res for mobile */
+@media screen and (max-width:740px)
+{
+    .report-header
+    {
+        text-align: center;
+    }
+
+    #report-form
+    {
+       width: 80%;
+    }
+
+}

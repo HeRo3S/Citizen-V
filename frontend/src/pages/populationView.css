@@ -3,3 +3,17 @@
     border-spacing: 0px 30px;
 }
 
+
+/* Res for mobile */
+@media screen and (max-width: 740px)
+{
+    #population-page .container
+    {
+        padding: 10px 5px;
+    }
+
+    #population-page 
+    {
+        font-size: 18px;
+    }
+}

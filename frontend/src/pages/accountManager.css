@@ -62,3 +62,23 @@
     position: absolute;
     bottom: 10px;
 }
+
+/* Res for mobile */
+@media screen and (max-width: 740px)
+{
+   #acc-page
+   {
+       font-size: 20px;
+   }
+
+   #acc-page button
+   {
+       font-size: 20px;
+       padding: 5px;
+   }
+
+   #acc-page .container
+   {
+       padding: 10px 5px;
+   }
+}

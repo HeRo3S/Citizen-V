@@ -75,6 +75,16 @@
  {
     #login-page
     {
-        width: 98vw;
+        width: 100vw;
+        margin-left: -10px;
+    }
+ }
+
+ /* Res for mobile */
+ @media screen and (max-width: 740px)
+ {
+    #login-form
+    {
+        width: 80%;
     }
  }

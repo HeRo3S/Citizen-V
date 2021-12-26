@@ -14,6 +14,25 @@
 {
     #progress-page
         {
-            width: 98vw;
+            width: 100vw;
         }
+}
+
+/* Res for mobile */
+@media screen and (max-width: 740px)
+{
+    #progress-page table td
+    {
+        font-size: 20px;
+    }
+
+    #progress-page table th 
+    {
+        font-size: 25px;
+    }
+
+    #progress-page .container
+    {
+        padding: 10px 5px;
+    }
 }

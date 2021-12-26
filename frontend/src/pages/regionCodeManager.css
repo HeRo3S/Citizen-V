@@ -83,3 +83,13 @@
 {
     border-spacing: 0px 50px;
 }
+
+/* Res for mobile */
+@media screen and (max-width: 740px)
+{
+   #declare-page
+   {
+       font-size: 20px;
+   }
+}
+

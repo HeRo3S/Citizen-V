@@ -196,3 +196,14 @@
         display: none;
     }
 }
+
+/* Res for mobile */
+@media screen and (max-width: 740px) 
+{
+    #brand
+    {
+        font-size: 20px;
+        width: 27vw;
+        height: 7vh;
+    }
+}

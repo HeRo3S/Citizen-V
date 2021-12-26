@@ -73,7 +73,7 @@ function IndividualView(){
 
                             <table>
                                 <tr>
-                                    <th>Mã CCCD/CMND</th>
+                                    <th>Mã CCCD</th>
                                     <th>Họ và tên</th>
                                     <th>Ngày/Tháng/Năm sinh</th>
                                 </tr>
@@ -121,7 +121,7 @@ function IndividualView(){
 
                                 <div className="cccd-search">
                                     <label htmlFor="cccd-input">
-                                        <h3>Tìm kiếm theo CCCD/CMND: </h3>
+                                        <h3>Tìm kiếm theo CCCD: </h3>
                                     </label>
                                     <Field type="text" name="code" id="cccd-input" />
                                     <ErrorMessage name='code' render={renderError} />

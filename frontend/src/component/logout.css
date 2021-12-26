@@ -138,3 +138,28 @@
         display: none;
     }
 }
+
+/* Res for mobile */
+@media screen and (max-width: 740px)
+{
+    #logout-res
+    {
+        font-size: 20px;
+        width: 10em;
+        height: 20em;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    #logout-res button
+    {
+        font-size: 25px;
+        padding: 4px;
+    }
+
+    #logout-bar-res
+    {
+        width: 300px;
+        height: 430px;
+    }
+} 

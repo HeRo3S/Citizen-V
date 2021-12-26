@@ -130,3 +130,28 @@
         display: none;
     }
 }
+
+@media screen and (max-width: 740px)
+{
+    #login-res
+    {
+        font-size: 20px;
+        width: 10em;
+        height: 20em;
+        flex-direction: column;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    #login-res button
+    {
+        font-size: 25px;
+        padding: 4px;
+    }
+
+    #login-bar-res
+    {
+        width: 300px;
+        height: 430px;
+    }
+} 
