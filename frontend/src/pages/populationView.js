@@ -145,7 +145,7 @@ function PopulationView() {
             return (
             <tr key={item.id}>
                 <td>
-                    <Link to={"/individualInput/" + item.code}>{item.code}</Link>
+                    <Link to={"/individualView?id=" + item.code}>{item.code}</Link>
                 </td>
                 <td>{item.name}</td>
                 <td>{item.gender}</td>
