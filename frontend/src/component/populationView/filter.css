@@ -1,7 +1,15 @@
-#filter-bar .back-button
+.back-button
 {
     padding: 5px;
     position: absolute;
+}
+
+.apply-button
+{
+    padding: 8px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
 }
 
 .filter-bar-content
@@ -33,30 +41,93 @@
     cursor: pointer;
 }
 
-.filter-bar-search
-{  
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: 10px;
-    font-size: 25px;
+#filter-bar-btn
+{
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    display: none;
+    cursor: pointer;
+    float: right;
 }
 
-.filter-bar-search .search-bar button
+.filter-overlay
 {
-   position: absolute;
-   float: right;
-   border: none;
-   border-radius: 0px;
-   background-color: #27343d;
-   cursor: pointer;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    animation: fadeIn linear 0.2s;
+    z-index: 1;
 }
 
-.filter-bar-search .search-bar input
+#filter-bar-res
 {
-    line-height: 1.6;
-    width: 80%;
-    font-size: 25px;
-    border: none;
-    padding: 5px;
+    position: fixed;
+    top: 6vh;
+    right: 0;
+    bottom: 0;
+    width: 350px;
+    background-color: white;
+    transform: translatex(100%);
+    opacity: 0;
+    transition: transform linear 0.2s, opacity linear 0.2s;
+    z-index: 1;
+    background-color: rgb(63, 199, 63);
+}
+
+#filter-bar-res .close-filter
+{
+    font-size: 30px;
+    float: right;
+    cursor: pointer;
+    margin-top: 10px;
+
+}
+
+#filter-bar-res #filter-res
+{
+    position: absolute;
+    left: 10px;
+    top: 60px;
+    width: 95%;
+    height: 93%;
+    border-radius: 20px;
+    background-color:#3E5463 ;
+    color: white;
+    overflow: auto;
+}
+
+#filter-bar-input
+{
+    display: none;
+}
+
+#filter-bar-input:checked ~ .filter-overlay
+{
+    display: block;
+} 
+
+#filter-bar-input:checked ~ #filter-bar-res
+{
+    transform: translatex(0);
+    opacity: 1;
+}
+
+/* Res for tablet + mobile */
+@media screen and (max-width: 1300px) 
+{
+
+    #filter-bar-btn
+    {
+        display: block;
+    }
+
+    #filter-bar
+    {
+        display: none;
+    }
 }

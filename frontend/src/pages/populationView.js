@@ -173,7 +173,7 @@ function PopulationView() {
                         </table>
                 </div>
             </div>
-            <FilterBar areaData={requestedData.area} handleFilterClickEvent={handleFilterClickEvent} handleFilterReturnClickEvent={handleFilterReturnClickEvent} handleFilterCheckboxClickedEvent={handleFilterCheckboxClickedEvent} />
+                <FilterBar areaData={requestedData.area} handleFilterClickEvent={handleFilterClickEvent} handleFilterReturnClickEvent={handleFilterReturnClickEvent} handleFilterCheckboxClickedEvent={handleFilterCheckboxClickedEvent} />
         </>
     )
 }

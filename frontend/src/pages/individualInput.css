@@ -57,3 +57,22 @@
     margin-left: 85%;
     padding: 20px;
 }
+
+/* Res for tablet */
+@media screen and (max-width:1300px)  and (min-width:740px)
+{
+    #inputdata-page
+    {
+        width: 98vw;
+    }
+    #inputdata-container table
+    {
+        font-size: 22px;
+    }
+    #inputdata-container table input
+    {
+        font-size: 22px;
+        width: 90%;
+    }
+
+}

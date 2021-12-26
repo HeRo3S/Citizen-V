@@ -7,3 +7,12 @@
      object-fit: cover;
      background-position: center center;
  }
+
+ /* Res for tablet and mobile */
+ @media screen and (max-width: 1300px) 
+ {
+    #home-page
+    {
+        width: 98vw;
+    }
+ }

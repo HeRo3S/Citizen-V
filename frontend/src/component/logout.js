@@ -14,16 +14,40 @@ function LogoutBar({user}) {
 
     return(
         <>
-        <div id="logout">
-            <p>Welcome,&nbsp;</p> 
-            <p>{user.username}&nbsp;</p>
-            <p>to Citizen V.&emsp;</p>
-            <button onClick={handleLogoutClick}>
-                <i className="ti-power-off">&nbsp;</i>
-                Đăng xuất?
-            </button>
-        </div>
+        <div id="logout-div">
+            <div id="logout">
+                <p>Welcome,&nbsp;</p> 
+                <p>{user.username}&nbsp;</p>
+                <p>to Citizen V.&emsp;</p>
+                <button onClick={handleLogoutClick}>
+                    <i className="ti-power-off">&nbsp;</i>
+                    Đăng xuất?
+                </button>
+            </div>
 
+            <label id='logout-bar-btn' for='logout-bar-input'>
+                <i className='ti-user'></i>
+            </label>
+
+            <input type={'checkbox'} id='logout-bar-input'></input>
+
+            <label className='logout-overlay' for='logout-bar-input'></label>
+
+            <div id='logout-bar-res'>
+                <label for='logout-bar-input' className='close-logout'>
+                    <i className='ti-close'></i>
+                </label>
+                <div id="logout-res">
+                    <p>Welcome,&nbsp;</p> 
+                    <p>{user.username}&nbsp;</p>
+                    <p>to Citizen V.&emsp;</p>
+                    <button onClick={handleLogoutClick}>
+                        <i className="ti-power-off">&nbsp;</i>
+                        Đăng xuất?
+                    </button>
+                </div>
+            </div>
+        </div>
         <Outlet />
         </>
     )

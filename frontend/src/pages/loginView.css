@@ -70,3 +70,11 @@
      border-color: #0062cc;
  }
 
+ /* Res for tablet + mobile */
+ @media screen and (max-width: 1300px)
+ {
+    #login-page
+    {
+        width: 98vw;
+    }
+ }

@@ -89,3 +89,14 @@ button
     flex-wrap: wrap;
 }
 
+
+/* Res for mobile + tablet */
+@media screen and (max-width: 1300px) 
+{
+    .main
+    {
+        left: 10px;
+        width: 98vw;
+    }
+}
+

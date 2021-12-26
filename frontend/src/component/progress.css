@@ -30,3 +30,13 @@
     font-size: 25px;
     border-spacing: 0 20px;
 }
+
+
+/* Res for mobile +tablet */
+@media screen and (max-width: 1300px) 
+{
+    .bar
+    {
+        width: 320px;
+    }
+}

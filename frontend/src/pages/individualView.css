@@ -12,7 +12,7 @@
 #information-container .search-form
 {
     width: 60em;
-    height: 13em;    
+    height: 14em;    
     background-color: #C4C4C4;
     border-radius: 20px;
 }
@@ -43,6 +43,7 @@
 {
     padding: 5px;
     font-size: 25px;
+    width: 30%;
     border: 1px solid black;
     background-color: #DFE6E9;
 }
@@ -82,4 +83,34 @@
     margin-top: 3%;
     text-align: left;
     border-spacing: 4px 15px;
+}
+
+/* Res for tablet*/
+@media screen and (max-width:1300px)  and (min-width:740px)
+{
+    #information-page
+    {
+         width: 98vw;
+    }
+    #information-container .information-form
+    {
+        height: 21em;
+    }
+    .information-form table
+    {
+        font-size: 20px;
+    }
+    .search-form table td
+    {
+        overflow: visible;
+        white-space: pre-line;
+    }
+    .search-form label
+    {
+        font-size: 20px;
+    }
+    .normal-search h3 
+    {
+        font-size: 20px;
+    }
 }

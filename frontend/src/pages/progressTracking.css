@@ -8,3 +8,12 @@
     font-size: 30px;
     border-spacing: 0 30px;
 }
+
+/* Res for tablet + mobile */
+@media screen and (max-width: 1300px)
+{
+    #progress-page
+        {
+            width: 98vw;
+        }
+}
