@@ -110,7 +110,11 @@ function Navbar() {
             <label className='nav-overlay' htmlFor='nav-bar-input' ></label>
 
             <div id='nav-res'>
+<<<<<<< HEAD
                 <label htmlFor='nav-bar-input' className='close-label'>
+=======
+                <label htmlFor='nav-bar-input' className='close-nav'>
+>>>>>>> 4796cf354716dda72fe7f85b0a813cf79ffbff3b
                     <i className='ti-close'></i>
                 </label>
                 <ul>

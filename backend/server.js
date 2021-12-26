@@ -12,7 +12,7 @@ const sequelize = require("./models/sequelize")
 const areaRouter = require("./controllers/area/area_router")
 const citizenRouter = require("./controllers/citizen/citizen_router")
 
-//                                                         Import sequelize model
+//                                                          IMPORT AND RESET DATABASE
 
 // const models = path.join(__dirname, 'models')
 
@@ -31,7 +31,7 @@ const citizenRouter = require("./controllers/citizen/citizen_router")
 
 
 
-//                                                             Config express
+//                                                             CONFIG EXPRESS
 app.use(logger("dev"))
 app.set("view engine", "ejs")
 app.set('views', path.join(__dirname, 'views'))
@@ -45,6 +45,8 @@ app.use(cors())
 app.use("/", authRouter)
 app.use("/", areaRouter)
 app.use("/", citizenRouter)
+
+
 app.listen(3001)
 
 console.log("Listening on port 3001")

@@ -11,6 +11,9 @@ const areaRouter = express.Router()
 
 
 //Add new area
+//As well as create new account for it
+//Default password is TTStudio1902
+
 areaRouter.route("/api/region_code")
 .post(verifyToken, async (req, res) => {
     data = req.body[0]
@@ -136,6 +139,7 @@ areaRouter.route("/api/progress_report")
 
 
 //Get analysis data
+//Post request act as filter
 
 areaRouter.route("/api/analysis_view")
 .post(verifyToken, async (req, res) => {

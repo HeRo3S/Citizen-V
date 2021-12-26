@@ -25,3 +25,46 @@
     padding: 20px;
     color: white;
  }
+
+ .report-body
+ {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     padding: 20px;
+ }
+
+ .report-body-heading
+ {
+     font-size: 30px;
+     margin-bottom: 20px;
+ }
+
+ .report-body .ti-face-smile
+ {
+    color: green;
+    font-size: 40px;
+ }
+
+ .report-body .ti-face-sad
+ {
+     color: red;
+     font-size: 40px;
+ }
+
+ .report-footer
+ {
+     display: flex;
+     justify-content: center;
+     padding-bottom: 20px;
+ }
+
+ /* Res for tablet + mobile */
+ @media screen and (max-width: 1300px) 
+ {
+    #report-page
+    {
+        width: 98vw;
+    }
+ }
