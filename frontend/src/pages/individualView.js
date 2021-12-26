@@ -113,8 +113,7 @@ function IndividualView(){
                             </table>
                         </div>
                     </div>
-
-                    <div className="search-form-container">
+                    
                     <Formik initialValues={codeInitialInput} validationSchema={validationCodeSchema} onSubmit={value => handleFormSearchClick(value)}>
                         <Form className='search-form' id='search-code'>
                                 <button type="submit" id="code-submit-btn">
@@ -132,7 +131,7 @@ function IndividualView(){
                     </Formik>
 
                     <Formik initialValues={normalInitialInput} validationSchema={validationNormalSchema} onSubmit={value => handleFormSearchClick(value)}>
-                        <Form>
+                        <Form className='search-form' id='search-all'>
                                 <button type="submit" id="normal-submit-btn">
                                     <i className="ti-search"></i>
                                 </button>
@@ -151,7 +150,7 @@ function IndividualView(){
                                                 <Field as="select" name='gender'>
                                                     <option>---Choose---</option>
                                                     <option value="nam">Nam</option>
-                                                    <option value="nu">Nu</option>
+                                                    <option value="nu">Nữ</option>
                                                 </Field>
                                             </td>
                                         </tr>
@@ -193,7 +192,6 @@ function IndividualView(){
                                 </div>
                         </Form>
                     </Formik>
-                    </div>
                 </div>
             </div>
         </>
