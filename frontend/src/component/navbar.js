@@ -110,11 +110,7 @@ function Navbar() {
             <label className='nav-overlay' htmlFor='nav-bar-input' ></label>
 
             <div id='nav-res'>
-<<<<<<< Updated upstream
-                <label htmlFor='nav-bar-input' className='close-label'>
-=======
-                <label for='nav-bar-input' className='close-nav'>
->>>>>>> Stashed changes
+                <label htmlFor='nav-bar-input' className='close-nav'>
                     <i className='ti-close'></i>
                 </label>
                 <ul>

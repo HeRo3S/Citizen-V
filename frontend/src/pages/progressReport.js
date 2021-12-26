@@ -34,21 +34,23 @@ function ProgressReport() {
                 </div>
 
                 <div className='report-body'>
-                    <h3>{requestedData.name}</h3>
-                    {
-                            (requestedData.finish_status) ?
-                                 (
-                                    <>
-                                        <i className='ti-face-smile'></i>
-                                        <h3>Hoàn tất</h3>
-                                    </>
-                            ) : (
-                                    <>
-                                        <i className='ti-face-sad'></i>
-                                        <h3>Chưa hoàn tất</h3>
-                                    </>
-                            )
-                    }
+                    <div className='report-body-heading'>
+                        <h3>{requestedData.name}</h3>
+                    </div>
+                        {
+                                (requestedData.finish_status) ?
+                                    (
+                                        <>
+                                            <i className='ti-face-smile'></i>
+                                            <h3>Hoàn tất</h3>
+                                        </>
+                                ) : (
+                                        <>
+                                            <i className='ti-face-sad'></i>
+                                            <h3>Chưa hoàn tất</h3>
+                                        </>
+                                )
+                        }
                 </div>
 
                 <div className='report-footer'>
