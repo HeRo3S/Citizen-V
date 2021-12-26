@@ -14,6 +14,7 @@ function ProgressReport() {
 
     useEffect(() => {
         userServices.getProgressReportData().then(response => {
+            alert("OK!");
             setRequestedData(response.data);
         }
     )}, [])

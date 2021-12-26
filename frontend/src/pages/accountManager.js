@@ -4,11 +4,17 @@ import userServices from '../services/user.services'
 import NonEditableRow from '../component/accountManager/NonEditableRow'
 import EditableRow from '../component/accountManager/EditableRow'
 import './accountManager.css'
-import Navbar from '../component/navbar'
 import Layout from './layout'
-
+import jwt from 'jwt-decode'
+import { useNavigate } from 'react-router-dom'
 
 function AccountManager() {
+    
+    const user = jwt(localStorage.getItem("user"));
+    const navigate = useNavigate();
+    if (!user.open_status) {
+        navigate("/");
+    }
     const [requestedData, setRequestedData] = useState([
     {
         id:1,

@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import ProgressBar from '../component/progress'
 import userServices from "../services/user.services.js"
+import jwt from "jwt-decode"
+import { useNavigate } from 'react-router-dom'
 import './regionCodeManager.css'
 import Layout from './layout'
 
 function RegionCodeManager() {
+    const user = jwt(localStorage.getItem("user"));
+    const navigate = useNavigate();
+    if (!user.open_status) {
+        navigate("/");
+    }
 
     const [requestedData, setRequestedData] = useState([]);
     const [inputData, setInputData] = useState([]);

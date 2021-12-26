@@ -1,11 +1,19 @@
 import React, { useState } from 'react'
+import jwt from 'jwt-decode'
 import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import userServices from '../services/user.services';
 import './individualInput.css'
 import Layout from './layout';
+import { useNavigate } from 'react-router-dom';
 
 function IndividualInput(){
+    const user = jwt(localStorage.getItem("user"));
+    const navigate = useNavigate();
+    if (!user.open_status) {
+        navigate("/");
+    }
+
     const [data, setData] = useState({
         code: "",
         name: "",
