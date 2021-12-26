@@ -90,7 +90,7 @@ function IndividualInput(){
                                     <tr>
                                         <td>
                                             <Field as="select" name='gender' placeholder="Nhập giới tính" >
-                                                <option value="None">Không</option>
+                                                <option>--Chooose--</option>
                                                 <option value="nam">Nam</option>
                                                 <option value="nu">Nữ</option>
                                             </Field>
@@ -101,6 +101,7 @@ function IndividualInput(){
                                         </td>
                                         <td>  
                                             <Field as="select" name='religion' placeholder="Nhập tôn giáo"  >
+                                                <option>--Choose--</option>
                                                 <option value="None">Không</option>
                                                 <option value="Phat giao">Phật giáo</option>
                                                 <option value="Thien chua giao">Thiên chúa giáo</option>
@@ -109,6 +110,7 @@ function IndividualInput(){
                                         </td>
                                         <td>
                                             <Field as="select" name='education' placeholder="Nhập trình độ học vấn" >
+                                                <option>--Choose--</option>
                                                 <option value="None">Không</option>
                                                 <option value="12/12">12/12</option>
                                                 <option value="Dai hoc">Đại học</option>

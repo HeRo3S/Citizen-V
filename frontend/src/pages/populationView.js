@@ -4,6 +4,7 @@ import userServices from '../services/user.services'
 import jwt from 'jwt-decode'
 import './populationView.css'
 import Layout from './layout.js'
+import { Link } from 'react-router-dom'
 
 function PopulationView() {
     const user =  jwt(localStorage.getItem("user"));
@@ -143,7 +144,9 @@ function PopulationView() {
         return citizenData.map(item => {
             return (
             <tr key={item.id}>
-                <td>{item.code}</td>
+                <td>
+                    <Link to={"/individualInput/" + item.code}>{item.code}</Link>
+                </td>
                 <td>{item.name}</td>
                 <td>{item.gender}</td>
                 <td>{item.birthday}</td>
