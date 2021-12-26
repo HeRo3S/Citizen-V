@@ -10,6 +10,8 @@ const authControl = require('./auth_controller')
 
 
 // authControl.createUser("superuser", "TTStudio1902", 0, null)
+
+//login routing
 authRouter.route("/api/auth/signin")
 
 .post(async (req, res) =>{
@@ -27,6 +29,8 @@ authRouter.route("/api/auth/signin")
     return res.send({accessToken: token})
 })
 
+//Account manager routing
+//Include changing password and open status
 authRouter.route("/api/accountManager")
 
 .get(verifyToken,async (req, res) => {

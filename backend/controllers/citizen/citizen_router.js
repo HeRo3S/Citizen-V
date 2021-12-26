@@ -1,9 +1,12 @@
 const express = require("express")
+const { Op } = require("sequelize/dist")
+const citizen = require("../../models/citizen")
 const { getChildArea } = require("../area/area_controller")
 const { verifyToken } = require("../auth/auth_controller")
-const { addCitizen, getCitizenList } = require("./citizen_controller")
+const { addCitizen, getCitizenList, findCitizen } = require("./citizen_controller")
 const citizenRouter = express.Router()
 
+//Routing for citizen data input
 citizenRouter.route("/api/individual_input").post(verifyToken, async (req, res) => {
     console.log(req.body)
     try{
@@ -17,6 +20,8 @@ citizenRouter.route("/api/individual_input").post(verifyToken, async (req, res) 
     res.status(500)
 })
 
+//Routing for viewing population of the current login user's area
+//Post request act as filter
 
 citizenRouter.route("/api/population_view")
 .get(verifyToken,async (req, res) => {
@@ -52,6 +57,26 @@ citizenRouter.route("/api/population_view")
     }
     return res.status(404)
 
+})
+
+//Find a citizen
+citizenRouter.route("/api/individual_view")
+.get(verifyToken, async (req,res) => {
+    try{
+        data = await citizen.findOne({
+            where:{
+                area_code: {[Op.startsWith]: req.user.user_code}
+            }
+        })
+        return res.send(data.toJSON())
+    }
+    catch(err){
+        console.log(err)
+    }
+    return res.status(404)
+})
+.post(verifyToken, findCitizen, (req, res) => {
+    res.send(req.req_citizen)
 })
 
 module.exports = citizenRouter

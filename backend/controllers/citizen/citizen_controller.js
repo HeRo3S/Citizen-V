@@ -2,6 +2,9 @@ const { Op, fn, col } = require("sequelize/dist")
 const moment = require("moment")
 const citizen = require("../../models/citizen")
 
+
+//Get the amount of citizen in the specified area array
+
 getCitizenList = async (area_code_arr, amount) => {
     area_code = []
     for(code of area_code_arr){
@@ -22,6 +25,8 @@ getCitizenList = async (area_code_arr, amount) => {
     return data
 }
 
+//Add a new citizen to the specified area
+
 addCitizen = async (target, area_code, area_id) => {
     return citizen.create({
         code: target.code,
@@ -41,6 +46,7 @@ addCitizen = async (target, area_code, area_id) => {
 
 //Get citizen ratio of the specified array of area_code
 //Attribute include gender/profession/education/religion
+
 getCitizenRatioByAttribute = async (area_code_arr, attribute) => {
     area_code = []
     for(code of area_code_arr){
@@ -70,6 +76,7 @@ getCitizenRatioByAttribute = async (area_code_arr, attribute) => {
 }
 
 //Get the total amount of citizens in the specified range
+
 getCitizenCountByAge = async (min_age, max_age, area_code_arr) => {
     lower_hold = moment().subtract(max_age, "years");
     upper_hold = moment().subtract(min_age, "years");
@@ -116,12 +123,46 @@ getCitizenRatioByAge =async (area_code_arr) => {
     ]
 } 
 
+//Find citizen from post request
+//Don't use like a normal function
+
+findCitizen = async (req, res, next) => {
+    try{
+        raw_data = await citizen.findOne({
+            where: {
+                [Op.or] : [
+                    {code: req.body.code},
+                    {[Op.and] : [
+                        {name: req.body.name},
+                        {birthday: req.body.birthday},
+                        {gender: req.body.gender},
+                        {profession: {[Op.like]: req.body.profession}},
+                        {religion: {[Op.like]: req.body.religion}},
+                        {education: {[Op.like]: req.body.education}},
+                    ]
+                }
+                ]
+            }
+        })
+        if(!raw_data){
+            return res.status(404)
+        }
+        req.req_citizen = raw_data.toJSON()
+        return next()
+    }
+    catch(err){
+        console.log(err)
+    }
+    return res.status(404)
+}
+
 const citizenControl = {
     getCitizenList: getCitizenList,
     addCitizen: addCitizen,
     getCitizenRatioByAttribute: getCitizenRatioByAttribute,
     getCitizenCountByAge: getCitizenCountByAge,
     getCitizenRatioByAge: getCitizenRatioByAge,
+    findCitizen: findCitizen,
 }
 
 module.exports = citizenControl
