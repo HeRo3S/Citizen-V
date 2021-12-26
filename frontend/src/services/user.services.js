@@ -64,7 +64,14 @@ const getIndividualViewData = () => {
     );
 }
 
-const postIndividualInputData = (data) => {
+const postIndividualViewData = (data) => {
+    return axios.post(API_KEY + "individual_view",
+    data,
+    {headers: authHeader()},
+    );
+}
+
+const postIndividualInputData = (data) => {   
     return axios.post(API_KEY + "individual_input",
     data,
     {headers: authHeader()},
@@ -96,6 +103,7 @@ export default {
     getPopulationData,
     postPopulationRequested,
     getIndividualViewData,
+    postIndividualViewData,
     postIndividualInputData,
     getAnalysisData,
     filterAnalysisData,

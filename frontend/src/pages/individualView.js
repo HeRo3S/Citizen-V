@@ -57,8 +57,8 @@ function IndividualView(){
     */
 
     const handleFormSearchClick = (value) => {
-        userServices.postIndividualViewData(value).then(resp => {
-            alert("Search ok!");
+        alert("Search ok!");
+        userServices.postIndividualViewData(value).then((resp) => {
             setRequestedData(resp.data);
         })
     }
