@@ -39,14 +39,13 @@ function AnalysisView() {
     const [villagesRequestedData, setVillagesRequestedData] = useState([]);
 
     useEffect(()=> {
-        const dataLoad = () => {
-            userServices.getAnalysisData().then(resp => {
+        const dataLoad = async () => {
+            let resp = await userServices.getAnalysisData();
             setRequestedData(resp.data);
             splitElementData();
             storeData();
-        })
         }
-        return dataLoad()
+        return dataLoad();
     }, []);
 
     //change backend element data from list to array
@@ -122,18 +121,20 @@ function AnalysisView() {
 
     //handle apply Filter click event
     const handleFilterClickEvent = (event) => {
-        event.preventDefault();
-        userServices.filterAnalysisData(filterData).then(resp => {
-            setRequestedData(resp.data);
-            setExploreLevel(exploreLevel + 1);
-            setFilterData([]);
-        });
+            event.preventDefault();
+            userServices.filterAnalysisData(filterData).then(resp => {
+                setRequestedData(resp.data);
+                setExploreLevel(exploreLevel + 1);
+                splitElementData();
+                setFilterData([]);
+        })     
     }
     //handle Filter return click event
     const handleFilterReturnClickEvent = (event) => {
         event.preventDefault();
         setExploreLevel(exploreLevel - 1);
         loadLocalData();
+        splitElementData();
     }
 
     

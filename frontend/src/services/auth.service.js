@@ -5,10 +5,13 @@ const API_KEY = "http://localhost:3001/api/auth/"
 axios.interceptors.response.use(response => {
     return response;
 }, err => {
-    if (err.response.status === 401) {
+    if (err.response.status === 403) {
         if (localStorage.getItem("user")) {
+            alert("Token expired! Please login again!")
             logout();
         }
+    } else if (err.response.status === 401) {
+        alert("Incorrect username and password! Please try again!");
         window.location.reload(false);
     }
 })

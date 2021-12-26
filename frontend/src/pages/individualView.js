@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import userServices from '../services/user.services'
+import * as Yup from 'yup'
+import { Formik, Field, ErrorMessage, Form } from 'formik'
 import './individualView.css'
 import Layout from './layout';
 
@@ -13,15 +15,53 @@ function IndividualView(){
         religion: "",
         education:"",
         origin_address:"",
-        temporary_address:"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        temporary_address:"",
         permanent_address:""
     });
 
+    const codeInitialInput = {
+        code : "",
+    }
+
+    const normalInitialInput = {
+        name:"",
+        birthday: "",
+        gender: "",
+        profession: "",
+        religion: "",
+        education:"",
+        origin_address:"",
+        temporary_address:"",
+        permanent_address:""
+    }
+
+    const validationCodeSchema = Yup.object().shape({
+        code: Yup.string().min(12).max(12).required(),
+    })
+
+
+    const validationNormalSchema = Yup.object().shape({
+        name: Yup.string().required(),
+        gender: Yup.string().required(),
+        birthday: Yup.date().required(),
+    })
+
+    const renderError = (message) => <p className='help is-danger'>{message}</p>
+
+    /** 
     useEffect(() => {
         userServices.getIndividualViewData().then(resp => {
             setRequestedData(resp.data);
         })
-    })
+    },[]);
+    */
+
+    const handleFormSearchClick = (value) => {
+        userServices.postIndividualViewData(value).then(resp => {
+            alert("Search ok!");
+            setRequestedData(resp.data);
+        })
+    }
 
     return(
         <>
@@ -40,7 +80,7 @@ function IndividualView(){
                                 </tr>
 
                                 <tr>
-                                    <td>{requestedData.id}</td>
+                                    <td>{requestedData.code}</td>
                                     <td>{requestedData.name}</td>
                                     <td>{requestedData.birthday}</td>
                                 </tr>
@@ -74,9 +114,10 @@ function IndividualView(){
                         </div>
                     </div>
 
-                    <form className='search-form'>
-                            <div className="search-form-container">
-                                <button type="submit">
+                    <div className="search-form-container">
+                    <Formik initialValues={codeInitialInput} validationSchema={validationCodeSchema} onSubmit={value => handleFormSearchClick(value)}>
+                        <Form className='search-form' id='search-code'>
+                                <button type="submit" id="code-submit-btn">
                                     <i className="ti-search"></i>
                                 </button>
 
@@ -84,8 +125,17 @@ function IndividualView(){
                                     <label htmlFor="cccd-input">
                                         <h3>Tìm kiếm theo CCCD/CMND: </h3>
                                     </label>
-                                    <input type="text" id="cccd-input" />
+                                    <Field type="text" name="code" id="cccd-input" />
+                                    <ErrorMessage name='code' render={renderError} />
                                 </div>
+                        </Form>
+                    </Formik>
+
+                    <Formik initialValues={normalInitialInput} validationSchema={validationNormalSchema} onSubmit={value => handleFormSearchClick(value)}>
+                        <Form>
+                                <button type="submit" id="normal-submit-btn">
+                                    <i className="ti-search"></i>
+                                </button>
 
                                 <div className="normal-search">
                                     <h3>Tìm kiếm theo thông tin khác: </h3>
@@ -93,40 +143,57 @@ function IndividualView(){
                                         <tr>
                                             <td>
                                                 <label htmlFor="">Họ và tên: </label>
-                                                <input type="text" name='name'/>
+                                                <Field type="text" name='name'/>
+                                                <ErrorMessage name='name' render={renderError} />
                                             </td>
                                             <td>
                                                 <label htmlFor="">Giới tính: </label>
-                                                <input type="text" name='gender' />
+                                                <Field as="select" name='gender'>
+                                                    <option>---Choose---</option>
+                                                    <option value="nam">Nam</option>
+                                                    <option value="nu">Nu</option>
+                                                </Field>
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>
                                                 <label htmlFor="">Nghề nghiệp: </label>
-                                                <input type="text" name='profession' />
+                                                <Field type="text" name='profession' />
                                             </td>
                                             <td>
                                                 <label htmlFor="">Tôn giáo: </label>
-                                                <input type="text" name='religion' />
+                                                <Field as="select" name='religion' placeholder="Nhập tôn giáo"  >
+                                                    <option>--Choose--</option>
+                                                    <option value="None">Không</option>
+                                                    <option value="Phat giao">Phật giáo</option>
+                                                    <option value="Thien chua giao">Thiên chúa giáo</option>
+                                                    <option value="Kito giao">Kitô giáo</option>
+                                                </Field>
                                             </td>
                                         </tr>
 
                                         <tr>
                                             <td>
                                                 <label htmlFor="">Ngày/Tháng/Năm sinh: </label>
-                                                <input type="date" name='birthday' />
+                                                <Field type="date" name='birthday' />
                                             </td>
 
                                             <td>
                                                 <label htmlFor="">Trình độ học vấn: </label>
-                                                <input type="text" name='education' />
+                                                <Field as="select" name='education' placeholder="Nhập trình độ học vấn" >
+                                                    <option>--Choose--</option>
+                                                    <option value="None">Không</option>
+                                                    <option value="12/12">12/12</option>
+                                                    <option value="Dai hoc">Đại học</option>
+                                                </Field>
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
-                        </div>
-                    </form>
+                        </Form>
+                    </Formik>
+                    </div>
                 </div>
             </div>
         </>

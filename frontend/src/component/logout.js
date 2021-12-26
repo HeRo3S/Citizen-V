@@ -25,16 +25,16 @@ function LogoutBar({user}) {
                 </button>
             </div>
 
-            <label id='logout-bar-btn' for='logout-bar-input'>
+            <label id='logout-bar-btn' htmlFor='logout-bar-input'>
                 <i className='ti-user'></i>
             </label>
 
             <input type={'checkbox'} id='logout-bar-input'></input>
 
-            <label className='logout-overlay' for='logout-bar-input'></label>
+            <label className='logout-overlay' htmlFor='logout-bar-input'></label>
 
             <div id='logout-bar-res'>
-                <label for='logout-bar-input' className='close-logout'>
+                <label htmlFor='logout-bar-input' className='close-logout'>
                     <i className='ti-close'></i>
                 </label>
                 <div id="logout-res">

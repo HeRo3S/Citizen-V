@@ -12,16 +12,16 @@ function LoginBar() {
             </div>
 
             
-            <label id='login-bar-btn' for='login-bar-input'>
+            <label id='login-bar-btn' htmlFor='login-bar-input'>
                 <i className='ti-user'></i>
             </label>
 
             <input type={'checkbox'} id='login-bar-input'></input>
 
-            <label className='login-overlay' for='login-bar-input'></label>
+            <label className='login-overlay' htmlFor='login-bar-input'></label>
 
             <div id='login-bar-res'>
-                <label for='login-bar-input' className='close-login'>
+                <label htmlFor='login-bar-input' className='close-login'>
                     <i className='ti-close'></i>
                 </label>
                 <div id="login-res">
