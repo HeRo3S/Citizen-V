@@ -127,19 +127,36 @@ getCitizenRatioByAge =async (area_code_arr) => {
 //Don't use like a normal function
 
 findCitizen = async (req, res, next) => {
+    console.log(req.body)
+    //Validate data
+    target_code = (req.body.code? req.body.code : "")
+    target_name = (req.body.name? req.body.name : "")
+    target_gender = (req.body.gender? req.body.gender : "")
+
+    //Create and validate additional option
+    additional_option = [
+        {name: target_name},
+        {gender: target_gender},
+    ]
+    if(req.body.profession != ''){
+        additional_option.push({profession: req.body.profession})
+    }
+    if(req.body.religion != ''){
+        additional_option.push({religion: req.body.religion})
+    }
+    if(req.body.education != ''){
+        additional_option.push({education: req.body.education})
+    }
+    if(req.body.birthday != ''){
+        additional_option.push({birthday: req.body.birthday})
+    }
+
     try{
         raw_data = await citizen.findOne({
             where: {
                 [Op.or] : [
-                    {code: req.body.code},
-                    {[Op.and] : [
-                        {name: req.body.name},
-                        {birthday: req.body.birthday},
-                        {gender: req.body.gender},
-                        {profession: {[Op.like]: req.body.profession}},
-                        {religion: {[Op.like]: req.body.religion}},
-                        {education: {[Op.like]: req.body.education}},
-                    ]
+                    {code: target_code},
+                    {[Op.and] : additional_option
                 }
                 ]
             }

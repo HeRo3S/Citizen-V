@@ -68,6 +68,7 @@ citizenRouter.route("/api/individual_view")
                 area_code: {[Op.startsWith]: req.user.user_code}
             }
         })
+        console.log(data)
         return res.send(data.toJSON())
     }
     catch(err){
@@ -76,7 +77,10 @@ citizenRouter.route("/api/individual_view")
     return res.status(404)
 })
 .post(verifyToken, findCitizen, (req, res) => {
-    res.send(req.req_citizen)
+    if(req.req_citizen.area_code == req.user.user_code){
+        return res.send(req.req_citizen)
+    }
+    return res.status(404)
 })
 
 module.exports = citizenRouter
