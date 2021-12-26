@@ -138,16 +138,16 @@ findCitizen = async (req, res, next) => {
         {name: target_name},
         {gender: target_gender},
     ]
-    if(req.body.profession != ''){
+    if(req.body.profession && req.body.profession != ''){
         additional_option.push({profession: req.body.profession})
     }
-    if(req.body.religion != ''){
+    if(req.body.religion && req.body.religion != ''){
         additional_option.push({religion: req.body.religion})
     }
-    if(req.body.education != ''){
+    if(req.body.education && req.body.education != ''){
         additional_option.push({education: req.body.education})
     }
-    if(req.body.birthday != ''){
+    if(req.body.birthday && req.body.birthday != ''){
         additional_option.push({birthday: req.body.birthday})
     }
 

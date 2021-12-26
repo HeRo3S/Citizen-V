@@ -24,7 +24,7 @@ const citizenRouter = require("./controllers/citizen/citizen_router")
 //     require(path.join(models, file))
 //   })
   
-//   sequelize.sync({alter: true}).catch(error => {
+//   sequelize.sync({force: true}).catch(error => {
 //       console.log(error)
 //   });
 

@@ -77,7 +77,7 @@ citizenRouter.route("/api/individual_view")
     return res.status(404)
 })
 .post(verifyToken, findCitizen, (req, res) => {
-    if(req.req_citizen.area_code == req.user.user_code){
+    if(req.req_citizen.area_code.startsWith(req.user.user_code)){
         return res.send(req.req_citizen)
     }
     return res.status(404)
