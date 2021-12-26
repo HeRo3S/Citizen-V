@@ -44,6 +44,7 @@ function AnalysisView() {
             setRequestedData(resp.data);
             splitElementData();
             storeData();
+
         }
         return dataLoad();
     }, []);
@@ -124,6 +125,7 @@ function AnalysisView() {
             event.preventDefault();
             userServices.filterAnalysisData(filterData).then(resp => {
                 setRequestedData(resp.data);
+                storeData();
                 setExploreLevel(exploreLevel + 1);
                 splitElementData();
                 setFilterData([]);

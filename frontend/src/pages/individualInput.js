@@ -21,7 +21,7 @@ function IndividualInput(){
 
     //Validation schema
     const validationSchema = Yup.object().shape({
-        code: Yup.string().required(),
+        code: Yup.string().min(12).max(12).required(),
         name: Yup.string().required(),
         birthday: Yup.date().required(),
         gender: Yup.string().required(),

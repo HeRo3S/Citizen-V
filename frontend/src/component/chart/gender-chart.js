@@ -1,17 +1,13 @@
 import React from "react";
 import Chart from "react-google-charts"
 
-function GenderChart() {
+function GenderChart({genderData}) {
     return(
         <>
             <Chart
                   chartType="PieChart"
                   loader={<div>Loading Chart</div>}
-                  data={[
-                    ['Giới tính', 'Tổng'],
-                    ['Nam', 21],
-                    ['Nữ', 14],
-                  ]}
+                  data={genderData}
                   options={{
                     title: 'Giới tính',
                     'width': 900,

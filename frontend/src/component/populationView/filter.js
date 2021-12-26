@@ -34,16 +34,16 @@ function FilterBar({areaData, handleFilterClickEvent, handleFilterReturnEvent, h
                 </div>
             </div>
               
-            <label id='filter-bar-btn' for='filter-bar-input'>
+            <label id='filter-bar-btn' htmlFor='filter-bar-input'>
                 <i className='ti-search'></i>
             </label>
 
             <input type={'checkbox'} id='filter-bar-input'></input>
 
-            <label className='filter-overlay' for='filter-bar-input'></label>
+            <label className='filter-overlay' htmlFor='filter-bar-input'></label>
 
             <div id='filter-bar-res'>
-                <label for='filter-bar-input' className='close-filter'>
+                <label htmlFor='filter-bar-input' className='close-filter'>
                     <i className='ti-close'></i>
                 </label>
                 <div id="filter-res">

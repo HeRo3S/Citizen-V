@@ -1,20 +1,13 @@
 import React from "react";
 import Chart from "react-google-charts"
 
-function EducationChart() {
+function EducationChart({educationData}) {
     return(
         <>
             <Chart
                   chartType="BarChart"
                   loader={<div>Loading Chart</div>}
-                  data={[
-                    ['Cấp học', 'Tổng'],
-                    ['Cấp 1', 21],
-                    ['Cấp 2', 14],
-                    ['Cấp 3', 9],
-                    ['Đại học', 4],
-                    ['Không', 5],
-                  ]}
+                  data={educationData}
                   options={{
                     title: 'Trình độ văn hóa',
                     'width': 900,
