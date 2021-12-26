@@ -12,9 +12,11 @@ function AccountManager() {
     
     const user = jwt(localStorage.getItem("user"));
     const navigate = useNavigate();
-    if (!user.open_status) {
-        navigate("/");
-    }
+    useEffect(() => {
+            if (!user.open_status) {
+            navigate("/");
+        }
+    }, [])
     const [requestedData, setRequestedData] = useState([
     {
         id:1,

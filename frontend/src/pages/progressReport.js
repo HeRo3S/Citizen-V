@@ -14,7 +14,6 @@ function ProgressReport() {
 
     useEffect(() => {
         userServices.getProgressReportData().then(response => {
-            alert("OK!");
             setRequestedData(response.data);
         }
     )}, [])
@@ -24,6 +23,7 @@ function ProgressReport() {
         cloneData.finish_status = !cloneData.finish_status;
         console.log(cloneData);
         userServices.postProgressReportData(cloneData).then(() => {
+            alert("OK!");
             window.location.reload(false);
         })
     }

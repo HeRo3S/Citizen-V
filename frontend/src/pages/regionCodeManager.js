@@ -9,9 +9,11 @@ import Layout from './layout'
 function RegionCodeManager() {
     const user = jwt(localStorage.getItem("user"));
     const navigate = useNavigate();
-    if (!user.open_status) {
-        navigate("/");
-    }
+    useEffect(() => {
+            if (!user.open_status) {
+            navigate("/");
+        }
+    }, [])
 
     const [requestedData, setRequestedData] = useState([]);
     const [inputData, setInputData] = useState([]);
